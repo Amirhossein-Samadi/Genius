@@ -2,12 +2,12 @@ package org.example;
 
 public abstract class Account {
 
-    protected String name;
-    protected int age;
-    protected String email;
-    protected String username;
-    protected String password;
-    protected int role;
+    private String name;
+    private int age;
+    private String email;
+    private String username;
+    private String password;
+    private int role;
 
     // implementing Account constructor.
     public Account(String name, int age, String email, String username, String password, int role) {
@@ -31,5 +31,5 @@ public abstract class Account {
 
     public String getEmail() {return email;}
 
-    
+
 }
