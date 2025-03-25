@@ -18,4 +18,6 @@ public abstract class Account {
         this.password = password;
         this.role = role;
     }
+
+    public String getUsername() {return username;}
 }
