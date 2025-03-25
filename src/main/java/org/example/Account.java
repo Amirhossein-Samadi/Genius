@@ -20,4 +20,16 @@ public abstract class Account {
     }
 
     public String getUsername() {return username;}
+
+    public String getPassword() {return password;}
+
+    public int getAge() {return age;}
+
+    public String getName() {return name;}
+
+    public int getRole() {return role;}
+
+    public String getEmail() {return email;}
+
+    
 }
