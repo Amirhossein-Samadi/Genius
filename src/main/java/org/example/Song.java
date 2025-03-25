@@ -26,19 +26,19 @@ public class Song {
         this.releaseDate = releaseDate;
     }
 
-    public String getTitle() {return title;}
+    public String songGetTitle() {return title;}
 
-    public String getLyrics() {return lyrics;}
+    public String songGetLyrics() {return lyrics;}
 
-    public String getGenre() {return genre;}
+    public String songGetGenre() {return genre;}
 
-    public String getReleaseDate() {return releaseDate;}
+    public String songGetReleaseDate() {return releaseDate;}
 
-    public String getViewsNumber() {return viewsNumber + "";};
+    public String songGetViewsNumber() {return viewsNumber + "";};
 
-    public ArrayList<String> getArtists() {return artists;}
+    public ArrayList<String> songGetArtists() {return artists;}
 
-    public ArrayList<String> getComments() {return comments;}
+    public ArrayList<String> songGetComments() {return comments;}
 
     public void countViews() {viewsNumber++;};
 
