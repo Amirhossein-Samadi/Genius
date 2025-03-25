@@ -25,5 +25,6 @@ public class Album {
 
     public ArrayList<String> albumGetTrackList() {return trackList;}
 
+    public void addSong(Song song) {trackList.add(song.songGetTitle());}
 
 }
