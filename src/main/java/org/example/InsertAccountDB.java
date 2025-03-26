@@ -6,17 +6,18 @@ import java.sql.SQLException;
 
 public class InsertAccountDB {
 
-    public static void insertAccount(Connection conn, String name, String email, String username, String password, int role) throws SQLException {
+    public static void insertAccount(Connection conn, String name, int age, String email, String username, String password, int role) throws SQLException {
 
-        String sql = "INSERT INTO AccountDatas(name,email,username,password,role) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO AccountDatas(name,age,email,username,password,role) VALUES(?,?,?,?,?,?)";
 
         PreparedStatement ps = conn.prepareStatement(sql);
 
         ps.setString(1, name);
-        ps.setString(2, email);
-        ps.setString(3, username);
-        ps.setString(4, password);
-        ps.setInt(5, role);
+        ps.setInt(2, age);
+        ps.setString(3, email);
+        ps.setString(4, username);
+        ps.setString(5, password);
+        ps.setInt(6, role);
 
         ps.executeUpdate();
     }

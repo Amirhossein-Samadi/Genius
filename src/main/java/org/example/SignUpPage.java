@@ -9,6 +9,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
+
+import static org.example.AccountsDbConnection.connectAccountDb;
+import static org.example.InsertAccountDB.insertAccount;
+
 public class SignUpPage extends Application {
 
     public static void showSignUpPage() {
@@ -60,11 +65,18 @@ public class SignUpPage extends Application {
 
             if (adminCheckBox.isSelected()) {
 
-                Artist artist = new Artist(name, age, email, username, password, 2);
+                try {
+                    insertAccount(connectAccountDb(), name, age, email, username, password, 2);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             }
             else if (userCheckBox.isSelected()) {
-
-                User user = new User(name, age, email, username, password, 1);
+                try {
+                    insertAccount(connectAccountDb(), name, age, email, username, password, 1);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
