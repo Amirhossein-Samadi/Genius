@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class AccountsDbConnection {
 
-    public static Connection connect() {
+    public static Connection connectAccountDb() {
         Connection conn = null;
         try {
             String url = "jdbc:sqlite:AccountDataBase";
@@ -19,6 +19,6 @@ public class AccountsDbConnection {
     }
 
     public static void main(String[] args) {
-        connect(); // تست اتصال
+        connectAccountDb(); // تست اتصال
     }
 }
