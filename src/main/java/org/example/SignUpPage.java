@@ -48,7 +48,24 @@ public class SignUpPage extends Application {
         TextField roleField = new TextField();
 
         Button signUpButton = new Button("Sign Up");
-        signUpButton.setOnAction(event -> {});
+        signUpButton.setOnAction(event -> {
+
+            String name = nameField.getText();
+            int age = Integer.parseInt(ageField.getText());
+            String email = emailField.getText();
+            String username = usernameField.getText();
+            String password = passwordField.getText();
+            String role = roleField.getText();
+
+            if (role.equals("artist")) {
+
+                Artist artist = new Artist(name, age, email, username, password, 2);
+            }
+            else if (role.equals("user")) {
+
+                User user = new User(name, age, email, username, password, 1);
+            }
+        });
 
         gridPane.add(nameLabel, 0, 0);
         gridPane.add(nameField, 1, 0);
