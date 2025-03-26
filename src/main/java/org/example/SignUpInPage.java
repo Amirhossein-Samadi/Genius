@@ -12,14 +12,6 @@ import javafx.stage.Stage;
 
 public class SignUpInPage extends Application {
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-    @Override
-    public void start(Stage stage) throws Exception {
-         showSignUpInPage();
-    }
-
     public static void showSignUpInPage() {
 
         Stage stage = new Stage();
@@ -51,4 +43,7 @@ public class SignUpInPage extends Application {
 
         stage.show();
     }
+
+    @Override
+    public void start(Stage stage) throws Exception {}
 }
