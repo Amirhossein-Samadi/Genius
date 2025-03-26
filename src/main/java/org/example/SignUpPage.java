@@ -3,10 +3,7 @@ package org.example;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -45,7 +42,12 @@ public class SignUpPage extends Application {
         TextField emailField = new TextField();
         TextField usernameField = new TextField();
         PasswordField passwordField = new PasswordField();
-        TextField roleField = new TextField();
+
+        CheckBox userCheckBox = new CheckBox("User");
+        CheckBox adminCheckBox = new CheckBox("Admin");
+
+        userCheckBox.setSelected(false);
+        adminCheckBox.setSelected(false);
 
         Button signUpButton = new Button("Sign Up");
         signUpButton.setOnAction(event -> {
@@ -55,13 +57,12 @@ public class SignUpPage extends Application {
             String email = emailField.getText();
             String username = usernameField.getText();
             String password = passwordField.getText();
-            String role = roleField.getText();
 
-            if (role.equals("artist")) {
+            if (adminCheckBox.isSelected()) {
 
                 Artist artist = new Artist(name, age, email, username, password, 2);
             }
-            else if (role.equals("user")) {
+            else if (userCheckBox.isSelected()) {
 
                 User user = new User(name, age, email, username, password, 1);
             }
@@ -78,7 +79,8 @@ public class SignUpPage extends Application {
         gridPane.add(passwordLabel, 0, 4);
         gridPane.add(passwordField, 1, 4);
         gridPane.add(roleLabel, 0, 5);
-        gridPane.add(roleField, 1, 5);
+        gridPane.add(userCheckBox, 1, 5);
+        gridPane.add(adminCheckBox, 2, 5);
 
         gridPane.add(signUpButton, 1, 6);
 
