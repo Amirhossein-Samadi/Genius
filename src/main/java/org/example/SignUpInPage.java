@@ -18,7 +18,8 @@ public class SignUpInPage extends Application {
         stage.setTitle("Sign-up(In) Page");
 
         GridPane gridPane = new GridPane();
-        gridPane.setPadding(new Insets(50));
+        gridPane.setPadding(new Insets(50, 50, 50, 50));
+        gridPane.setVgap(20);
 
         Font labeFont = Font.font("Verdana", FontWeight.BOLD, 18);
 
