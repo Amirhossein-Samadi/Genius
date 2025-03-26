@@ -9,16 +9,13 @@ public class AccountsDbConnection {
     public static Connection connectAccountDb() {
         Connection conn = null;
         try {
-            String url = "jdbc:sqlite:AccountDataBase";
+            String url = "jdbc:sqlite:C:\\my data\\AP\\Genuis\\src\\main\\java\\org\\example\\AccountDataBase";
             conn = DriverManager.getConnection(url);
-            System.out.println("اتصال به دیتابیس برقرار شد.");
+            // System.out.println("اتصال به دیتابیس برقرار شد.");
         } catch (SQLException e) {
             System.out.println("خطا در اتصال به دیتابیس: " + e.getMessage());
         }
         return conn;
     }
 
-    public static void main(String[] args) {
-        connectAccountDb(); // تست اتصال
-    }
 }
