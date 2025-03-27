@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class InserArtistsData {
+public class InsertArtistsData {
 
     public static void insertArtistsTable(Connection conn, String name, int age, String email, String username, String password, int role) throws SQLException {
 

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DbConnection {
 
-    public static Connection connectAccountDb() {
+    public static Connection connectGenuisDb() {
         Connection conn = null;
         try {
             String url = "jdbc:sqlite:C:\\my data\\AP\\Genuis\\src\\main\\java\\org\\example\\GenuisDB";

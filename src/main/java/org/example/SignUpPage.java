@@ -11,7 +11,8 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
-import static org.example.DbConnection.connectAccountDb;
+
+import static org.example.DbConnection.connectGenuisDb;
 import static org.example.InserArtistsData.insertArtistsTable;
 import static org.example.InsertUsersData.insertUsersTable;
 
@@ -67,14 +68,14 @@ public class SignUpPage extends Application {
             if (adminCheckBox.isSelected()) {
 
                 try {
-                    insertArtistsTable(connectAccountDb(), name, age, email, username, password, 2);
+                    insertArtistsTable(connectGenuisDb(), name, age, email, username, password, 2);
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
             }
             else if (userCheckBox.isSelected()) {
                 try {
-                    insertUsersTable(connectAccountDb(), name, age, email, username, password, 1);
+                    insertUsersTable(connectGenuisDb(), name, age, email, username, password, 1);
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
