@@ -9,7 +9,7 @@ import static org.example.DbConnection.connectGenuisDb;
 
 public class LoadingArtists {
 
-    private static ArrayList<Artist> artistsList;
+    private static ArrayList<Artist> artistsList = new ArrayList<>();
 
     public static void loadUsers() throws SQLException {
 

@@ -1,6 +1,5 @@
 package org.example;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,7 +9,7 @@ import static org.example.DbConnection.connectGenuisDb;
 
 public class LoadingUsers {
 
-    private static ArrayList<User> usersList;
+    private static ArrayList<User> usersList = new ArrayList<>();
 
     public static void loadUsers() throws SQLException {
 
