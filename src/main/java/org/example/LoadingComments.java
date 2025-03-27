@@ -7,10 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.example.DbConnection.connectGenuisDb;
+import static org.example.LoadingSongs.songsList;
 
 public class LoadingComments {
 
-    private static List<Comment> commentsList = new ArrayList<>();
+    // private static List<Comment> commentsList = new ArrayList<>();
 
     public static void loadComments() throws SQLException {
 
@@ -29,10 +30,22 @@ public class LoadingComments {
 
                 Comment comment = new Comment(message, author, date, songTitle);
 
-                commentsList.add(comment);
+                linkComments(songTitle, comment);
+                
             }
         } catch (Exception e) {
             System.out.println("خطا در خواندن داده‌ها: " + e.getMessage());
+        }
+    }
+
+    public static void linkComments(String title, Comment comment) {
+
+        for (Song song : songsList)
+        {
+            if (song.songGetTitle().equals(title))
+            {
+                song.setComments(comment);
+            }
         }
     }
 }

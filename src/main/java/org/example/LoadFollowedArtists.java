@@ -12,8 +12,6 @@ import static org.example.LoadingUsers.usersList;
 
 public class LoadFollowedArtists
 {
-    private static List<Comment> followedArtistsList = new ArrayList<>();
-
     public static void loadFollowedArtists() throws SQLException
     {
         String sql = "SELECT * FROM FollowArtists";
@@ -46,7 +44,7 @@ public class LoadFollowedArtists
                 {
                     if (artist.getUsername().equals(artistname))
                     {
-                        user.setFollowedArtist(artistsList, artist);
+                        user.setFollowedArtist(artist);
                     }
                 }
             }

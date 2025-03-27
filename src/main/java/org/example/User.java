@@ -13,5 +13,5 @@ public class User extends Account{
 
     public List<Artist> getFollowedArtist() {return followedArtist;}
 
-    public void setFollowedArtist(List<Artist> followedArtist, Artist artist) {followedArtist.add(artist);}
+    public void setFollowedArtist(Artist artist) {followedArtist.add(artist);}
 }

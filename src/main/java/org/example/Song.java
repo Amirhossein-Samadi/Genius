@@ -16,11 +16,11 @@ public class Song {
     private String tags;
     private String releaseDate;
     private int viewsNumber;
+    private String artists;
 
-    private List<String> artists;
-    private List<String> comments;
+    private List<Comment> comments;
 
-    public Song(String title, String album, ArrayList<String> artists, String lyrics, String genre, String releaseDate) {
+    public Song(String title, String album, String artists, String lyrics, String genre, String releaseDate) {
         this.title = title;
         this.album = album;
         this.artists = artists;
@@ -39,10 +39,12 @@ public class Song {
 
     public String songGetViewsNumber() {return viewsNumber + "";};
 
-    public List<String> songGetArtists() {return artists;}
+    public String songGetArtists() {return artists;}
 
-    public List<String> songGetComments() {return comments;}
+    // public List<String> songGetComments() {return comments;}
 
     public void countViews() {viewsNumber++;};
+
+    public void setComments(Comment comment) {comments.add(comment);}
 
 }
