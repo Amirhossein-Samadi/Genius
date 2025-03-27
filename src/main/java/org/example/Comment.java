@@ -8,7 +8,7 @@ public class Comment {
     private String comment;
     private String author;
     private String date;
-    private String songTitle
+    private String songTitle;
 
     public Comment(String comment, String author, String date, String songTitle) {
         this.comment = comment;
