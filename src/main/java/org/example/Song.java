@@ -3,6 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class Song {
 // title, album, artists, lyric, genre,
@@ -16,8 +17,8 @@ public class Song {
     private String releaseDate;
     private int viewsNumber;
 
-    private ArrayList<String> artists;
-    private ArrayList<String> comments;
+    private List<String> artists;
+    private List<String> comments;
 
     public Song(String title, String album, ArrayList<String> artists, String lyrics, String genre, String releaseDate) {
         this.title = title;
@@ -38,9 +39,9 @@ public class Song {
 
     public String songGetViewsNumber() {return viewsNumber + "";};
 
-    public ArrayList<String> songGetArtists() {return artists;}
+    public List<String> songGetArtists() {return artists;}
 
-    public ArrayList<String> songGetComments() {return comments;}
+    public List<String> songGetComments() {return comments;}
 
     public void countViews() {viewsNumber++;};
 

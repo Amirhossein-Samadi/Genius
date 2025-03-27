@@ -4,12 +4,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.example.DbConnection.connectGenuisDb;
 
 public class LoadingComments {
 
-    private static ArrayList<Comment> commentsList = new ArrayList<>();
+    private static List<Comment> commentsList = new ArrayList<>();
 
     public static void loadComments() throws SQLException {
 

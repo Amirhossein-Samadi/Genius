@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Album {
 
@@ -8,7 +9,7 @@ public class Album {
     private String artist;
     private String releaseDate;
 
-    private ArrayList<String> trackList;
+    private List<String> trackList = new ArrayList<>();
 
     public Album(String title, String artist, String releaseDate, ArrayList<String> trackList) {
         this.title = title;
@@ -23,7 +24,7 @@ public class Album {
 
     public String albumGetReleaseDate() {return releaseDate;}
 
-    public ArrayList<String> albumGetTrackList() {return trackList;}
+    public List<String> albumGetTrackList() {return trackList;}
 
     public void addSong(Song song) {trackList.add(song.songGetTitle());}
 

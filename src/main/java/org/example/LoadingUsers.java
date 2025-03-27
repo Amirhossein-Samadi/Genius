@@ -4,12 +4,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.example.DbConnection.connectGenuisDb;
 
 public class LoadingUsers {
 
-    private static ArrayList<User> usersList = new ArrayList<>();
+    public static List<User> usersList = new ArrayList<>();
 
     public static void loadUsers() throws SQLException {
 
