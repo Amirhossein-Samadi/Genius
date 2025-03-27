@@ -4,11 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class InsertAccountDB {
+public class InserArtistsData {
 
-    public static void insertAccount(Connection conn, String name, int age, String email, String username, String password, int role) throws SQLException {
+    public static void insertArtistsTable(Connection conn, String name, int age, String email, String username, String password, int role) throws SQLException {
 
-        String sql = "INSERT INTO AccountDatas(name,age,email,username,password,role) VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO ArtistsData(name,age,email,username,password,role) VALUES(?,?,?,?,?,?)";
 
         PreparedStatement ps = conn.prepareStatement(sql);
 

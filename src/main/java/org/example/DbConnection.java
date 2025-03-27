@@ -4,12 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class AccountsDbConnection {
+public class DbConnection {
 
     public static Connection connectAccountDb() {
         Connection conn = null;
         try {
-            String url = "jdbc:sqlite:C:\\my data\\AP\\Genuis\\src\\main\\java\\org\\example\\AccountDataBase";
+            String url = "jdbc:sqlite:C:\\my data\\AP\\Genuis\\src\\main\\java\\org\\example\\GenuisDB";
             conn = DriverManager.getConnection(url);
             // System.out.println("اتصال به دیتابیس برقرار شد.");
         } catch (SQLException e) {
