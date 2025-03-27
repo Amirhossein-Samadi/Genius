@@ -8,7 +8,7 @@ public class InsertFollowedArtists {
 
     public static void insertFollowedArtistsTable(Connection conn, String username, String artistname) throws SQLException {
 
-        String sql = "INSERT INTO ArtistsData(username,artistname) VALUES(?,?)";
+        String sql = "INSERT INTO FollowArtists(username,artistname) VALUES(?,?)";
 
         PreparedStatement ps = conn.prepareStatement(sql);
 

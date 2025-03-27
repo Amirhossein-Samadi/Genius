@@ -8,7 +8,7 @@ public class InsertComment {
 
     public static void insertCommentsTable(Connection conn, String message, String author, String date, String songTitle) throws SQLException {
 
-        String sql = "INSERT INTO ArtistsData(message,author,date,songTitle) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO Comments(message,author,date,songtitle) VALUES(?,?,?,?)";
 
         PreparedStatement ps = conn.prepareStatement(sql);
 
