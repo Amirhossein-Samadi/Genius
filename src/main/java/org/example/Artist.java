@@ -13,5 +13,5 @@ public class Artist extends Account{
 
     public ArrayList<Song> getSongsList() {return songsList;};
     public ArrayList<Album> getAlbumsList() {return albumsList;};
-    
+
 }
