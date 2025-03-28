@@ -38,33 +38,35 @@ public class UserPage extends Application {
         TableView<Artist> artistTableView = new TableView<>();
 
         TableColumn<Artist, String> nameColumn = new TableColumn<>("Name");
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
         TableColumn<Artist, String> usernameColumn = new TableColumn<>("Username");
-        usernameColumn.setCellValueFactory(new PropertyValueFactory<>("Username"));
+        usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
 
         artistTableView.getColumns().addAll(nameColumn, usernameColumn);
 
         artistTableView.setItems((ObservableList<Artist>) user.getFollowedArtist());
 
+
+
         TableView<Song> followedArtistsSongsTableVie = new TableView<>();
 
         TableColumn<Song, String> songTitle = new TableColumn<>("song title");
-        songTitle.setCellValueFactory(new PropertyValueFactory<>("song title"));
+        songTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
 
         TableColumn<Song, String> artistName = new TableColumn<>("artist name");
-        artistName.setCellValueFactory(new PropertyValueFactory<>("artist name"));
+        artistName.setCellValueFactory(new PropertyValueFactory<>("artists"));
 
-        TableColumn<Song, String> artistUsername = new TableColumn<>("artist username");
-        artistUsername.setCellValueFactory(new PropertyValueFactory<>("artist username"));
+//        TableColumn<Song, String> artistUsername = new TableColumn<>("artist username");
+//        artistUsername.setCellValueFactory(new PropertyValueFactory<>("artist username"));
 
         TableColumn<Song, String> releaseDate = new TableColumn<>("release date");
-        releaseDate.setCellValueFactory(new PropertyValueFactory<>("release date"));
+        releaseDate.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
 
         TableColumn<Song, Integer> views = new TableColumn<>("views");
-        views.setCellValueFactory(new PropertyValueFactory<>("views"));
+        views.setCellValueFactory(new PropertyValueFactory<>("viewsNumber"));
 
-        followedArtistsSongsTableVie.getColumns().addAll(songTitle, artistName, artistUsername, releaseDate, views);
+        followedArtistsSongsTableVie.getColumns().addAll(songTitle, artistName, releaseDate, views);
 
         followedArtistsSongsTableVie.setItems((ObservableList<Song>) user.getFollowedSong());
 
