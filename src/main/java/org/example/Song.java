@@ -31,6 +31,8 @@ public class Song {
 
     public String songGetTitle() {return title;}
 
+    public String songGetAlbum() {return album;}
+
     public String songGetLyrics() {return lyrics;}
 
     public String songGetGenre() {return genre;}
