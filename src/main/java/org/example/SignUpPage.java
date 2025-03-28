@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 
 import static org.example.DbConnection.connectGenuisDb;
-import static org.example.InserArtistsData.insertArtistsTable;
+import static org.example.InsertArtistsData.insertArtistsTable;
 import static org.example.InsertUsersData.insertUsersTable;
 
 public class SignUpPage extends Application {

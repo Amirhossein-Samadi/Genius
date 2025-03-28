@@ -9,13 +9,12 @@ public class Album {
     private String artist;
     private String releaseDate;
 
-    private List<String> trackList = new ArrayList<>();
+    private List<Song> trackList = new ArrayList<>();
 
-    public Album(String title, String artist, String releaseDate, ArrayList<String> trackList) {
+    public Album(String title, String artist, String releaseDate) {
         this.title = title;
         this.artist = artist;
         this.releaseDate = releaseDate;
-        this.trackList = trackList;
     }
 
     public String albumGetTitle() {return title;}
@@ -24,8 +23,8 @@ public class Album {
 
     public String albumGetReleaseDate() {return releaseDate;}
 
-    public List<String> albumGetTrackList() {return trackList;}
+    public List<Song> albumGetTrackList() {return trackList;}
 
-    public void addSong(Song song) {trackList.add(song.songGetTitle());}
+    public void addSong(Song song) {trackList.add(song);}
 
 }
