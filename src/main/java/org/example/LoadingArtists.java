@@ -14,7 +14,7 @@ public class LoadingArtists {
 
     public static void loadUsers() throws SQLException {
 
-        String sql = "SELECT * FROM UsersData";
+        String sql = "SELECT * FROM ArtistsData";
 
         try (
                 Statement stmt = connectGenuisDb().createStatement();
