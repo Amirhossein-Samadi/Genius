@@ -42,7 +42,10 @@ public class LoadingAlbums {
         {
             for (Album album : albumsList)
             {
-                if (song.songGetAlbum().equals(album))
+                if (song.songGetAlbum().equals(album.albumGetTitle()))
+                {
+                    album.addSong(song);
+                }
             }
         }
     }
