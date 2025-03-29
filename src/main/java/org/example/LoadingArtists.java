@@ -12,7 +12,7 @@ public class LoadingArtists {
 
     public static List<Artist> artistsList = new ArrayList<>();
 
-    public static void loadUsers() throws SQLException {
+    public static void loadArtists() throws SQLException {
 
         String sql = "SELECT * FROM ArtistsData";
 

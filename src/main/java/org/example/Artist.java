@@ -15,4 +15,6 @@ public class Artist extends Account{
     public List<Song> getSongsList() {return songsList;};
     public List<Album> getAlbumsList() {return albumsList;};
 
+    public void addSong(Song song) {songsList.add(song);}
+
 }

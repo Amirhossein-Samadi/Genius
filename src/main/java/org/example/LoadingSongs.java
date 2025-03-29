@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.example.DbConnection.connectGenuisDb;
+import static org.example.LoadingArtists.artistsList;
 
 public class LoadingSongs {
 
@@ -37,6 +38,20 @@ public class LoadingSongs {
             }
         } catch (Exception e) {
             System.out.println("خطا در خواندن داده‌ها: " + e.getMessage());
+        }
+    }
+
+    public static void linkSongs()
+    {
+        for (Song song : songsList)
+        {
+            for (Artist artist : artistsList)
+            {
+                if (song.songGetArtists().equals(artist.getUsername()))
+                {
+                    artist.addSong(song);
+                }
+            }
         }
     }
 }
