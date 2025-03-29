@@ -34,6 +34,8 @@ public class LoadingSongs {
 
                 Song song = new Song(title, album, artists, lyrics, genre, releaseDate);
 
+                song.setViewsNumber(views);
+
                 songsList.add(song);
             }
         } catch (Exception e) {

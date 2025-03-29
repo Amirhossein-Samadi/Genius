@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.util.List;
 
+import static org.example.PersonalInformationPage.showPersonalInformation;
 import static org.example.SignUpPage.showSignUpPage;
 
 public class UserPage extends Application {
@@ -40,6 +41,7 @@ public class UserPage extends Application {
         TextField searchField = new TextField();
 
         Button showMyProfile = new Button("Show My Profile");
+        showMyProfile.setOnAction(e -> {showPersonalInformation(user);});
         Button searchButton = new Button("Search");
         Button artistButton = new Button("Show more about artist");
         Button songButton = new Button("Show more about song");

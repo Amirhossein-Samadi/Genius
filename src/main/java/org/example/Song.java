@@ -43,6 +43,8 @@ public class Song {
 
     public String getArtists() {return artists;}
 
+    public void setViewsNumber(int viewsNumber) {this.viewsNumber = viewsNumber;}
+
     // public List<String> songGetComments() {return comments;}
 
     public void countViews() {viewsNumber++;};
