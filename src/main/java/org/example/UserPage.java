@@ -48,7 +48,6 @@ public class UserPage extends Application {
         artistTableView.setItems((ObservableList<Artist>) user.getFollowedArtist());
 
 
-
         TableView<Song> followedArtistsSongsTableVie = new TableView<>();
 
         TableColumn<Song, String> songTitle = new TableColumn<>("song title");
@@ -57,8 +56,8 @@ public class UserPage extends Application {
         TableColumn<Song, String> artistName = new TableColumn<>("artist name");
         artistName.setCellValueFactory(new PropertyValueFactory<>("artists"));
 
-//        TableColumn<Song, String> artistUsername = new TableColumn<>("artist username");
-//        artistUsername.setCellValueFactory(new PropertyValueFactory<>("artist username"));
+       TableColumn<Song, String> artistUsername = new TableColumn<>("artist username");
+        artistUsername.setCellValueFactory(new PropertyValueFactory<>("artist username"));
 
         TableColumn<Song, String> releaseDate = new TableColumn<>("release date");
         releaseDate.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
@@ -82,6 +81,13 @@ public class UserPage extends Application {
         stage.setScene(scene);
 
         stage.show();
+
+        for (Artist artist : user.getFollowedArtist())
+        {
+            System.out.println(artist.getName());
+            System.out.println(artist.getUsername());
+//            System.out.println(artist.);
+        }
     }
 
     @Override

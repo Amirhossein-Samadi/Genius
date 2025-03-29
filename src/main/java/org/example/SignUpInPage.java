@@ -12,6 +12,14 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
+import static org.example.LoadFollowedArtists.loadFollowedArtists;
+import static org.example.LoadingAlbums.linkSongsToAlbums;
+import static org.example.LoadingAlbums.loadAlbums;
+import static org.example.LoadingArtists.loadArtists;
+import static org.example.LoadingComments.linkComments;
+import static org.example.LoadingComments.loadComments;
+import static org.example.LoadingSongs.linkSongs;
+import static org.example.LoadingSongs.loadSongs;
 import static org.example.LoadingUsers.loadUsers;
 import static org.example.SignInPage.showSignInPage;
 import static org.example.SignUpPage.showSignUpPage;
@@ -39,11 +47,41 @@ public class SignUpInPage extends Application {
         Button signUpButton = new Button("Sign Up");
 
         signInButton.setOnAction(event -> {
+
             try {
                 loadUsers();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
+            try {
+                loadArtists();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                loadSongs();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                loadComments();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+//            linkComments();
+            try {
+                loadAlbums();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            linkSongsToAlbums();
+            linkSongs();
+            try {
+                loadFollowedArtists();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
 
             showSignInPage();
         });

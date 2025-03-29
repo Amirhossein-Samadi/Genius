@@ -12,7 +12,8 @@ public class LoadingUsers {
 
     public static List<User> usersList = new ArrayList<>();
 
-    public static void loadUsers() throws SQLException {
+    public static void loadUsers() throws SQLException
+    {
 
         String sql = "SELECT * FROM UsersData";
 
