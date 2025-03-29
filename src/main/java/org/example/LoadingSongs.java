@@ -47,7 +47,7 @@ public class LoadingSongs {
         {
             for (Artist artist : artistsList)
             {
-                if (song.songGetArtists().equals(artist.getUsername()))
+                if (song.getArtists().equals(artist.getUserName()))
                 {
                     artist.addSong(song);
                 }

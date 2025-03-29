@@ -38,11 +38,11 @@ public class LoadFollowedArtists
     {
         for (User user : usersList)
         {
-            if (user.getUsername().equals(username))
+            if (user.getUserName().equals(username))
             {
                 for (Artist artist : artistsList)
                 {
-                    if (artist.getUsername().equals(artistname))
+                    if (artist.getUserName().equals(artistname))
                     {
                         user.setFollowedArtist(artist);
                     }

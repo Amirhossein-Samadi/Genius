@@ -42,7 +42,7 @@ public class LoadingComments {
 
         for (Song song : songsList)
         {
-            if (song.songGetTitle().equals(title))
+            if (song.getTitle().equals(title))
             {
                 song.setComments(comment);
             }

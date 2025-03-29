@@ -43,7 +43,7 @@ public class LoadingUsers {
     {
         for (User user : usersList)
         {
-            if (user.getUsername().equals(username) && user.getPassword().equals(password))
+            if (user.getUserName().equals(username) && user.getPassword().equals(password))
             {
                 return user;
             }

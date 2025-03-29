@@ -1,6 +1,7 @@
 package org.example;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -11,11 +12,15 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import java.util.List;
+
 import static org.example.SignUpPage.showSignUpPage;
 
 public class UserPage extends Application {
 
     public static void showUserPage(User user) {
+
+        user.setFollowedSong();
 
         Stage stage = new Stage();
         stage.setTitle("User Page");
@@ -29,6 +34,8 @@ public class UserPage extends Application {
 
         Label welcomeLabel = new Label("welcome to Genius Application");
         Label searchLabel = new Label("Search");
+        Label followedArtistsLabel = new Label("                        Followed Artists");
+        Label followedSongsLabel = new Label("                              Followed Artists Songs");
 
         TextField searchField = new TextField();
 
@@ -41,11 +48,13 @@ public class UserPage extends Application {
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
         TableColumn<Artist, String> usernameColumn = new TableColumn<>("Username");
-        usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
+        usernameColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
+
+        ObservableList<Artist> artistList = FXCollections.observableArrayList(user.getFollowedArtist());
 
         artistTableView.getColumns().addAll(nameColumn, usernameColumn);
 
-        artistTableView.setItems((ObservableList<Artist>) user.getFollowedArtist());
+        artistTableView.setItems(artistList);
 
 
         TableView<Song> followedArtistsSongsTableVie = new TableView<>();
@@ -56,9 +65,6 @@ public class UserPage extends Application {
         TableColumn<Song, String> artistName = new TableColumn<>("artist name");
         artistName.setCellValueFactory(new PropertyValueFactory<>("artists"));
 
-       TableColumn<Song, String> artistUsername = new TableColumn<>("artist username");
-        artistUsername.setCellValueFactory(new PropertyValueFactory<>("artist username"));
-
         TableColumn<Song, String> releaseDate = new TableColumn<>("release date");
         releaseDate.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
 
@@ -67,13 +73,17 @@ public class UserPage extends Application {
 
         followedArtistsSongsTableVie.getColumns().addAll(songTitle, artistName, releaseDate, views);
 
-        followedArtistsSongsTableVie.setItems((ObservableList<Song>) user.getFollowedSong());
+        ObservableList<Song> songsList = FXCollections.observableArrayList(user.getFollowedSong());
+
+        followedArtistsSongsTableVie.setItems(songsList);
 
         gridPane.add(welcomeLabel, 0, 0);
         gridPane.add(showMyProfile, 1, 0);
         gridPane.add(searchLabel, 0, 1);
         gridPane.add(searchField, 1, 1);
         gridPane.add(searchButton, 2, 1);
+        gridPane.add(followedArtistsLabel, 0, 2);
+        gridPane.add(followedSongsLabel, 1, 2);
         gridPane.add(artistTableView, 0, 3);
         gridPane.add(followedArtistsSongsTableVie, 1, 3);
 
@@ -82,12 +92,6 @@ public class UserPage extends Application {
 
         stage.show();
 
-        for (Artist artist : user.getFollowedArtist())
-        {
-            System.out.println(artist.getName());
-            System.out.println(artist.getUsername());
-//            System.out.println(artist.);
-        }
     }
 
     @Override
