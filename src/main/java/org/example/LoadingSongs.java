@@ -35,6 +35,7 @@ public class LoadingSongs {
                 Song song = new Song(title, album, artists, lyrics, genre, releaseDate);
 
                 song.setViewsNumber(views);
+                song.setTags(tags);
 
                 songsList.add(song);
             }

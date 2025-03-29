@@ -47,8 +47,13 @@ public class Song {
 
     // public List<String> songGetComments() {return comments;}
 
-    public void countViews() {viewsNumber++;};
+    public void countViews() {viewsNumber++;}
 
     public void setComments(Comment comment) {comments.add(comment);}
 
+    public String getTags() {return tags;}
+
+    public void setTags(String tags) {this.tags = tags;}
+
+    public List<Comment> getComments() { return comments;}
 }

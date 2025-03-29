@@ -13,8 +13,8 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.util.List;
-
 import static org.example.PersonalInformationPage.showPersonalInformation;
+import static org.example.ShowSelectedSong.showSelectedSong;
 import static org.example.SignUpPage.showSignUpPage;
 
 public class UserPage extends Application {
@@ -80,6 +80,12 @@ public class UserPage extends Application {
         ObservableList<Song> songsList = FXCollections.observableArrayList(user.getFollowedSong());
 
         followedArtistsSongsTableVie.setItems(songsList);
+
+        songButton.setOnAction(e -> {
+
+            Song selectedSong = followedArtistsSongsTableVie.getSelectionModel().getSelectedItem();
+            showSelectedSong(selectedSong);
+        });
 
         gridPane.add(welcomeLabel, 0, 0);
         gridPane.add(showMyProfile, 1, 0);

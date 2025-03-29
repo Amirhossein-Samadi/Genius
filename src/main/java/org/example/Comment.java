@@ -5,19 +5,19 @@ import java.time.format.DateTimeFormatter;
 
 public class Comment {
 
-    private String comment;
+    private String message;
     private String author;
     private String date;
     private String songTitle;
 
-    public Comment(String comment, String author, String date, String songTitle) {
-        this.comment = comment;
+    public Comment(String message, String author, String date, String songTitle) {
+        this.message = message;
         this.author = author;
         this.date = date;
         this.songTitle = songTitle;
     }
 
-    public String getComment() {return comment;}
+    public String getMessage() {return message;}
     public String getAuthor() {return author;}
     public String getDate() {return date;}
     public String getSongTitle() {return songTitle;}

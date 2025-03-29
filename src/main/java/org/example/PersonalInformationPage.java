@@ -14,7 +14,7 @@ public class PersonalInformationPage extends Application {
     public static void showPersonalInformation(User user)
     {
         Stage stage = new Stage();
-        stage.setTitle("Pesonal Information");
+        stage.setTitle("Personal Information");
 
         GridPane gridPane = new GridPane();
         gridPane.setPadding(new Insets(20, 20, 20, 20));

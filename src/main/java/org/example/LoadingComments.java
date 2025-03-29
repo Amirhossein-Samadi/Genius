@@ -34,7 +34,7 @@ public class LoadingComments {
                 
             }
         } catch (Exception e) {
-            System.out.println("خطا در خواندن داده‌ها: " + e.getMessage());
+            System.out.println(" در خواندن داده‌ها: " + e.getMessage());
         }
     }
 
