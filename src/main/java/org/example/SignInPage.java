@@ -10,6 +10,9 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.geometry.Insets;
 
+import static org.example.LoadingUsers.searchUsers;
+import static org.example.UserPage.showUserPage;
+
 public class SignInPage extends Application {
 
     public static void showSignInPage()
@@ -24,6 +27,7 @@ public class SignInPage extends Application {
 
         Label usernameLabel = new Label("Enter Username");
         Label passwordLabel = new Label("Enter Password");
+        Label invalid = new Label("Invalid Username or Password");
 
         TextField usernameTextField = new TextField();
         PasswordField passwordTextField = new PasswordField();
@@ -35,8 +39,23 @@ public class SignInPage extends Application {
             String username = usernameTextField.getText();
             String password = passwordTextField.getText();
 
+            User currentUser = searchUsers(username, password);
 
-        })
+            if (currentUser != null)
+            {
+                showUserPage(currentUser);
+            }
+            else
+            {
+                gridPane.add(invalid, 0, 3);
+            }
+        });
+
+        gridPane.add(usernameLabel, 0, 0);
+        gridPane.add(usernameTextField, 1, 0);
+        gridPane.add(passwordLabel, 0, 1);
+        gridPane.add(passwordTextField, 1, 1);
+        gridPane.add(loginButton, 0, 2);
 
         Scene scene = new Scene(gridPane, 400, 400);
         stage.setScene(scene);
