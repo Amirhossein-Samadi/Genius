@@ -10,6 +10,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
+
+import static org.example.LoadingUsers.loadUsers;
+import static org.example.SignInPage.showSignInPage;
 import static org.example.SignUpPage.showSignUpPage;
 
 public class SignUpInPage extends Application {
@@ -34,7 +38,15 @@ public class SignUpInPage extends Application {
         Button signInButton = new Button("Sign In");
         Button signUpButton = new Button("Sign Up");
 
-        signInButton.setOnAction(event -> {});
+        signInButton.setOnAction(event -> {
+            try {
+                loadUsers();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+            showSignInPage();
+        });
         signUpButton.setOnAction(event -> {showSignUpPage();});
 
         Font buttonFont = Font.font("Verdana", FontWeight.BOLD, 18);
