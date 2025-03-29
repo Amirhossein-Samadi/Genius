@@ -41,6 +41,8 @@ public class UserPage extends Application {
 
         Button showMyProfile = new Button("Show My Profile");
         Button searchButton = new Button("Search");
+        Button artistButton = new Button("Show more about artist");
+        Button songButton = new Button("Show more about song");
 
         TableView<Artist> artistTableView = new TableView<>();
 
@@ -86,8 +88,10 @@ public class UserPage extends Application {
         gridPane.add(followedSongsLabel, 1, 2);
         gridPane.add(artistTableView, 0, 3);
         gridPane.add(followedArtistsSongsTableVie, 1, 3);
+        gridPane.add(artistButton, 0, 4);
+        gridPane.add(songButton, 1, 4);
 
-        Scene scene = new Scene(gridPane, 800, 650);
+        Scene scene = new Scene(gridPane, 900, 650);
         stage.setScene(scene);
 
         stage.show();
