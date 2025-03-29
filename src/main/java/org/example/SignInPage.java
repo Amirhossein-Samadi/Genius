@@ -25,13 +25,20 @@ public class SignInPage extends Application {
         Label usernameLabel = new Label("Enter Username");
         Label passwordLabel = new Label("Enter Password");
 
-        TextField username = new TextField();
-        PasswordField password = new PasswordField();
+        TextField usernameTextField = new TextField();
+        PasswordField passwordTextField = new PasswordField();
 
         Button loginButton = new Button("Login");
 
+        loginButton.setOnAction(event -> {
 
-        Scene scene = new Scene(gridPane, 500, 700);
+            String username = usernameTextField.getText();
+            String password = passwordTextField.getText();
+
+
+        })
+
+        Scene scene = new Scene(gridPane, 400, 400);
         stage.setScene(scene);
 
         stage.show();

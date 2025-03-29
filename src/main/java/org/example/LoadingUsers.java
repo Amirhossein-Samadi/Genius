@@ -37,4 +37,17 @@ public class LoadingUsers {
             System.out.println("خطا در خواندن داده‌ها: " + e.getMessage());
         }
     }
+
+    public static User searchUsers(String username, String password)
+    {
+        for (User user : usersList)
+        {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password))
+            {
+                return user;
+            }
+        }
+
+        return null;
+    }
 }
