@@ -2,7 +2,7 @@ package org.example;
 
 import static org.example.LoadingArtists.artistsList;
 
-public class Search {
+public class SearchArtist {
 
     public static Artist searchArtist(String searchText)
     {

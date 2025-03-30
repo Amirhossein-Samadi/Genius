@@ -14,6 +14,10 @@ import javafx.stage.Stage;
 
 import java.util.List;
 import static org.example.PersonalInformationPage.showPersonalInformation;
+import static org.example.SearchAlbum.searchAlbum;
+import static org.example.SearchArtist.searchArtist;
+import static org.example.SearchSong.searchSong;
+import static org.example.ShowSearchedArtist.showSearchedArtist;
 import static org.example.ShowSelectedSong.showSelectedSong;
 import static org.example.SignUpPage.showSignUpPage;
 
@@ -43,6 +47,27 @@ public class UserPage extends Application {
         Button showMyProfile = new Button("Show My Profile");
         showMyProfile.setOnAction(e -> {showPersonalInformation(user);});
         Button searchButton = new Button("Search");
+        searchButton.setOnAction(e -> {
+
+            String search = searchField.getText();
+
+            if (searchArtist(search) != null)
+            {
+                Artist artist = searchArtist(search);
+                showSearchedArtist(artist);
+            }
+
+            if (searchAlbum(search) != null)
+            {
+
+            }
+
+            if (searchSong(search) != null)
+            {
+
+            }
+
+        });
         Button artistButton = new Button("Show more about artist");
         Button songButton = new Button("Show more about song");
 
