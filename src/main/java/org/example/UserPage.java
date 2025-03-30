@@ -34,7 +34,7 @@ public class UserPage extends Application {
         Font labeFont = Font.font("Verdana", FontWeight.BOLD, 18);
 
         Label welcomeLabel = new Label("welcome to Genius Application");
-        Label searchLabel = new Label("Search");
+        Label searchLabel = new Label("                                                             Search");
         Label followedArtistsLabel = new Label("                        Followed Artists");
         Label followedSongsLabel = new Label("                              Followed Artists Songs");
 
