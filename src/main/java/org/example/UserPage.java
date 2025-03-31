@@ -112,6 +112,12 @@ public class UserPage extends Application {
             showSelectedSong(selectedSong);
         });
 
+        artistButton.setOnAction(e -> {
+
+            Artist selectedArtist = artistTableView.getSelectionModel().getSelectedItem();
+            showSearchedArtist(selectedArtist);
+        });;
+
         gridPane.add(welcomeLabel, 0, 0);
         gridPane.add(showMyProfile, 1, 0);
         gridPane.add(searchLabel, 0, 1);
@@ -128,8 +134,6 @@ public class UserPage extends Application {
         stage.setScene(scene);
 
         stage.show();
-
-//        for (Artist artist : artistList) {System.out.println(artist.getUserName());}
 
     }
 

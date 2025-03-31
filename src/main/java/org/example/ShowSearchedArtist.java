@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import static org.example.ShowSelectedAlbum.showSelectedAlbum;
 import static org.example.ShowSelectedSong.showSelectedSong;
 
 public class ShowSearchedArtist extends Application {
@@ -84,6 +85,7 @@ public class ShowSearchedArtist extends Application {
         albumButton.setOnAction(e -> {
 
             Album selectedAlbum = artistAlbums.getSelectionModel().getSelectedItem();
+            showSelectedAlbum(selectedAlbum);
         });
 
         gridPane.add(nameLabel, 0, 0);

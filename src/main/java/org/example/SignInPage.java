@@ -58,7 +58,7 @@ public class SignInPage extends Application {
                 currentUser.setFollowedSong();
                 showUserPage(currentUser);
 
-                
+                for(Song song : currentUser.getFollowedSong()){System.out.println(song.getTitle());}
             }
             else
             {
