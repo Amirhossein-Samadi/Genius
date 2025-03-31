@@ -38,16 +38,18 @@ public class LoadFollowedArtists
         }
     }
 
-    public static void linkFollowedArtists(User user)
+    public static void linkArtistsToUsers(User user)
     {
         for (FollowedArtists followedArtists : followedArtistsList)
         {
-            for (User user : usersList)
+            if (followedArtists.getUserName().equals(user.getUserName()))
             {
                 for (Artist artist : artistsList)
                 {
-                    if (user.getUserName().equals((followedArtists.getUserName())) && artist.getUserName().equals((followedArtists.getArtistName()))) {user.setFollowedArtist(artist);}
-                    else if (user.getUserName().equals(followedArtists.getUserName()) && artist.getName().equals(followedArtists.getArtistName())) {user.setFollowedArtist(artist);}
+                    if (artist.getUserName().equals(followedArtists.getArtistName()))
+                    {
+                        user.setFollowedArtist(artist);
+                    }
                 }
             }
         }

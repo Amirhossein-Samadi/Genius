@@ -37,4 +37,13 @@ public class LoadingArtists {
             System.out.println("خطا در خواندن داده‌ها: " + e.getMessage());
         }
     }
+
+    public static void main(String[] args) {
+        try {
+            loadArtists();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        for (Artist artist : artistsList) {System.out.println(artist.getUserName());}
+    }
 }

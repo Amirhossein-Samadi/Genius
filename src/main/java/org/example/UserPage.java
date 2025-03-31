@@ -129,10 +129,7 @@ public class UserPage extends Application {
 
         stage.show();
 
-        for (Artist artist : user.getFollowedArtist())
-        {
-            System.out.println(artist.getUserName());
-        }
+//        for (Artist artist : artistList) {System.out.println(artist.getUserName());}
 
     }
 

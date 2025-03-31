@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
-import static org.example.LoadFollowedArtists.linkFollowedArtists;
 import static org.example.LoadFollowedArtists.loadFollowedArtists;
 import static org.example.LoadingAlbums.*;
 import static org.example.LoadingArtists.loadArtists;
@@ -73,7 +72,11 @@ public class SignUpInPage extends Application {
             linkSongsToAlbums();
             linkSongsToArtists();
             linkAlbumsToArtists();
-            linkFollowedArtists();
+            try {
+                loadFollowedArtists();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
 
             showSignInPage();
         });
@@ -90,37 +93,6 @@ public class SignUpInPage extends Application {
         stage.setScene(scene);
 
         stage.show();
-
-        // Loads :
-
-        try {
-            loadUsers();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            loadArtists();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            loadSongs();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            loadAlbums();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            loadComments();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        linkSongsToAlbums();
-        linkSongsToArtists();
-        linkFollowedArtists();
 
     }
 

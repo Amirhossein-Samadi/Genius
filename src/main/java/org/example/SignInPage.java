@@ -12,12 +12,13 @@ import javafx.geometry.Insets;
 
 import java.sql.SQLException;
 
-import static org.example.LoadFollowedArtists.linkFollowedArtists;
-import static org.example.LoadFollowedArtists.loadFollowedArtists;
+import static org.example.LoadFollowedArtists.*;
 import static org.example.LoadingAlbums.loadAlbums;
+import static org.example.LoadingArtists.artistsList;
 import static org.example.LoadingArtists.loadArtists;
 import static org.example.LoadingComments.loadComments;
-import static org.example.LoadingSongs.loadSongs;
+import static org.example.LoadingSongs.*;
+import static org.example.LoadingUsers.loadUsers;
 import static org.example.LoadingUsers.searchUsers;
 import static org.example.UserPage.showUserPage;
 
@@ -51,8 +52,13 @@ public class SignInPage extends Application {
 
             if (currentUser != null)
             {
+                // Loads :
+
+                linkArtistsToUsers(currentUser);
                 currentUser.setFollowedSong();
                 showUserPage(currentUser);
+
+                
             }
             else
             {
