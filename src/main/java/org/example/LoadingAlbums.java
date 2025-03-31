@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.example.DbConnection.connectGenuisDb;
+import static org.example.LoadingArtists.artistsList;
 import static org.example.LoadingSongs.songsList;
 
 public class LoadingAlbums {
@@ -36,7 +37,8 @@ public class LoadingAlbums {
         }
     }
 
-    public static void linkSongsToAlbums() {
+    public static void linkSongsToAlbums()
+    {
 
         for (Song song : songsList)
         {
@@ -46,6 +48,17 @@ public class LoadingAlbums {
                 {
                     album.addSong(song);
                 }
+            }
+        }
+    }
+
+    public static void linkAlbumsToArtists(Album album)
+    {
+        for (Artist artist : artistsList)
+        {
+            if (artist.getUserName().equals(album.albumGetArtist()) || artist.getName().equals(album.albumGetArtist()))
+            {
+                artist.setAlbum(album);
             }
         }
     }

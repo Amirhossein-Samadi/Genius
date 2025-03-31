@@ -17,4 +17,6 @@ public class Artist extends Account{
 
     public void addSong(Song song) {songsList.add(song);}
 
+    public void setAlbum(Album album) {albumsList.add(album);}
+
 }

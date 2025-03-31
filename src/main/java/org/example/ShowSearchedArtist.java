@@ -36,6 +36,7 @@ public class ShowSearchedArtist extends Application {
         Label ageLabel = new Label(age);
 
         Button songButton = new Button("Show more about song");
+        Button albumButton = new Button("Show more about album");
 
         TableView<Album> artistAlbums = new TableView<>();
 
@@ -51,6 +52,8 @@ public class ShowSearchedArtist extends Application {
         artistAlbums.getColumns().addAll(albumTitle, albumArtist, albumReleaseDate);
 
         ObservableList<Album> albumsList = FXCollections.observableArrayList(artist.getAlbumsList());
+
+        artistAlbums.setItems(albumsList);
 
         TableView<Song> artistSongs = new TableView<>();
 
@@ -70,10 +73,17 @@ public class ShowSearchedArtist extends Application {
 
         ObservableList<Song> songsList = FXCollections.observableArrayList(artist.getSongsList());
 
+        artistSongs.setItems(songsList);
+
         songButton.setOnAction(e -> {
 
             Song selectedSong = artistSongs.getSelectionModel().getSelectedItem();
             showSelectedSong(selectedSong);
+        });
+
+        albumButton.setOnAction(e -> {
+
+            Album selectedAlbum = artistAlbums.getSelectionModel().getSelectedItem();
         });
 
         gridPane.add(nameLabel, 0, 0);
@@ -82,6 +92,7 @@ public class ShowSearchedArtist extends Application {
         gridPane.add(artistSongs, 0, 3);
         gridPane.add(artistAlbums, 1, 3);
         gridPane.add(songButton, 0, 4);
+        gridPane.add(albumButton, 1, 4);
 
 
         Scene scene = new Scene(gridPane, 900, 650);

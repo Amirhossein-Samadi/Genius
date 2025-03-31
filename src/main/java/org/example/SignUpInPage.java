@@ -75,6 +75,7 @@ public class SignUpInPage extends Application {
                 throw new RuntimeException(e);
             }
             linkSongsToAlbums();
+
             linkSongs();
             try {
                 loadFollowedArtists();
