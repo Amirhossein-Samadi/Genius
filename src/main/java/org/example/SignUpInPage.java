@@ -16,7 +16,6 @@ import static org.example.LoadFollowedArtists.linkFollowedArtists;
 import static org.example.LoadFollowedArtists.loadFollowedArtists;
 import static org.example.LoadingAlbums.*;
 import static org.example.LoadingArtists.loadArtists;
-import static org.example.LoadingComments.linkComments;
 import static org.example.LoadingComments.loadComments;
 import static org.example.LoadingSongs.*;
 import static org.example.LoadingUsers.loadUsers;

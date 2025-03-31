@@ -11,7 +11,7 @@ import static org.example.LoadingSongs.songsList;
 
 public class LoadingComments {
 
-    // private static List<Comment> commentsList = new ArrayList<>();
+    public static List<Comment> commentsList = new ArrayList<>();
 
     public static void loadComments() throws SQLException {
 
@@ -30,19 +30,19 @@ public class LoadingComments {
 
                 Comment comment = new Comment(message, author, date, songTitle);
 
-                linkComments(songTitle, comment);
-                
+                commentsList.add(comment);
+                linkCommentsToSongs(comment);
             }
         } catch (Exception e) {
-            System.out.println(" در خواندن داده‌ها: " + e.getMessage());
+            System.out.println("خطا در خواندن داده‌ها: " + e.getMessage());
         }
     }
 
-    public static void linkComments(String title, Comment comment) {
+    public static void linkCommentsToSongs(Comment comment) {
 
         for (Song song : songsList)
         {
-            if (song.getTitle().equals(title))
+            if (song.getTitle().equals(comment.getSongTitle()))
             {
                 song.setComments(comment);
             }

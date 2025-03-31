@@ -18,7 +18,7 @@ public class Song {
     private int viewsNumber;
     private String artists;
 
-    private List<Comment> comments;
+    private List<Comment> comments = new ArrayList<>();
 
     public Song(String title, String album, String artists, String lyrics, String genre, String releaseDate) {
         this.title = title;
