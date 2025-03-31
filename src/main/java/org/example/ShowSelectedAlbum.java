@@ -27,9 +27,9 @@ public class ShowSelectedAlbum extends Application {
         gridPane.setVgap(15);
         gridPane.setHgap(15);
 
-        Label titleLabel = new Label("album title : " + album.albumGetTitle());
-        Label artistLabel = new Label("album artist : " + album.albumGetArtist());
-        Label releaseDateLabel = new Label("album release date : " + album.albumGetReleaseDate());
+        Label titleLabel = new Label("album title : " + album.getTitle());
+        Label artistLabel = new Label("album artist : " + album.getArtist());
+        Label releaseDateLabel = new Label("album release date : " + album.getReleaseDate());
 
         Button songButton = new Button("show more about song");
 
@@ -49,7 +49,7 @@ public class ShowSelectedAlbum extends Application {
 
         albumSongs.getColumns().addAll(songTitle, artistName, releaseDate, views);
 
-        ObservableList<Song> songsList = FXCollections.observableArrayList(album.albumGetTrackList());
+        ObservableList<Song> songsList = FXCollections.observableArrayList(album.getTrackList());
 
         albumSongs.setItems(songsList);
 

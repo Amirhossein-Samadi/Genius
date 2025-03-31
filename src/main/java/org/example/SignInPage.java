@@ -14,11 +14,9 @@ import java.sql.SQLException;
 
 import static org.example.LoadFollowedArtists.linkFollowedArtists;
 import static org.example.LoadFollowedArtists.loadFollowedArtists;
-import static org.example.LoadingAlbums.linkSongsToAlbums;
 import static org.example.LoadingAlbums.loadAlbums;
 import static org.example.LoadingArtists.loadArtists;
 import static org.example.LoadingComments.loadComments;
-import static org.example.LoadingSongs.linkSongs;
 import static org.example.LoadingSongs.loadSongs;
 import static org.example.LoadingUsers.searchUsers;
 import static org.example.UserPage.showUserPage;
@@ -53,6 +51,7 @@ public class SignInPage extends Application {
 
             if (currentUser != null)
             {
+                currentUser.setFollowedSong();
                 showUserPage(currentUser);
             }
             else

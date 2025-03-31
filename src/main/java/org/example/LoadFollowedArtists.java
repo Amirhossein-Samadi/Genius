@@ -12,7 +12,7 @@ import static org.example.LoadingUsers.usersList;
 
 public class LoadFollowedArtists
 {
-    public static List<> usersList = new ArrayList<>();
+    public static List<FollowedArtists> followedArtistsList = new ArrayList<>();
 
     public static void loadFollowedArtists() throws SQLException
     {
@@ -27,6 +27,10 @@ public class LoadFollowedArtists
             {
                 String username = rs.getString("username");
                 String artistname = rs.getString("artistname");
+
+                FollowedArtists followedArtists = new FollowedArtists(username, artistname);
+
+                followedArtistsList.add(followedArtists);
             }
         } catch (Exception e)
         {
@@ -36,16 +40,14 @@ public class LoadFollowedArtists
 
     public static void linkFollowedArtists()
     {
-        for (User user : usersList)
+        for (FollowedArtists followedArtists : followedArtistsList)
         {
-            if (user.getUserName().equals(username))
+            for (User user : usersList)
             {
                 for (Artist artist : artistsList)
                 {
-                    if (artist.getUserName().equals(artistname))
-                    {
-                        user.setFollowedArtist(artist);
-                    }
+                    if (user.getUserName().equals((followedArtists.getUserName())) && artist.getUserName().equals((followedArtists.getArtistName()))) {user.setFollowedArtist(artist);}
+                    else if (user.getUserName().equals(followedArtists.getUserName()) && artist.getName().equals(followedArtists.getArtistName())) {user.setFollowedArtist(artist);}
                 }
             }
         }

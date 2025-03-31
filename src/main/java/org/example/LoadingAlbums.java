@@ -43,7 +43,7 @@ public class LoadingAlbums {
         {
             for (Artist artist : artistsList)
             {
-                if (album.albumGetArtist().equals(artist.getName()) || album.albumGetArtist().equals(artist.getUserName()))
+                if (album.getArtist().equals(artist.getName()) || album.getArtist().equals(artist.getUserName()))
                 {
                     artist.setAlbum(album);
                 }

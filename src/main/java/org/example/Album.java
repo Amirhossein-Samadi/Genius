@@ -17,13 +17,13 @@ public class Album {
         this.releaseDate = releaseDate;
     }
 
-    public String albumGetTitle() {return title;}
+    public String getTitle() {return title;}
 
-    public String albumGetArtist() {return artist;}
+    public String getArtist() {return artist;}
 
-    public String albumGetReleaseDate() {return releaseDate;}
+    public String getReleaseDate() {return releaseDate;}
 
-    public List<Song> albumGetTrackList() {return trackList;}
+    public List<Song> getTrackList() {return trackList;}
 
     public void addSong(Song song) {trackList.add(song);}
 

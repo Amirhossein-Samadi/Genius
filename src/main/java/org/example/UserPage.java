@@ -25,7 +25,7 @@ public class UserPage extends Application {
 
     public static void showUserPage(User user) {
 
-        user.setFollowedSong();
+//        user.setFollowedSong();
 
         Stage stage = new Stage();
         stage.setTitle("User Page");
@@ -128,6 +128,11 @@ public class UserPage extends Application {
         stage.setScene(scene);
 
         stage.show();
+
+        for (Artist artist : user.getFollowedArtist())
+        {
+            System.out.println(artist.getUserName());
+        }
 
     }
 

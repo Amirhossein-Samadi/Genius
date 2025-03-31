@@ -46,44 +46,35 @@ public class SignUpInPage extends Application {
         Button signUpButton = new Button("Sign Up");
 
         signInButton.setOnAction(event -> {
-
-//            try {
-//                loadUsers();
-//            } catch (SQLException e) {
-//                throw new RuntimeException(e);
-//            }
-//            try {
-//                loadArtists();
-//            } catch (SQLException e) {
-//                throw new RuntimeException(e);
-//            }
-//            try {
-//                loadSongs();
-//            } catch (SQLException e) {
-//                throw new RuntimeException(e);
-//            }
-//            try {
-//                loadComments();
-//            } catch (SQLException e) {
-//                throw new RuntimeException(e);
-//            }
-////            linkComments();
-//            try {
-//                loadAlbums();
-//            } catch (SQLException e) {
-//                throw new RuntimeException(e);
-//            }
-//            linkSongsToAlbums();
-//
-//            linkAlbumsToArtists();
-//
-//            linkSongs();
-//            try {
-//                loadFollowedArtists();
-//            } catch (SQLException e) {
-//                throw new RuntimeException(e);
-//            }
-
+            try {
+                loadUsers();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                loadArtists();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                loadSongs();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                loadAlbums();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                loadComments();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            linkSongsToAlbums();
+            linkSongsToArtists();
+            linkAlbumsToArtists();
+            linkFollowedArtists();
 
             showSignInPage();
         });
