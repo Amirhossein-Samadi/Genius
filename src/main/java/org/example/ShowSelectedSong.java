@@ -15,8 +15,12 @@ import static org.example.ShowCommentsPage.showCommentsPage;
 
 public class ShowSelectedSong extends Application {
 
+    static Song nowSong;
+
     public static void showSelectedSong(Song song)
     {
+        nowSong = song;
+
         Stage stage = new Stage();
         stage.setTitle("Selected Song");
 
@@ -53,7 +57,7 @@ public class ShowSelectedSong extends Application {
         showCommentsButton.setOnAction(e -> {showCommentsPage(song);});
 
         Button creatComment = new Button("add a comment");
-        creatComment.setOnAction(e -> {})
+        creatComment.setOnAction(e -> {});
 
         gridPane.add(titleLabel, 0, 0);
         gridPane.add(artistsLabel, 0, 1);

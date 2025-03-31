@@ -11,12 +11,17 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
+
+import static org.example.DbConnection.connectGenuisDb;
+import static org.example.InsertComment.insertCommentsTable;
+import static org.example.LoadingComments.commentsList;
+import static org.example.ShowSelectedSong.nowSong;
 import static org.example.SignInPage.nowUser;
-import static org.example.SignInPage.passUser;
 
 public class CreatCommentPage extends Application {
 
-    public static void showCreateCommentPage(User user)
+    public static void showCreateCommentPage()
     {
         Stage stage = new Stage();
         stage.setTitle("Create Comment");
@@ -36,7 +41,14 @@ public class CreatCommentPage extends Application {
 
         /// //////////////////////////////////////////// Dateeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
         commentButton.setOnAction(event -> {
-            Comment comment = new Comment(commentTextField.getText(), nowUser.getUserName(), )
+            
+            Comment comment = new Comment(commentTextField.getText(), nowUser.getUserName(), "",nowSong.getTitle());
+            commentsList.add(comment);
+            try {
+                insertCommentsTable(connectGenuisDb(), commentTextField.getText(), nowUser.getUserName(), "", nowSong.getTitle());
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         Scene scene = new Scene(gridPane, 600, 400);
