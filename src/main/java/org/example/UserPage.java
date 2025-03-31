@@ -18,6 +18,7 @@ import static org.example.SearchAlbum.searchAlbum;
 import static org.example.SearchArtist.searchArtist;
 import static org.example.SearchSong.searchSong;
 import static org.example.ShowSearchedArtist.showSearchedArtist;
+import static org.example.ShowSelectedAlbum.showSelectedAlbum;
 import static org.example.ShowSelectedSong.showSelectedSong;
 import static org.example.SignUpPage.showSignUpPage;
 
@@ -59,12 +60,14 @@ public class UserPage extends Application {
 
             if (searchAlbum(search) != null)
             {
-
+                Album album = searchAlbum(search);
+                showSelectedAlbum(album);
             }
 
             if (searchSong(search) != null)
             {
-
+                Song song = searchSong(search);
+                showSelectedSong(song);
             }
 
         });

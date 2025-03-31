@@ -18,7 +18,7 @@ public class ShowSelectedSong extends Application {
     public static void showSelectedSong(Song song)
     {
         Stage stage = new Stage();
-        stage.setTitle("Personal Information");
+        stage.setTitle("Selected Song");
 
         GridPane gridPane = new GridPane();
         gridPane.setPadding(new Insets(20, 20, 20, 20));
