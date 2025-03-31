@@ -38,7 +38,7 @@ public class LoadFollowedArtists
         }
     }
 
-    public static void linkFollowedArtists()
+    public static void linkFollowedArtists(User user)
     {
         for (FollowedArtists followedArtists : followedArtistsList)
         {
