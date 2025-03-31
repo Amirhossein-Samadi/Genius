@@ -37,28 +37,13 @@ public class LoadingAlbums {
         }
     }
 
-    public static void linkSongsToAlbums()
-    {
-
-        for (Song song : songsList)
-        {
-            for (Album album : albumsList)
-            {
-                if (song.getAlbum().equals(album.albumGetTitle()))
-                {
-                    album.addSong(song);
-                }
-            }
-        }
-    }
-
     public static void linkAlbumsToArtists()
     {
-        for (Artist artist : artistsList)
+        for (Album album : albumsList)
         {
-            for (Album album : albumsList)
+            for (Artist artist : artistsList)
             {
-                if (album.albumGetArtist().equals(artist.getUserName()) || album.albumGetArtist().equals(artist.getName()))
+                if (album.albumGetArtist().equals(artist.getName()) || album.albumGetArtist().equals(artist.getUserName()))
                 {
                     artist.setAlbum(album);
                 }

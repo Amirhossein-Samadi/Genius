@@ -12,6 +12,8 @@ import static org.example.LoadingUsers.usersList;
 
 public class LoadFollowedArtists
 {
+    public static List<> usersList = new ArrayList<>();
+
     public static void loadFollowedArtists() throws SQLException
     {
         String sql = "SELECT * FROM FollowArtists";
@@ -25,8 +27,6 @@ public class LoadFollowedArtists
             {
                 String username = rs.getString("username");
                 String artistname = rs.getString("artistname");
-
-                linkFollowedArtists(username, artistname);
             }
         } catch (Exception e)
         {
@@ -34,7 +34,7 @@ public class LoadFollowedArtists
         }
     }
 
-    public static void linkFollowedArtists(String username, String artistname)
+    public static void linkFollowedArtists()
     {
         for (User user : usersList)
         {
