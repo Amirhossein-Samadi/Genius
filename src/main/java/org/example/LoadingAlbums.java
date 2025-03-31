@@ -30,7 +30,6 @@ public class LoadingAlbums {
 
                 Album album = new Album(title, artistName, releaseDate);
 
-                linkAlbumsToArtists(album);
                 albumsList.add(album);
             }
         } catch (Exception e) {
@@ -53,13 +52,16 @@ public class LoadingAlbums {
         }
     }
 
-    public static void linkAlbumsToArtists(Album album)
+    public static void linkAlbumsToArtists()
     {
         for (Artist artist : artistsList)
         {
-            if (artist.getUserName().equals(album.albumGetArtist()) || artist.getName().equals(album.albumGetArtist()))
+            for (Album album : albumsList)
             {
-                artist.setAlbum(album);
+                if (album.albumGetArtist().equals(artist.getUserName()) || album.albumGetArtist().equals(artist.getName()))
+                {
+                    artist.setAlbum(album);
+                }
             }
         }
     }

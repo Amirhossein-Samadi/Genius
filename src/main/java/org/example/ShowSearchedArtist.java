@@ -31,9 +31,9 @@ public class ShowSearchedArtist extends Application {
         String userName = artist.getUserName();
         String age = Integer.toString(artist.getAge());
 
-        Label nameLabel = new Label(name);
-        Label userNameLabel = new Label(userName);
-        Label ageLabel = new Label(age);
+        Label nameLabel = new Label("Name : " + name);
+        Label userNameLabel = new Label("Username : " + userName);
+        Label ageLabel = new Label("Age : " + age);
 
         Button songButton = new Button("Show more about song");
         Button albumButton = new Button("Show more about album");
