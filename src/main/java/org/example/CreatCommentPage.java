@@ -39,9 +39,8 @@ public class CreatCommentPage extends Application {
 
         Button commentButton = new Button("Comment");
 
-        /// //////////////////////////////////////////// Dateeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
         commentButton.setOnAction(event -> {
-            
+
             Comment comment = new Comment(commentTextField.getText(), nowUser.getUserName(), "",nowSong.getTitle());
             commentsList.add(comment);
             try {
@@ -51,7 +50,11 @@ public class CreatCommentPage extends Application {
             }
         });
 
-        Scene scene = new Scene(gridPane, 600, 400);
+        gridPane.add(label, 0, 0);
+        gridPane.add(commentTextField, 1, 0);
+        gridPane.add(commentButton, 1, 1);
+
+        Scene scene = new Scene(gridPane, 300, 200);
         stage.setScene(scene);
 
         stage.show();

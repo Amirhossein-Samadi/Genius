@@ -11,6 +11,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import static org.example.CreatCommentPage.showCreateCommentPage;
 import static org.example.ShowCommentsPage.showCommentsPage;
 
 public class ShowSelectedSong extends Application {
@@ -57,7 +58,7 @@ public class ShowSelectedSong extends Application {
         showCommentsButton.setOnAction(e -> {showCommentsPage(song);});
 
         Button creatComment = new Button("add a comment");
-        creatComment.setOnAction(e -> {});
+        creatComment.setOnAction(e -> {showCreateCommentPage();});
 
         gridPane.add(titleLabel, 0, 0);
         gridPane.add(artistsLabel, 0, 1);
@@ -68,8 +69,9 @@ public class ShowSelectedSong extends Application {
         gridPane.add(releaseDateLabel, 0, 6);
         gridPane.add(viewsNumberLabel, 0, 7);
         gridPane.add(showCommentsButton,0, 8);
+        gridPane.add(creatComment,0, 9);
 
-        Scene scene = new Scene(gridPane, 600, 400);
+        Scene scene = new Scene(gridPane, 600, 450);
         stage.setScene(scene);
 
         stage.show();
