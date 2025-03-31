@@ -24,6 +24,8 @@ import static org.example.UserPage.showUserPage;
 
 public class SignInPage extends Application {
 
+    static User nowUser;
+
     public static void showSignInPage()
     {
         Stage stage = new Stage();
@@ -49,6 +51,8 @@ public class SignInPage extends Application {
             String password = passwordTextField.getText();
 
             User currentUser = searchUsers(username, password);
+
+            nowUser = currentUser;
 
             if (currentUser != null)
             {

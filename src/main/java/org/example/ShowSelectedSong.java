@@ -52,6 +52,9 @@ public class ShowSelectedSong extends Application {
         Button showCommentsButton = new Button("Show Comments");
         showCommentsButton.setOnAction(e -> {showCommentsPage(song);});
 
+        Button creatComment = new Button("add a comment");
+        creatComment.setOnAction(e -> {})
+
         gridPane.add(titleLabel, 0, 0);
         gridPane.add(artistsLabel, 0, 1);
         gridPane.add(albumLabel, 0, 2);

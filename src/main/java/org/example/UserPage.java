@@ -26,8 +26,6 @@ public class UserPage extends Application {
 
     public static void showUserPage(User user) {
 
-//        user.setFollowedSong();
-
         Stage stage = new Stage();
         stage.setTitle("User Page");
 
