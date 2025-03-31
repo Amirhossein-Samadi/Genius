@@ -30,6 +30,7 @@ public class LoadingAlbums {
 
                 Album album = new Album(title, artistName, releaseDate);
 
+                linkAlbumsToArtists(album);
                 albumsList.add(album);
             }
         } catch (Exception e) {
