@@ -12,7 +12,12 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+
+import static org.example.LoadingSongs.songsList;
 import static org.example.PersonalInformationPage.showPersonalInformation;
 import static org.example.SearchAlbum.searchAlbum;
 import static org.example.SearchArtist.searchArtist;
@@ -40,6 +45,7 @@ public class UserPage extends Application {
         Label searchLabel = new Label("                                                             Search");
         Label followedArtistsLabel = new Label("                        Followed Artists");
         Label followedSongsLabel = new Label("                              Followed Artists Songs");
+        Label popularSongs = new Label("                         Popular Songs");
 
         TextField searchField = new TextField();
 
@@ -71,6 +77,7 @@ public class UserPage extends Application {
         });
         Button artistButton = new Button("Show more about artist");
         Button songButton = new Button("Show more about song");
+        Button popularSongButton = new Button("Show more about songs");
 
         TableView<Artist> artistTableView = new TableView<>();
 
@@ -107,6 +114,28 @@ public class UserPage extends Application {
 
         followedArtistsSongsTableVie.setItems(songsList);
 
+
+
+        TableView<Song> popularSongTable = new TableView<>();
+
+        TableColumn<Song, String> popularSongTitle = new TableColumn<>("song title");
+        popularSongTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+
+        TableColumn<Song, String> popularArtistName = new TableColumn<>("artist name");
+        popularArtistName.setCellValueFactory(new PropertyValueFactory<>("artists"));
+
+        TableColumn<Song, String> popularReleaseDate = new TableColumn<>("release date");
+        popularReleaseDate.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
+
+        TableColumn<Song, Integer> popularViews = new TableColumn<>("views");
+        popularViews.setCellValueFactory(new PropertyValueFactory<>("viewsNumber"));
+
+        popularSongTable.getColumns().addAll(popularSongTitle, popularArtistName, popularReleaseDate, popularViews);
+
+        ObservableList<Song> pList = FXCollections.observableArrayList(popularSongs());
+
+        popularSongTable.setItems(pList);
+
         songButton.setOnAction(e -> {
 
             Song selectedSong = followedArtistsSongsTableVie.getSelectionModel().getSelectedItem();
@@ -117,7 +146,13 @@ public class UserPage extends Application {
 
             Artist selectedArtist = artistTableView.getSelectionModel().getSelectedItem();
             showSearchedArtist(selectedArtist);
-        });;
+        });
+
+        popularSongButton.setOnAction(e -> {
+
+            Song selectedSong = popularSongTable.getSelectionModel().getSelectedItem();
+            showSelectedSong(selectedSong);
+        });
 
         gridPane.add(welcomeLabel, 0, 0);
         gridPane.add(showMyProfile, 1, 0);
@@ -126,16 +161,33 @@ public class UserPage extends Application {
         gridPane.add(searchButton, 2, 1);
         gridPane.add(followedArtistsLabel, 0, 2);
         gridPane.add(followedSongsLabel, 1, 2);
+        gridPane.add(popularSongs, 2, 2);
         gridPane.add(artistTableView, 0, 3);
         gridPane.add(followedArtistsSongsTableVie, 1, 3);
+        gridPane.add(popularSongTable, 2, 3);
         gridPane.add(artistButton, 0, 4);
         gridPane.add(songButton, 1, 4);
+        gridPane.add(popularSongButton, 2, 4);
 
         Scene scene = new Scene(gridPane, 900, 650);
         stage.setScene(scene);
 
         stage.show();
 
+    }
+
+    public static List<Song> popularSongs()
+    {
+        Collections.sort(songsList, Comparator.comparingInt(Song::getViewsNumber).reversed());
+
+        List <Song> popularSongsList = new ArrayList<>();
+
+        for (int i = 0; i < 2; i++)
+        {
+            popularSongsList.add(songsList.get(i));
+        }
+
+        return popularSongsList;
     }
 
     @Override
