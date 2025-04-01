@@ -1,8 +1,6 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class Song {
@@ -39,7 +37,7 @@ public class Song {
 
     public String getReleaseDate() {return releaseDate;}
 
-    public String getViewsNumber() {return viewsNumber + "";};
+    public int getViewsNumber() {return viewsNumber;};
 
     public String getArtists() {return artists;}
 

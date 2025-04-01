@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import static org.example.CreatCommentPage.showCreateCommentPage;
 import static org.example.ShowCommentsPage.showCommentsPage;
+import static org.example.UpdateSong.updateSongViews;
 
 public class ShowSelectedSong extends Application {
 
@@ -21,6 +22,8 @@ public class ShowSelectedSong extends Application {
     public static void showSelectedSong(Song song)
     {
         nowSong = song;
+
+        updateSongViews(song.getViewsNumber() + 1, song.getTitle());
 
         Stage stage = new Stage();
         stage.setTitle("Selected Song");

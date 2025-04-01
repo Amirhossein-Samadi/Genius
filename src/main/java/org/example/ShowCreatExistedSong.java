@@ -32,7 +32,7 @@ public class ShowCreatExistedSong extends Application {
         addSongButton.setOnAction(event -> {
 
             album.addSong(searchSong(titleField.getText()));
-            updateSongAlbum(album.getTitle());
+            updateSongAlbum(album.getTitle(), titleField.getText());
         });
 
         gridPane.add(titleLabel, 0, 0);

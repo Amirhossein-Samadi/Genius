@@ -61,7 +61,7 @@ public class CreatSongPage extends Application {
             song.setViewsNumber(0);
 
             try {
-                insertSong(connectGenuisDb(), titleField.getText(), albumField.getText(), nowArtist.getUserName(), lyricsTextArea.getText(), genreField.getText(), song.getTags(), Integer.parseInt(song.getViewsNumber()), formattedDateTime);
+                insertSong(connectGenuisDb(), titleField.getText(), albumField.getText(), nowArtist.getUserName(), lyricsTextArea.getText(), genreField.getText(), song.getTags(), Integer.parseInt(String.valueOf(song.getViewsNumber())), formattedDateTime);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
