@@ -45,7 +45,7 @@ public class UserPage extends Application {
         Label searchLabel = new Label("                                                             Search");
         Label followedArtistsLabel = new Label("                        Followed Artists");
         Label followedSongsLabel = new Label("                              Followed Artists Songs");
-        Label popularSongs = new Label("                         Popular Songs");
+        Label popularSongs = new Label("                                        Popular Songs");
 
         TextField searchField = new TextField();
 
@@ -169,7 +169,7 @@ public class UserPage extends Application {
         gridPane.add(songButton, 1, 4);
         gridPane.add(popularSongButton, 2, 4);
 
-        Scene scene = new Scene(gridPane, 900, 650);
+        Scene scene = new Scene(gridPane, 1000, 650);
         stage.setScene(scene);
 
         stage.show();
