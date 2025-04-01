@@ -3,6 +3,8 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.example.LoadingArtists.artistsList;
+
 public class Artist extends Account{
 
     private List<Song> songsList = new ArrayList<>();
@@ -18,5 +20,18 @@ public class Artist extends Account{
     public void addSong(Song song) {songsList.add(song);}
 
     public void setAlbum(Album album) {albumsList.add(album);}
+
+    public static Artist searchArtists(String username, String password)
+    {
+        for (Artist artist : artistsList)
+        {
+            if (artist.getUserName().equals(username) && artist.getPassword().equals(password))
+            {
+                return artist;
+            }
+        }
+
+        return null;
+    }
 
 }
