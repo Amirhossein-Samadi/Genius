@@ -10,6 +10,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import java.sql.SQLException;
 
@@ -41,10 +43,15 @@ public class CreatCommentPage extends Application {
 
         commentButton.setOnAction(event -> {
 
-            Comment comment = new Comment(commentTextField.getText(), nowUser.getUserName(), "",nowSong.getTitle());
+            LocalDateTime now = LocalDateTime.now();
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formattedDateTime = now.format(formatter);
+
+            Comment comment = new Comment(commentTextField.getText(), nowUser.getUserName(), formattedDateTime,nowSong.getTitle());
             commentsList.add(comment);
             try {
-                insertCommentsTable(connectGenuisDb(), commentTextField.getText(), nowUser.getUserName(), "", nowSong.getTitle());
+                insertCommentsTable(connectGenuisDb(), commentTextField.getText(), nowUser.getUserName(), formattedDateTime, nowSong.getTitle());
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
