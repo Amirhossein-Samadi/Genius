@@ -13,6 +13,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import static org.example.CreatSongPage.showCreateSongPage;
+import static org.example.ShowCreatExistedSong.showCreateExistedSong;
 import static org.example.ShowSelectedSong.showSelectedSong;
 
 public class ShowAlbumArtist extends Application {
@@ -32,6 +34,10 @@ public class ShowAlbumArtist extends Application {
         Label releaseDateLabel = new Label("album release date : " + album.getReleaseDate());
 
         Button songButton = new Button("show more about song");
+        Button newSongButton = new Button("add a new song that has not existed");
+        newSongButton.setOnAction(event -> {showCreateSongPage();});
+        Button existSongButton = new Button("add a song that has been existed");
+        existSongButton.setOnAction(event -> {showCreateExistedSong(album);});
 
         TableView<Song> albumSongs = new TableView<>();
 
@@ -64,6 +70,8 @@ public class ShowAlbumArtist extends Application {
         gridPane.add(releaseDateLabel, 0, 2);
         gridPane.add(albumSongs, 0, 3);
         gridPane.add(songButton, 0, 4);
+        gridPane.add(newSongButton, 0, 5);
+        gridPane.add(existSongButton, 0, 6);
 
 
         Scene scene = new Scene(gridPane, 900, 650);

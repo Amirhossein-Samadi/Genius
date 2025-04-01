@@ -11,9 +11,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import static org.example.DbConnection.connectGenuisDb;
+import static org.example.InsertSongs.insertSong;
 import static org.example.SignInPage.nowArtist;
 
 public class CreatSongPage extends Application {
@@ -54,6 +58,13 @@ public class CreatSongPage extends Application {
 
             Song song = new Song(titleField.getText(), albumField.getText(), nowArtist.getUserName(), lyricsTextArea.getText(), genreField.getText(), formattedDateTime);
             song.setTags(tagsField.getText());
+            song.setViewsNumber(0);
+
+            try {
+                insertSong(connectGenuisDb(), titleField.getText(), albumField.getText(), nowArtist.getUserName(), lyricsTextArea.getText(), genreField.getText(), song.getTags(), Integer.parseInt(song.getViewsNumber()), formattedDateTime);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         gridPane.add(title, 0, 0);

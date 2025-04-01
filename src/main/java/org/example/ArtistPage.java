@@ -15,8 +15,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import static org.example.CreatAlbumPage.showCreatAlbumPage;
 import static org.example.CreatSongPage.showCreateSongPage;
 import static org.example.PersonalInfoArtist.showArtistInfo;
+import static org.example.ShowAlbumArtist.showAlbumArtist;
 import static org.example.ShowSelectedAlbum.showSelectedAlbum;
 import static org.example.ShowSelectedSong.showSelectedSong;
 
@@ -43,6 +45,7 @@ public class ArtistPage extends Application {
         Button creatSong = new Button("Create Song");
         creatSong.setOnAction(event -> {showCreateSongPage();});
         Button creatAlbum = new Button("Create Album");
+        creatAlbum.setOnAction(event -> {showCreatAlbumPage();});
         Button songButton = new Button("Show more about song");
         Button albumButton = new Button("Show more about album");
 
@@ -89,7 +92,7 @@ public class ArtistPage extends Application {
             albumButton.setOnAction(e -> {
 
                 Album selectedAlbum = artistAlbums.getSelectionModel().getSelectedItem();
-                showSelectedAlbum(selectedAlbum);
+                showAlbumArtist(selectedAlbum);
             });
         });
 
