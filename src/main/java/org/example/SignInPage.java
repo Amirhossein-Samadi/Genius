@@ -27,6 +27,7 @@ import static org.example.UserPage.showUserPage;
 public class SignInPage extends Application {
 
     static User nowUser;
+    static Artist nowArtist;
 
     public static void showSignInPage()
     {
@@ -56,6 +57,7 @@ public class SignInPage extends Application {
             Artist currentArtist = searchArtists(username, password);
 
             nowUser = currentUser;
+            nowArtist = currentArtist;
 
             if (currentUser != null)
             {
