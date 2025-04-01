@@ -15,6 +15,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import static org.example.CreatSongPage.showCreateSongPage;
 import static org.example.PersonalInfoArtist.showArtistInfo;
 import static org.example.ShowSelectedAlbum.showSelectedAlbum;
 import static org.example.ShowSelectedSong.showSelectedSong;
@@ -40,6 +41,7 @@ public class ArtistPage extends Application {
         Button showMyProfile = new Button("Show My Profile");
         showMyProfile.setOnAction(event -> {showArtistInfo(artist);});
         Button creatSong = new Button("Create Song");
+        creatSong.setOnAction(event -> {showCreateSongPage();});
         Button creatAlbum = new Button("Create Album");
         Button songButton = new Button("Show more about song");
         Button albumButton = new Button("Show more about album");

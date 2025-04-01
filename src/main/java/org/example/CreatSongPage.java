@@ -53,9 +53,23 @@ public class CreatSongPage extends Application {
             String formattedDateTime = now.format(formatter);
 
             Song song = new Song(titleField.getText(), albumField.getText(), nowArtist.getUserName(), lyricsTextArea.getText(), genreField.getText(), formattedDateTime);
+            song.setTags(tagsField.getText());
         });
 
-        Scene scene = new Scene(gridPane, 900, 650);
+        gridPane.add(title, 0, 0);
+        gridPane.add(titleField, 1, 0);
+        gridPane.add(album, 0, 1);
+        gridPane.add(albumField, 1, 1);
+        gridPane.add(lyrics, 0, 2);
+        gridPane.add(lyricsTextArea, 1, 2);
+        gridPane.add(genre, 0, 3);
+        gridPane.add(genreField, 1, 3);
+        gridPane.add(tags, 0, 4);
+        gridPane.add(tagsField, 1, 4);
+        gridPane.add(createSongButton, 0, 5);
+
+
+        Scene scene = new Scene(gridPane, 650, 500);
         stage.setScene(scene);
 
         stage.show();
