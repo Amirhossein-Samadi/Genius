@@ -10,6 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import static org.example.SearchSong.searchSong;
+import static org.example.UpdateSong.updateSongAlbum;
 
 public class ShowCreatExistedSong extends Application {
 
@@ -31,6 +32,7 @@ public class ShowCreatExistedSong extends Application {
         addSongButton.setOnAction(event -> {
 
             album.addSong(searchSong(titleField.getText()));
+            updateSongAlbum(album.getTitle());
         });
 
         gridPane.add(titleLabel, 0, 0);
