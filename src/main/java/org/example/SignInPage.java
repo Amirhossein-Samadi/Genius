@@ -12,6 +12,8 @@ import javafx.geometry.Insets;
 
 import java.sql.SQLException;
 
+import static org.example.Artist.searchArtists;
+import static org.example.ArtistPage.showArtistPage;
 import static org.example.LoadFollowedArtists.*;
 import static org.example.LoadingAlbums.loadAlbums;
 import static org.example.LoadingArtists.artistsList;
@@ -51,6 +53,7 @@ public class SignInPage extends Application {
             String password = passwordTextField.getText();
 
             User currentUser = searchUsers(username, password);
+            Artist currentArtist = searchArtists(username, password);
 
             nowUser = currentUser;
 
@@ -63,6 +66,10 @@ public class SignInPage extends Application {
                 showUserPage(currentUser);
 
                 for(Song song : currentUser.getFollowedSong()){System.out.println(song.getTitle());}
+            }
+            else if (currentArtist != null)
+            {
+                showArtistPage(currentArtist);
             }
             else
             {
