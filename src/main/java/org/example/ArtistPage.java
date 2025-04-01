@@ -91,6 +91,16 @@ public class ArtistPage extends Application {
             });
         });
 
+        gridPane.add(welcomeLabel, 0, 0);
+        gridPane.add(showMyProfile, 0, 1);
+        gridPane.add(creatSong, 0, 2);
+        gridPane.add(creatAlbum, 0, 3);
+        gridPane.add(artistSongs, 1, 4);
+        gridPane.add(artistAlbums, 2, 4);
+        gridPane.add(songButton, 1, 5);
+        gridPane.add(albumButton, 2, 5);
+
+
         Scene scene = new Scene(gridPane, 900, 650);
         stage.setScene(scene);
 
