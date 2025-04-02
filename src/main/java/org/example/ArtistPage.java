@@ -22,6 +22,7 @@ import static org.example.ShowAlbumArtist.showAlbumArtist;
 import static org.example.ShowRequestArtist.showRequestArtist;
 import static org.example.ShowSelectedAlbum.showSelectedAlbum;
 import static org.example.ShowSelectedSong.showSelectedSong;
+import static org.example.ShowSelectedSongArtist.showSelectedSongArtist;
 
 public class ArtistPage extends Application {
 
@@ -91,7 +92,7 @@ public class ArtistPage extends Application {
         songButton.setOnAction(e -> {
 
             Song selectedSong = artistSongs.getSelectionModel().getSelectedItem();
-            showSelectedSong(selectedSong);
+            showSelectedSongArtist(selectedSong);
         });
 
 
