@@ -42,4 +42,21 @@ public class UpdateSong {
             System.out.println("خطا در بروزرسانی داده: " + e.getMessage());
         }
     }
+
+    public static void updateLyricsByRequest(String lyrics, String title)
+    {
+        String sql = "UPDATE songs SET lyrics = ? WHERE title = ?";
+
+        try (Connection conn = connectGenuisDb();
+             PreparedStatement pstmt = conn.prepareStatement(sql))
+        {
+            pstmt.setString(1, lyrics);
+            pstmt.setString(2, title);
+            pstmt.executeUpdate();
+        }
+        catch (Exception e)
+        {
+            System.out.println("خطا در بروزرسانی داده: " + e.getMessage());
+        }
+    }
 }

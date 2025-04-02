@@ -11,6 +11,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import static org.example.UpdateRequest.updateRequestByArtist;
+import static org.example.UpdateSong.updateLyricsByRequest;
+
 public class ShowRequestArtist extends Application {
 
     public static void showRequestArtist(Request request)
@@ -62,11 +65,16 @@ public class ShowRequestArtist extends Application {
         acceptButton.setStyle("-fx-background-color:LIGHTGREEN;");
         acceptButton.setOnAction(e -> {
 
+            updateRequestByArtist(request.getUsername(), request.getArtistName(), request.getSongTitle(), 1);
+            updateLyricsByRequest(request.getRecommendedLyrics(), request.getSongTitle());
         });
 
         Button declineButton = new Button("Decline Request");
         declineButton.setFont(buttonFont);
         declineButton.setStyle("-fx-background-color:RED;");
+        declineButton.setOnAction(e -> {
+            updateRequestByArtist(request.getUsername(), request.getArtistName(), request.getSongTitle(), 2);
+        });
 
         gridPane.add(usernameLabel, 0, 0);
         gridPane.add(arttistNameLabel, 0, 1);
@@ -77,8 +85,12 @@ public class ShowRequestArtist extends Application {
         gridPane.add(descriptionTextArea, 0, 6);
         gridPane.add(statusLabel, 0, 7);
         gridPane.add(releaseDateLabel, 0, 8);
-        gridPane.add(acceptButton, 0, 9);
-        gridPane.add(declineButton, 0, 10);
+        if (request.getStatus() == "Unread")
+        {
+            gridPane.add(acceptButton, 0, 9);
+            gridPane.add(declineButton, 0, 10);
+        }
+
 
 
         Scene scene = new Scene(gridPane, 750, 750);

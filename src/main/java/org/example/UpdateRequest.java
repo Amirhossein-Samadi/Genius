@@ -16,6 +16,9 @@ public class UpdateRequest {
         {
 
             pstmt.setInt(1, status);
+            pstmt.setString(2, username);
+            pstmt.setString(3, artist);
+            pstmt.setString(4, songTitle);
             pstmt.executeUpdate();
         }
         catch (Exception e)

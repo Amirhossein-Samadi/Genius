@@ -19,6 +19,7 @@ import static org.example.CreatAlbumPage.showCreatAlbumPage;
 import static org.example.CreatSongPage.showCreateSongPage;
 import static org.example.PersonalInfoArtist.showArtistInfo;
 import static org.example.ShowAlbumArtist.showAlbumArtist;
+import static org.example.ShowRequestArtist.showRequestArtist;
 import static org.example.ShowSelectedAlbum.showSelectedAlbum;
 import static org.example.ShowSelectedSong.showSelectedSong;
 
@@ -137,6 +138,12 @@ public class ArtistPage extends Application {
                 Album selectedAlbum = artistAlbums.getSelectionModel().getSelectedItem();
                 showAlbumArtist(selectedAlbum);
             });
+        });
+
+        requestButton.setOnAction(event -> {
+
+            Request selectedRequest = requestTableView.getSelectionModel().getSelectedItem();
+            showRequestArtist(selectedRequest);
         });
 
         gridPane.add(welcomeLabel, 0, 0);
