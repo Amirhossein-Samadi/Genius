@@ -38,6 +38,7 @@ public class ShowSearchedArtist extends Application {
 
         Button songButton = new Button("Show more about song");
         Button albumButton = new Button("Show more about album");
+        Button followButton = new Button("Follow artist");
 
         TableView<Album> artistAlbums = new TableView<>();
 
@@ -95,6 +96,7 @@ public class ShowSearchedArtist extends Application {
         gridPane.add(artistAlbums, 1, 3);
         gridPane.add(songButton, 0, 4);
         gridPane.add(albumButton, 1, 4);
+        gridPane.add(followButton,0, 5);
 
 
         Scene scene = new Scene(gridPane, 900, 650);
