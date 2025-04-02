@@ -56,6 +56,7 @@ public class CreatSongPage extends Application {
         TextArea lyricsTextArea = new TextArea();
 
         Button createSongButton = new Button("Create Song");
+        createSongButton.setFont(buttonFont);
 
         createSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
 

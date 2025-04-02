@@ -45,6 +45,8 @@ public class ArtistPage extends Application {
         mySongs.setFont(labelFont2);
         Label myAlbums = new Label("                        My Albums");
         myAlbums.setFont(labelFont2);
+        Label requestsLabel = new Label("                                   Requests");
+        requestsLabel.setFont(labelFont2);
 
         Button showMyProfile = new Button("Show My Profile");
         showMyProfile.setStyle("-fx-background-color:LIGHTBLUE;");
@@ -64,6 +66,9 @@ public class ArtistPage extends Application {
         Button albumButton = new Button("Show more about album");
         albumButton.setStyle("-fx-background-color:LIGHTBLUE;");
         albumButton.setFont(buttonFont);
+        Button requestButton = new Button("Show more about request");
+        requestButton.setStyle("-fx-background-color:LIGHTBLUE;");
+        requestButton.setFont(buttonFont);
 
         TableView<Song> artistSongs = new TableView<>();
 
@@ -103,6 +108,28 @@ public class ArtistPage extends Application {
 
         artistAlbums.setItems(albumsList);
 
+
+        TableView<Request> requestTableView = new TableView<>();
+
+        TableColumn<Request, String> usernameColumn = new TableColumn<>("username");
+        usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
+
+        TableColumn<Request, String> songTitleColumn = new TableColumn<>("song title");
+        songTitleColumn.setCellValueFactory(new PropertyValueFactory<>("songTitle"));
+
+        TableColumn<Request, String> statusColumn = new TableColumn<>("status");
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+        TableColumn<Request, String> releaseDateColumn = new TableColumn<>("release date");
+        releaseDateColumn.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
+
+        ObservableList<Request> requestList = FXCollections.observableArrayList(artist.getRequests());
+
+        requestTableView.getColumns().addAll(usernameColumn, songTitleColumn, statusColumn, releaseDateColumn);
+
+        requestTableView.setItems(requestList);
+
+
         albumButton.setOnAction(event -> {
 
             albumButton.setOnAction(e -> {
@@ -118,13 +145,16 @@ public class ArtistPage extends Application {
         gridPane.add(creatAlbum, 0, 3);
         gridPane.add(mySongs, 1, 3);
         gridPane.add(myAlbums, 2, 3);
+        gridPane.add(requestsLabel, 3, 3);
         gridPane.add(artistSongs, 1, 4);
         gridPane.add(artistAlbums, 2, 4);
+        gridPane.add(requestTableView, 3, 4);
         gridPane.add(songButton, 1, 5);
         gridPane.add(albumButton, 2, 5);
+        gridPane.add(requestButton, 3, 5);
 
 
-        Scene scene = new Scene(gridPane, 1200, 700);
+        Scene scene = new Scene(gridPane, 1400, 700);
         stage.setScene(scene);
 
         stage.show();

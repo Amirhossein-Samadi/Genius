@@ -31,14 +31,20 @@ public class CreatAlbumPage extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(15);
         gridPane.setHgap(15);
+        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
         Font labeFont = Font.font("Verdana", FontWeight.BOLD, 18);
+        Font labelFont2 = Font.font("", FontWeight.NORMAL, 14);
+        Font buttonFont = Font.font("", FontWeight.NORMAL, 12);
 
         Label titleLabel = new Label("title : ");
+        titleLabel.setFont(labelFont2);
 
         TextField titleField = new TextField();
 
         Button creatAlbumButton = new Button("Create Album");
+        creatAlbumButton.setFont(buttonFont);
+        creatAlbumButton.setStyle("-fx-background-color:LIGHTGREEN;");
         creatAlbumButton.setOnAction(e -> {
 
             LocalDateTime now = LocalDateTime.now();
@@ -59,7 +65,7 @@ public class CreatAlbumPage extends Application {
         gridPane.add(titleField, 1, 0);
         gridPane.add(creatAlbumButton, 1, 2);
 
-        Scene scene = new Scene(gridPane, 300, 150);
+        Scene scene = new Scene(gridPane, 350, 170);
         stage.setScene(scene);
 
         stage.show();
