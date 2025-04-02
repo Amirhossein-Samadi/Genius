@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.example.DbConnection.connectGenuisDb;
+import static org.example.LoadingArtists.artistsList;
+import static org.example.LoadingSongs.songsList;
+import static org.example.LoadingUsers.usersList;
 
 public class LoadRequest {
 
@@ -28,8 +31,9 @@ public class LoadRequest {
                 String recommendedLyrics = rs.getString("recommendedLyrics");
                 String description = rs.getString("description");
                 String releaseDate = rs.getString("releaseDate");
+                int status = rs.getInt("status");
 
-                Request request = new Request(username, artistName, songTitle, recommendedLyrics, description, releaseDate);
+                Request request = new Request(username, artistName, songTitle, recommendedLyrics, description, releaseDate, status);
 
                 requestsList.add(request);
 
@@ -39,8 +43,21 @@ public class LoadRequest {
         }
     }
 
-    public static void linkRequestsToUsers()
+    public static void linkRequestsToUsers(Request request)
     {
+        for (User user : usersList)
+        {
+            if (user.getUserName().equals(request.getUsername())) { user.setRequests(request);}
 
+            for (Artist artist : artistsList)
+            {
+                if (artist.getUserName().equals(request.getArtistName())) { artist.setRequests(request);}
+
+                for (Song song : songsList)
+                {
+                    if (song.getTitle().equals(request.getSongTitle())) { song.setRequests(request);}
+                }
+            }
+        }
     }
 }
