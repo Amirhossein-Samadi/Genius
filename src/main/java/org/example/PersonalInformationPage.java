@@ -20,6 +20,7 @@ public class PersonalInformationPage extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(12);
         gridPane.setHgap(12);
+        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
         Font labeFont = Font.font("", FontWeight.NORMAL, 15);
 

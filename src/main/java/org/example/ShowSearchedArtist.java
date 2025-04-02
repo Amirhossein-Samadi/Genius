@@ -33,6 +33,7 @@ public class ShowSearchedArtist extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(10);
         gridPane.setHgap(10);
+        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
         String name = artist.getName();
         String userName = artist.getUserName();
@@ -43,8 +44,11 @@ public class ShowSearchedArtist extends Application {
         Label ageLabel = new Label("Age : " + age);
 
         Button songButton = new Button("Show more about song");
+        songButton.setStyle("-fx-background-color:LIGHTBLUE;");
         Button albumButton = new Button("Show more about album");
+        albumButton.setStyle("-fx-background-color:LIGHTBLUE;");
         Button followButton = new Button("Follow artist");
+        followButton.setStyle("-fx-background-color:LIGHTGREEN;");
         followButton.setOnAction(e -> {
             nowUser.setFollowedArtist(artist);
             try {
@@ -54,6 +58,7 @@ public class ShowSearchedArtist extends Application {
             }
         });
         Button unfollowButton = new Button("Unfollow artist");
+        unfollowButton.setStyle("-fx-background-color:RED;");
         unfollowButton.setOnAction(e -> {
 
             try {

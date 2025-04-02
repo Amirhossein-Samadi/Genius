@@ -32,6 +32,7 @@ public class ShowSelectedSong extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(12);
         gridPane.setHgap(12);
+        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
         Font labeFont = Font.font("", FontWeight.NORMAL, 15);
 
@@ -58,9 +59,11 @@ public class ShowSelectedSong extends Application {
         lyricsArea.setEditable(false);
 
         Button showCommentsButton = new Button("Show Comments");
+        showCommentsButton.setStyle("-fx-background-color:LIGHTBLUE;");
         showCommentsButton.setOnAction(e -> {showCommentsPage(song);});
 
         Button creatComment = new Button("add a comment");
+        creatComment.setStyle("-fx-background-color:LIGHTGREEN;");
         creatComment.setOnAction(e -> {showCreateCommentPage();});
 
         gridPane.add(titleLabel, 0, 0);

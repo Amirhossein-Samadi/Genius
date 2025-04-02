@@ -23,12 +23,14 @@ public class ShowCreatExistedSong extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(15);
         gridPane.setHgap(15);
+        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
         Label titleLabel = new Label("title");
 
         TextField titleField = new TextField();
 
         Button addSongButton = new Button("add song");
+        addSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
         addSongButton.setOnAction(event -> {
 
             album.addSong(searchSong(titleField.getText()));

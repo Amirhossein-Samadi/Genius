@@ -28,15 +28,19 @@ public class ShowAlbumArtist extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(15);
         gridPane.setHgap(15);
+        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
         Label titleLabel = new Label("album title : " + album.getTitle());
         Label artistLabel = new Label("album artist : " + album.getArtist());
         Label releaseDateLabel = new Label("album release date : " + album.getReleaseDate());
 
         Button songButton = new Button("show more about song");
+        songButton.setStyle("-fx-background-color:LIGHTBLUE;");
         Button newSongButton = new Button("add a new song that has not existed");
+        newSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
         newSongButton.setOnAction(event -> {showCreateSongPage();});
         Button existSongButton = new Button("add a song that has been existed");
+        existSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
         existSongButton.setOnAction(event -> {showCreateExistedSong(album);});
 
         TableView<Song> albumSongs = new TableView<>();

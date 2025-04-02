@@ -26,12 +26,14 @@ public class ShowSelectedAlbum extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(15);
         gridPane.setHgap(15);
+        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
         Label titleLabel = new Label("album title : " + album.getTitle());
         Label artistLabel = new Label("album artist : " + album.getArtist());
         Label releaseDateLabel = new Label("album release date : " + album.getReleaseDate());
 
         Button songButton = new Button("show more about song");
+        songButton.setStyle("-fx-background-color:LIGHTBLUE;");
 
         TableView<Song> albumSongs = new TableView<>();
 
