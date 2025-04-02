@@ -8,7 +8,7 @@ public class Request {
     private String recommendedLyrics;
     private String description;
     private String releaseDate;
-    private int status;
+    private String status;
 
     public Request(String username, String artistName, String songTitle, String recommendedLyrics, String description, String releaseDate, int status)
     {
@@ -18,7 +18,9 @@ public class Request {
         this.recommendedLyrics = recommendedLyrics;
         this.description = description;
         this.releaseDate = releaseDate;
-        this.status = status;
+        if (status == 1) {this.status = "Accepted";}
+        else if (status == 2) {this.status = "Rejected";}
+        else {this.status = "Unread";}
     }
 
     public String getUsername() {return username;}
