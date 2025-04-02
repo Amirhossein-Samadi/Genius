@@ -7,10 +7,15 @@ public class User extends Account{
 
     private List<Artist> followedArtist = new ArrayList<>();
     private List<Song> followedSong = new ArrayList<>();
+    private List<Request> requests = new ArrayList<>();
 
     public User(String name, int age, String email, String username, String password, int role) {
         super(name, age, email, username, password, role);
     }
+
+    public List<Request> getRequests() {return requests;}
+
+    public void setRequests(Request request) {this.requests.add(request);}
 
     public List<Artist> getFollowedArtist() {return followedArtist;}
 
