@@ -24,9 +24,16 @@ public class Request {
     }
 
     public String getUsername() {return username;}
+
     public String getArtistName() {return artistName;}
+
     public String getSongTitle() {return songTitle;}
+
     public String getRecommendedLyrics() {return recommendedLyrics;}
+
     public String getDescription() {return description;}
+
     public String getReleaseDate() {return releaseDate;}
+
+    public String getStatus() {return status;}
 }
