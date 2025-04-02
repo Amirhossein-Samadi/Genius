@@ -9,7 +9,7 @@ public class Request {
     private String description;
     private String releaseDate;
 
-    public Request(String username, String artistName, String songTitle, String recommendedLyrics, String description)
+    public Request(String username, String artistName, String songTitle, String recommendedLyrics, String description, String releaseDate)
     {
         this.username = username;
         this.artistName = artistName;
