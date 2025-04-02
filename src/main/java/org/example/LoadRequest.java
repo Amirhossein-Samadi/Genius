@@ -36,6 +36,7 @@ public class LoadRequest {
                 Request request = new Request(username, artistName, songTitle, recommendedLyrics, description, releaseDate, status);
 
                 requestsList.add(request);
+                linkRequestsToAll(request);
 
             }
         } catch (Exception e) {

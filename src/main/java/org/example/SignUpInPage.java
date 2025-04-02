@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import java.sql.SQLException;
 
 import static org.example.LoadFollowedArtists.loadFollowedArtists;
+import static org.example.LoadRequest.loadRequests;
 import static org.example.LoadingAlbums.*;
 import static org.example.LoadingArtists.loadArtists;
 import static org.example.LoadingComments.loadComments;
@@ -69,6 +70,11 @@ public class SignUpInPage extends Application {
             }
             try {
                 loadComments();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                loadRequests();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
