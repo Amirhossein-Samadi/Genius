@@ -56,7 +56,18 @@ public class ShowRequestUser extends Application {
         Label releaseDateLabel = new Label("Release Date : " + request.getReleaseDate());
         releaseDateLabel.setFont(labelFont2);
 
-        Scene scene = new Scene(gridPane, 1450, 800);
+        gridPane.add(usernameLabel, 0, 0);
+        gridPane.add(arttistNameLabel, 0, 1);
+        gridPane.add(songTitleLabel, 0, 2);
+        gridPane.add(recommendedLyricsLabel, 0, 3);
+        gridPane.add(recommendedLyricsTextArea, 0, 4);
+        gridPane.add(descriptionLabel, 0, 5);
+        gridPane.add(descriptionTextArea, 0, 6);
+        gridPane.add(statusLabel, 0, 7);
+        gridPane.add(releaseDateLabel, 0, 8);
+
+
+        Scene scene = new Scene(gridPane, 750, 750);
         stage.setScene(scene);
 
         stage.show();

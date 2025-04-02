@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import static org.example.CreatCommentPage.showCreateCommentPage;
 import static org.example.ShowCommentsPage.showCommentsPage;
+import static org.example.ShowSelectedRequest.showSelectedRequest;
 import static org.example.UpdateSong.updateSongViews;
 
 public class ShowSelectedSong extends Application {
@@ -66,6 +67,10 @@ public class ShowSelectedSong extends Application {
         creatComment.setStyle("-fx-background-color:LIGHTGREEN;");
         creatComment.setOnAction(e -> {showCreateCommentPage();});
 
+        Button editRequestButton = new Button("Edit Request");
+        editRequestButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        editRequestButton.setOnAction(e -> {showSelectedRequest(song);});
+
         gridPane.add(titleLabel, 0, 0);
         gridPane.add(artistsLabel, 0, 1);
         gridPane.add(albumLabel, 0, 2);
@@ -76,8 +81,9 @@ public class ShowSelectedSong extends Application {
         gridPane.add(viewsNumberLabel, 0, 7);
         gridPane.add(showCommentsButton,0, 8);
         gridPane.add(creatComment,0, 9);
+        gridPane.add(editRequestButton,0, 10);
 
-        Scene scene = new Scene(gridPane, 600, 450);
+        Scene scene = new Scene(gridPane, 650, 450);
         stage.setScene(scene);
 
         stage.show();

@@ -31,14 +31,22 @@ public class CreatSongPage extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(15);
         gridPane.setHgap(15);
+        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
         Font labeFont = Font.font("Verdana", FontWeight.BOLD, 18);
+        Font labelFont2 = Font.font("", FontWeight.NORMAL, 16);
+        Font buttonFont = Font.font("", FontWeight.NORMAL, 14);
 
         Label title = new Label("title : ");
+        title.setFont(labelFont2);
         Label album = new Label("album : ");
+        album.setFont(labelFont2);
         Label lyrics = new Label("lyrics : ");
+        lyrics.setFont(labelFont2);
         Label genre = new Label("genre : ");
+        genre.setFont(labelFont2);
         Label tags = new Label("tags : ");
+        tags.setFont(labelFont2);
 
         TextField titleField = new TextField();
         TextField albumField = new TextField();
@@ -48,6 +56,8 @@ public class CreatSongPage extends Application {
         TextArea lyricsTextArea = new TextArea();
 
         Button createSongButton = new Button("Create Song");
+
+        createSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
 
         createSongButton.setOnAction(event -> {
 

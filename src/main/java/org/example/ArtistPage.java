@@ -30,24 +30,40 @@ public class ArtistPage extends Application {
         stage.setTitle("Artist Page");
 
         GridPane gridPane = new GridPane();
-        gridPane.setPadding(new Insets(20, 20, 20, 20));
-        gridPane.setVgap(15);
-        gridPane.setHgap(15);
+        gridPane.setPadding(new Insets(30, 30, 30, 30));
+        gridPane.setVgap(20);
+        gridPane.setHgap(20);
+        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
         Font labeFont = Font.font("Verdana", FontWeight.BOLD, 18);
+        Font labelFont2 = Font.font("", FontWeight.NORMAL, 14);
+        Font buttonFont = Font.font("", FontWeight.NORMAL, 14);
 
         Label welcomeLabel = new Label("welcome to Genius Application");
-        Label mySongs = new Label("My Songs");
-        Label myAlbums = new Label("My Albums");
+        welcomeLabel.setFont(labeFont);
+        Label mySongs = new Label("                     My Songs");
+        mySongs.setFont(labelFont2);
+        Label myAlbums = new Label("                        My Albums");
+        myAlbums.setFont(labelFont2);
 
         Button showMyProfile = new Button("Show My Profile");
+        showMyProfile.setStyle("-fx-background-color:LIGHTBLUE;");
+        showMyProfile.setFont(buttonFont);
         showMyProfile.setOnAction(event -> {showArtistInfo(artist);});
         Button creatSong = new Button("Create Song");
+        creatSong.setStyle("-fx-background-color:LIGHTGREEN;");
+        creatSong.setFont(buttonFont);
         creatSong.setOnAction(event -> {showCreateSongPage();});
         Button creatAlbum = new Button("Create Album");
+        creatAlbum.setStyle("-fx-background-color:LIGHTGREEN;");
+        creatAlbum.setFont(buttonFont);
         creatAlbum.setOnAction(event -> {showCreatAlbumPage();});
         Button songButton = new Button("Show more about song");
+        songButton.setStyle("-fx-background-color:LIGHTBLUE;");
+        songButton.setFont(buttonFont);
         Button albumButton = new Button("Show more about album");
+        albumButton.setStyle("-fx-background-color:LIGHTBLUE;");
+        albumButton.setFont(buttonFont);
 
         TableView<Song> artistSongs = new TableView<>();
 
@@ -100,13 +116,15 @@ public class ArtistPage extends Application {
         gridPane.add(showMyProfile, 0, 1);
         gridPane.add(creatSong, 0, 2);
         gridPane.add(creatAlbum, 0, 3);
+        gridPane.add(mySongs, 1, 3);
+        gridPane.add(myAlbums, 2, 3);
         gridPane.add(artistSongs, 1, 4);
         gridPane.add(artistAlbums, 2, 4);
         gridPane.add(songButton, 1, 5);
         gridPane.add(albumButton, 2, 5);
 
 
-        Scene scene = new Scene(gridPane, 900, 650);
+        Scene scene = new Scene(gridPane, 1200, 700);
         stage.setScene(scene);
 
         stage.show();

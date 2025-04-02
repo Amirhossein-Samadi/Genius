@@ -23,6 +23,7 @@ import static org.example.PersonalInformationPage.showPersonalInformation;
 import static org.example.SearchAlbum.searchAlbum;
 import static org.example.SearchArtist.searchArtist;
 import static org.example.SearchSong.searchSong;
+import static org.example.ShowRequestUser.showRequestUser;
 import static org.example.ShowSearchedArtist.showSearchedArtist;
 import static org.example.ShowSelectedAlbum.showSelectedAlbum;
 import static org.example.ShowSelectedSong.showSelectedSong;
@@ -198,6 +199,12 @@ public class UserPage extends Application {
 
             Song selectedSong = popularSongTable.getSelectionModel().getSelectedItem();
             showSelectedSong(selectedSong);
+        });
+
+        requestButton.setOnAction(e -> {
+
+            Request request = requestTableView.getSelectionModel().getSelectedItem();
+            showRequestUser(request);
         });
 
         gridPane.add(welcomeLabel, 0, 0);
