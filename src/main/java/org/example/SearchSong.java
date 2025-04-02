@@ -8,7 +8,7 @@ public class SearchSong {
     {
         for (Song song : songsList)
         {
-            return song;
+            if (song.getTitle().equals(searchText)) { return song; }
         }
         return null;
     }

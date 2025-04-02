@@ -10,7 +10,7 @@ public class SearchAlbum {
     {
         for (Album album : albumsList)
         {
-            return album;
+            if (album.getTitle().equals(searchText)) { return album; }
         }
         return null;
     }
