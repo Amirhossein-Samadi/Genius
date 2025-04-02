@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import java.sql.SQLException;
 
 import static org.example.DbConnection.connectGenuisDb;
+import static org.example.DeleteFollowedArtist.deleteFollowedArtist;
 import static org.example.InsertFollowedArtists.insertFollowedArtistsTable;
 import static org.example.ShowSelectedAlbum.showSelectedAlbum;
 import static org.example.ShowSelectedSong.showSelectedSong;
@@ -51,6 +52,16 @@ public class ShowSearchedArtist extends Application {
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
             }
+        });
+        Button unfollowButton = new Button("Unfollow artist");
+        unfollowButton.setOnAction(e -> {
+            
+            try {
+                deleteFollowedArtist(nowUser.getUserName(), artist.getUserName());
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+
         });
 
         TableView<Album> artistAlbums = new TableView<>();
@@ -116,6 +127,7 @@ public class ShowSearchedArtist extends Application {
             if (artist1.getUserName().equals(artist.getUserName())) {followFlag = false;}
         }
         if (followFlag) {gridPane.add(followButton,0, 5);}
+        else {gridPane.add(unfollowButton,0,5);}
 
 
         Scene scene = new Scene(gridPane, 900, 650);
