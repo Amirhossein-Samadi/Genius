@@ -43,7 +43,7 @@ public class LoadRequest {
         }
     }
 
-    public static void linkRequestsToUsers(Request request)
+    public static void linkRequestsToAll(Request request)
     {
         for (User user : usersList)
         {
