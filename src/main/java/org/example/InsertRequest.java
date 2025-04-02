@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class InsertRequest {
 
-    public static void insertRequest(Connection conn, String username, String artistName, String songTitle, String recommendedLyrics, String description, String releaseDate) throws SQLException {
+    public static void insertRequest(Connection conn, String username, String artistName, String songTitle, String recommendedLyrics, String description, String releaseDate, int status) throws SQLException {
 
-        String sql = "INSERT INTO requests(username,artistName,songTitle,recommendedLyrics,description,releaseDate) VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO requests(username,artistName,songTitle,recommendedLyrics,description,releaseDate,status) VALUES(?,?,?,?,?,?,?)";
 
         PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -18,6 +18,7 @@ public class InsertRequest {
         ps.setString(4, recommendedLyrics);
         ps.setString(5, description);
         ps.setString(6, releaseDate);
+        ps.setInt(7, status);
 
         ps.executeUpdate();
     }

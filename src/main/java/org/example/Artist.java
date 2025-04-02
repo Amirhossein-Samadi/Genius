@@ -9,12 +9,18 @@ public class Artist extends Account{
 
     private List<Song> songsList = new ArrayList<>();
     private List<Album> albumsList = new ArrayList<>();
+    private List<Request> requests = new ArrayList<>();
 
     public Artist(String name, int age, String email, String userName, String password, int role) {
         super(name, age, email, userName, password, role);
     }
 
+    public List<Request> getRequests() {return requests;}
+
+    public void setRequests(Request request) {this.requests.add(request);}
+
     public List<Song> getSongsList() {return songsList;};
+
     public List<Album> getAlbumsList() {return albumsList;};
 
     public void addSong(Song song) {songsList.add(song);}

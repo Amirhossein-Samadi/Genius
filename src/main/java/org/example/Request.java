@@ -8,8 +8,9 @@ public class Request {
     private String recommendedLyrics;
     private String description;
     private String releaseDate;
+    private int status;
 
-    public Request(String username, String artistName, String songTitle, String recommendedLyrics, String description, String releaseDate)
+    public Request(String username, String artistName, String songTitle, String recommendedLyrics, String description, String releaseDate, int status)
     {
         this.username = username;
         this.artistName = artistName;
@@ -17,6 +18,7 @@ public class Request {
         this.recommendedLyrics = recommendedLyrics;
         this.description = description;
         this.releaseDate = releaseDate;
+        this.status = status;
     }
 
     public String getUsername() {return username;}

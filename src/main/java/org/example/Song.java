@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Song {
-// title, album, artists, lyric, genre,
-//tags, views count, comments, release date.
 
     private String title;
     private String album;
@@ -17,6 +15,7 @@ public class Song {
     private String artists;
 
     private List<Comment> comments = new ArrayList<>();
+    private List<Request> requests = new ArrayList<>();
 
     public Song(String title, String album, String artists, String lyrics, String genre, String releaseDate) {
         this.title = title;
@@ -26,6 +25,10 @@ public class Song {
         this.genre = genre;
         this.releaseDate = releaseDate;
     }
+
+    public List<Request> getRequests() {return requests;}
+
+    public void setRequests(Request request) {this.requests.add(request);}
 
     public String getTitle() {return title;}
 

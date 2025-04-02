@@ -39,5 +39,8 @@ public class LoadRequest {
         }
     }
 
-    public static void
+    public static void linkRequestsToUsers()
+    {
+
+    }
 }
