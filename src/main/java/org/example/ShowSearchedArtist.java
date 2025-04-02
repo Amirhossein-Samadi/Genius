@@ -13,8 +13,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
+
+import static org.example.DbConnection.connectGenuisDb;
+import static org.example.InsertFollowedArtists.insertFollowedArtistsTable;
 import static org.example.ShowSelectedAlbum.showSelectedAlbum;
 import static org.example.ShowSelectedSong.showSelectedSong;
+import static org.example.SignInPage.nowUser;
 
 public class ShowSearchedArtist extends Application {
 
@@ -39,6 +44,14 @@ public class ShowSearchedArtist extends Application {
         Button songButton = new Button("Show more about song");
         Button albumButton = new Button("Show more about album");
         Button followButton = new Button("Follow artist");
+        followButton.setOnAction(e -> {
+            nowUser.setFollowedArtist(artist);
+            try {
+                insertFollowedArtistsTable(connectGenuisDb(), nowUser.getUserName(), artist.getUserName());
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
         TableView<Album> artistAlbums = new TableView<>();
 
@@ -96,7 +109,13 @@ public class ShowSearchedArtist extends Application {
         gridPane.add(artistAlbums, 1, 3);
         gridPane.add(songButton, 0, 4);
         gridPane.add(albumButton, 1, 4);
-        gridPane.add(followButton,0, 5);
+
+        boolean followFlag = true;
+        for (Artist artist1 : nowUser.getFollowedArtist())
+        {
+            if (artist1.getUserName().equals(artist.getUserName())) {followFlag = false;}
+        }
+        if (followFlag) {gridPane.add(followButton,0, 5);}
 
 
         Scene scene = new Scene(gridPane, 900, 650);
