@@ -55,7 +55,7 @@ public class ShowSearchedArtist extends Application {
         });
         Button unfollowButton = new Button("Unfollow artist");
         unfollowButton.setOnAction(e -> {
-            
+
             try {
                 deleteFollowedArtist(nowUser.getUserName(), artist.getUserName());
             } catch (SQLException ex) {

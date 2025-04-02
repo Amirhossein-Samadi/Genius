@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -38,6 +39,7 @@ public class UserPage extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(15);
         gridPane.setHgap(15);
+        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
         Font labeFont = Font.font("Verdana", FontWeight.BOLD, 18);
 
@@ -50,8 +52,10 @@ public class UserPage extends Application {
         TextField searchField = new TextField();
 
         Button showMyProfile = new Button("Show My Profile");
+        showMyProfile.setStyle("-fx-background-color:LIGHTBLUE;");
         showMyProfile.setOnAction(e -> {showPersonalInformation(user);});
         Button searchButton = new Button("Search");
+        searchButton.setStyle("-fx-background-color:LIGHTBLUE;");
         searchButton.setOnAction(e -> {
 
             String search = searchField.getText();
@@ -76,8 +80,11 @@ public class UserPage extends Application {
 
         });
         Button artistButton = new Button("Show more about artist");
+        artistButton.setStyle("-fx-background-color:LIGHTGREEN;");
         Button songButton = new Button("Show more about song");
+        songButton.setStyle("-fx-background-color:LIGHTGREEN;");
         Button popularSongButton = new Button("Show more about songs");
+        popularSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
 
         TableView<Artist> artistTableView = new TableView<>();
 

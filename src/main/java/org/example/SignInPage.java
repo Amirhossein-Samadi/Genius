@@ -38,6 +38,7 @@ public class SignInPage extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setHgap(10);
         gridPane.setVgap(10);
+        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
         Label usernameLabel = new Label("Enter Username");
         Label passwordLabel = new Label("Enter Password");
@@ -47,6 +48,7 @@ public class SignInPage extends Application {
         PasswordField passwordTextField = new PasswordField();
 
         Button loginButton = new Button("Login");
+        loginButton.setStyle("-fx-background-color:LIGHTGREEN;");
 
         loginButton.setOnAction(event -> {
 

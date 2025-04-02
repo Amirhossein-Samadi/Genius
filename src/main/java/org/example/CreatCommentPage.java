@@ -61,7 +61,7 @@ public class CreatCommentPage extends Application {
         gridPane.add(commentTextField, 1, 0);
         gridPane.add(commentButton, 1, 1);
 
-        Scene scene = new Scene(gridPane, 300, 200);
+        Scene scene = new Scene(gridPane, 400, 200);
         stage.setScene(scene);
 
         stage.show();

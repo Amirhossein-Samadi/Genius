@@ -31,6 +31,7 @@ public class SignUpInPage extends Application {
         GridPane gridPane = new GridPane();
         gridPane.setPadding(new Insets(50, 50, 50, 50));
         gridPane.setVgap(20);
+        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
         Font labeFont = Font.font("Verdana", FontWeight.BOLD, 18);
 
@@ -41,7 +42,9 @@ public class SignUpInPage extends Application {
         signInLabel.setFont(labeFont);
 
         Button signInButton = new Button("Sign In");
+        signInButton.setStyle("-fx-background-color:LIGHTGREEN;");
         Button signUpButton = new Button("Sign Up");
+        signUpButton.setStyle("-fx-background-color:LIGHTBLUE;");
 
         signInButton.setOnAction(event -> {
             try {
