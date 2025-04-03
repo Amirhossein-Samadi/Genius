@@ -18,6 +18,7 @@ import java.time.format.DateTimeFormatter;
 
 import static org.example.DbConnection.connectGenuisDb;
 import static org.example.InsertSongs.insertSong;
+import static org.example.LoadingSongs.songsList;
 import static org.example.SignInPage.nowArtist;
 import static org.example.UpdateSong.updateSongArtist;
 
@@ -37,8 +38,6 @@ public class EditSongPage extends Application {
         Font labelFont2 = Font.font("", FontWeight.NORMAL, 16);
         Font buttonFont = Font.font("", FontWeight.NORMAL, 14);
 
-//        Label title = new Label("title : ");
-//        title.setFont(labelFont2);
         Label album = new Label("album : ");
         album.setFont(labelFont2);
         Label lyrics = new Label("lyrics : ");
@@ -64,7 +63,18 @@ public class EditSongPage extends Application {
         createSongButton.setFont(buttonFont);
         createSongButton.setOnAction(e -> {
 
-            updateSongArtist(song.getTitle(), albumField.getText(), song.getArtists(), lyricsTextArea.getText(), genreField.getText(), tagsField.getText(), song.getViewsNumber(), song.getReleaseDate());
+            updateSongArtist(albumField.getText(), lyricsTextArea.getText(), genreField.getText(), tagsField.getText(), song.getTitle());
+
+            for (Song song1 : songsList)
+            {
+                if (song1.getTitle().equals(song.getTitle()))
+                {
+                    song1.setAlbum(albumField.getText());
+                    song1.setLyrics(lyricsTextArea.getText());
+                    song1.setGenre(genreField.getText());
+                    song1.setTags(tagsField.getText());
+                }
+            }
         });
 
         createSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
@@ -72,8 +82,6 @@ public class EditSongPage extends Application {
         createSongButton.setOnAction(event -> {
         });
 
-//        gridPane.add(title, 0, 0);
-//        gridPane.add(titleField, 1, 0);
         gridPane.add(album, 0, 1);
         gridPane.add(albumField, 1, 1);
         gridPane.add(lyrics, 0, 2);

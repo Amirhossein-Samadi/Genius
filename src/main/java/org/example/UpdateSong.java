@@ -68,13 +68,10 @@ public class UpdateSong {
              PreparedStatement pstmt = conn.prepareStatement(sql))
         {
             pstmt.setString(1, album);
-            pstmt.setString(2, artist);
-            pstmt.setString(3, lyrics);
-            pstmt.setString(4, genre);
-            pstmt.setString(5, tags);
-            pstmt.setInt(6, views);
-            pstmt.setString(7, releaseDate);
-            pstmt.setString(8, title);
+            pstmt.setString(2, lyrics);
+            pstmt.setString(3, genre);
+            pstmt.setString(4, tags);
+            pstmt.setString(5, title);
 
             pstmt.executeUpdate();
         }

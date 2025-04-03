@@ -30,6 +30,12 @@ public class Song {
 
     public void setRequests(Request request) {this.requests.add(request);}
 
+    public void setAlbum(String album) {this.album = album;}
+
+    public void setLyrics(String lyrics) {this.lyrics = lyrics;}
+
+    public void setGenre(String genre) {this.genre = genre;}
+
     public String getTitle() {return title;}
 
     public String getAlbum() {return album;}
