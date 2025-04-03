@@ -11,22 +11,14 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-
-import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
-import static org.example.DbConnection.connectGenuisDb;
-import static org.example.InsertSongs.insertSong;
 import static org.example.LoadingSongs.songsList;
-import static org.example.SignInPage.nowArtist;
 import static org.example.UpdateSong.updateSongArtist;
 
 public class EditSongPage extends Application {
 
     public static void showEditSongPage(Song song) {
         Stage stage = new Stage();
-        stage.setTitle("Creat Song Page");
+        stage.setTitle("Edit Song Page");
 
         GridPane gridPane = new GridPane();
         gridPane.setPadding(new Insets(20, 20, 20, 20));
@@ -59,9 +51,9 @@ public class EditSongPage extends Application {
         TextArea lyricsTextArea = new TextArea();
         lyricsTextArea.setText(song.getLyrics());
 
-        Button createSongButton = new Button("Edit song");
-        createSongButton.setFont(buttonFont);
-        createSongButton.setOnAction(e -> {
+        Button editSongButton = new Button("Edit song");
+        editSongButton.setFont(buttonFont);
+        editSongButton.setOnAction(e -> {
 
             updateSongArtist(albumField.getText(), lyricsTextArea.getText(), genreField.getText(), tagsField.getText(), song.getTitle());
 
@@ -77,9 +69,9 @@ public class EditSongPage extends Application {
             }
         });
 
-        createSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        editSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
 
-        createSongButton.setOnAction(event -> {
+        editSongButton.setOnAction(event -> {
         });
 
         gridPane.add(album, 0, 1);
@@ -90,7 +82,7 @@ public class EditSongPage extends Application {
         gridPane.add(genreField, 1, 3);
         gridPane.add(tags, 0, 4);
         gridPane.add(tagsField, 1, 4);
-        gridPane.add(createSongButton, 0, 5);
+        gridPane.add(editSongButton, 0, 5);
 
 
         Scene scene = new Scene(gridPane, 650, 500);
