@@ -23,8 +23,6 @@ public class ShowSelectedSongArtist extends Application {
     {
         nowSong = song;
 
-//        updateSongViews(song.getViewsNumber() + 1, song.getTitle());
-
         Stage stage = new Stage();
         stage.setTitle("Selected Song");
 
@@ -70,10 +68,6 @@ public class ShowSelectedSongArtist extends Application {
         creatComment.setStyle("-fx-background-color:LIGHTGREEN;");
         creatComment.setOnAction(e -> {showCreateCommentPage();});
 
-//        Button editRequestButton = new Button("Edit Request");
-//        editRequestButton.setStyle("-fx-background-color:LIGHTGREEN;");
-//        editRequestButton.setOnAction(e -> {showSelectedRequest(song);});
-
         Button editSongButton = new Button("Edit Song");
         editSongButton.setFont(buttonFont);
         editSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
@@ -89,7 +83,6 @@ public class ShowSelectedSongArtist extends Application {
         gridPane.add(viewsNumberLabel, 0, 7);
         gridPane.add(showCommentsButton,0, 8);
         gridPane.add(creatComment,0, 9);
-//        gridPane.add(editRequestButton,0, 10);
         gridPane.add(editSongButton,0, 10);
 
         Scene scene = new Scene(gridPane, 650, 450);

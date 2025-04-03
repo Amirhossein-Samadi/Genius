@@ -55,7 +55,7 @@ public class EditSongPage extends Application {
         editSongButton.setFont(buttonFont);
         editSongButton.setOnAction(e -> {
 
-            updateSongArtist(albumField.getText(), lyricsTextArea.getText(), genreField.getText(), tagsField.getText(), song.getTitle());
+            updateSongArtist(albumField.getText(), lyricsTextArea.getText(), genreField.getText(), tagsField.getText(), "Meshki");
 
             for (Song song1 : songsList)
             {

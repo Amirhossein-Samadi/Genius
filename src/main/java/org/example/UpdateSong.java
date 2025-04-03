@@ -1,5 +1,6 @@
 package org.example;
 
+import javax.imageio.stream.ImageInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -74,10 +75,22 @@ public class UpdateSong {
             pstmt.setString(5, title);
 
             pstmt.executeUpdate();
+
+            int affectedRows = pstmt.executeUpdate();
+            if (affectedRows > 0) {
+                System.out.println("جزئیات آهنگ '" + title + "' با موفقیت بروزرسانی شد.");
+            } else {
+                System.out.println("آهنگی با این نام یافت نشد.");
+            }
         }
         catch (Exception e)
         {
             System.out.println("خطا در بروزرسانی داده: " + e.getMessage());
         }
+    }
+
+    public static void main(String[] args) {
+
+        updateSongArtist("Eshgh", "Love", "pop", "pop", "Meshki");
     }
 }
