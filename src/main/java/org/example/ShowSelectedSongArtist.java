@@ -14,8 +14,6 @@ import javafx.stage.Stage;
 import static org.example.CreatCommentPage.showCreateCommentPage;
 import static org.example.EditSongPage.showEditSongPage;
 import static org.example.ShowCommentsPage.showCommentsPage;
-import static org.example.ShowSelectedRequest.showSelectedRequest;
-import static org.example.UpdateSong.updateSongViews;
 
 public class ShowSelectedSongArtist extends Application {
 

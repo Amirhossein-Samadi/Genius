@@ -19,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 import static org.example.DbConnection.connectGenuisDb;
 import static org.example.InsertSongs.insertSong;
 import static org.example.SignInPage.nowArtist;
+import static org.example.UpdateSong.updateSongArtist;
 
 public class EditSongPage extends Application {
 
@@ -36,8 +37,8 @@ public class EditSongPage extends Application {
         Font labelFont2 = Font.font("", FontWeight.NORMAL, 16);
         Font buttonFont = Font.font("", FontWeight.NORMAL, 14);
 
-        Label title = new Label("title : ");
-        title.setFont(labelFont2);
+//        Label title = new Label("title : ");
+//        title.setFont(labelFont2);
         Label album = new Label("album : ");
         album.setFont(labelFont2);
         Label lyrics = new Label("lyrics : ");
@@ -59,31 +60,20 @@ public class EditSongPage extends Application {
         TextArea lyricsTextArea = new TextArea();
         lyricsTextArea.setText(song.getLyrics());
 
-        Button createSongButton = new Button("Create Song");
+        Button createSongButton = new Button("Edit song");
         createSongButton.setFont(buttonFont);
+        createSongButton.setOnAction(e -> {
+
+            updateSongArtist(song.getTitle(), albumField.getText(), song.getArtists(), lyricsTextArea.getText(), genreField.getText(), tagsField.getText(), song.getViewsNumber(), song.getReleaseDate());
+        });
 
         createSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
 
         createSongButton.setOnAction(event -> {
-
-            LocalDateTime now = LocalDateTime.now();
-
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            String formattedDateTime = now.format(formatter);
-
-            Song song1 = new Song(titleField.getText(), albumField.getText(), nowArtist.getUserName(), lyricsTextArea.getText(), genreField.getText(), formattedDateTime);
-            song1.setTags(tagsField.getText());
-            song1.setViewsNumber(0);
-
-            try {
-                insertSong(connectGenuisDb(), titleField.getText(), albumField.getText(), nowArtist.getUserName(), lyricsTextArea.getText(), genreField.getText(), song.getTags(), Integer.parseInt(String.valueOf(song.getViewsNumber())), formattedDateTime);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
         });
 
-        gridPane.add(title, 0, 0);
-        gridPane.add(titleField, 1, 0);
+//        gridPane.add(title, 0, 0);
+//        gridPane.add(titleField, 1, 0);
         gridPane.add(album, 0, 1);
         gridPane.add(albumField, 1, 1);
         gridPane.add(lyrics, 0, 2);

@@ -59,4 +59,28 @@ public class UpdateSong {
             System.out.println("خطا در بروزرسانی داده: " + e.getMessage());
         }
     }
+
+    public static void updateSongArtist(String album, String lyrics, String genre, String tags, String title)
+    {
+        String sql = "UPDATE songs SET album = ?, lyrics = ?, genre = ?, tags = ? WHERE title = ?";
+
+        try (Connection conn = connectGenuisDb();
+             PreparedStatement pstmt = conn.prepareStatement(sql))
+        {
+            pstmt.setString(1, album);
+            pstmt.setString(2, artist);
+            pstmt.setString(3, lyrics);
+            pstmt.setString(4, genre);
+            pstmt.setString(5, tags);
+            pstmt.setInt(6, views);
+            pstmt.setString(7, releaseDate);
+            pstmt.setString(8, title);
+
+            pstmt.executeUpdate();
+        }
+        catch (Exception e)
+        {
+            System.out.println("خطا در بروزرسانی داده: " + e.getMessage());
+        }
+    }
 }
