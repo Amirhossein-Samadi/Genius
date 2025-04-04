@@ -52,7 +52,6 @@ public class LoadingUsers {
             if (rs.next()) {
                 String storedHashedPassword = rs.getString("password");
 
-                // مقایسه رمز عبور وارد شده با رمز عبور هش‌شده ذخیره‌شده
                 if (BCrypt.checkpw(password, storedHashedPassword)) {
                     for (User user : usersList)
                     {

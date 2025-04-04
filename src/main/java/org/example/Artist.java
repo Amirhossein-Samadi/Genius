@@ -1,8 +1,15 @@
 package org.example;
 
+import org.mindrot.jbcrypt.BCrypt;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.example.DbConnection.connectGenuisDb;
 import static org.example.LoadingArtists.artistsList;
 
 public class Artist extends Account{
@@ -29,15 +36,32 @@ public class Artist extends Account{
 
     public static Artist searchArtists(String username, String password)
     {
-        for (Artist artist : artistsList)
-        {
-            if (artist.getUserName().equals(username) && artist.getPassword().equals(password))
-            {
-                return artist;
-            }
-        }
+        String sql = "SELECT * FROM ArtistsData WHERE username = ?";
 
+        try (Connection conn = connectGenuisDb();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                String storedHashedPassword = rs.getString("password");
+
+                if (BCrypt.checkpw(password, storedHashedPassword)) {
+                    for (Artist artist : artistsList)
+                    {
+                        if (artist.getUserName().equals(username))
+                        {
+                            return artist;
+                        }
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
+
     }
 
 }
