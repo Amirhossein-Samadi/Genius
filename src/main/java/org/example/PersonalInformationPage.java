@@ -22,7 +22,7 @@ public class PersonalInformationPage extends Application {
         gridPane.setHgap(12);
         gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
-        Font labeFont = Font.font("", FontWeight.NORMAL, 15);
+        Font labeFont = Font.font("", FontWeight.NORMAL, 17);
 
         String name = "name : " + user.getName();
         String userName = "username : " + user.getUserName();
@@ -31,10 +31,14 @@ public class PersonalInformationPage extends Application {
         String email = "email : " + user.getEmail();
 
         Label nameLabel = new Label(name);
+        nameLabel.setFont(labeFont);
         Label usernameLabel = new Label(userName);
+        usernameLabel.setFont(labeFont);
 //        Label passwordLabel = new Label(password);
         Label ageLabel = new Label(age);
+        ageLabel.setFont(labeFont);
         Label emailLabel = new Label(email);
+        emailLabel.setFont(labeFont);
 
         gridPane.add(nameLabel, 0, 0);
         gridPane.add(usernameLabel, 0, 1);
@@ -42,7 +46,7 @@ public class PersonalInformationPage extends Application {
         gridPane.add(ageLabel, 0, 2);
         gridPane.add(emailLabel, 0, 3);
 
-        Scene scene = new Scene(gridPane, 300, 250);
+        Scene scene = new Scene(gridPane, 350, 250);
         stage.setScene(scene);
 
         stage.show();
