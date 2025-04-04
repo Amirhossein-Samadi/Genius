@@ -1,8 +1,8 @@
 package org.example;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import org.mindrot.jbcrypt.BCrypt;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,14 +41,32 @@ public class LoadingUsers {
 
     public static User searchUsers(String username, String password)
     {
-        for (User user : usersList)
-        {
-            if (user.getUserName().equals(username) && user.getPassword().equals(password))
-            {
-                return user;
-            }
-        }
+        String sql = "SELECT * FROM UsersData WHERE username = ?";
 
+        try (Connection conn = connectGenuisDb();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                String storedHashedPassword = rs.getString("password");
+
+                // مقایسه رمز عبور وارد شده با رمز عبور هش‌شده ذخیره‌شده
+                if (BCrypt.checkpw(password, storedHashedPassword)) {
+                    for (User user : usersList)
+                    {
+                        if (user.getUserName().equals(username))
+                        {
+                            return user;
+                        }
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
+
     }
 }
