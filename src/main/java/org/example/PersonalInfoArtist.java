@@ -22,27 +22,31 @@ public class PersonalInfoArtist extends Application {
         gridPane.setHgap(12);
         gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
-        Font labeFont = Font.font("", FontWeight.NORMAL, 15);
+        Font labeFont = Font.font("", FontWeight.NORMAL, 17);
 
         String name = "name : " + artist.getName();
         String userName = "username : " + artist.getUserName();
-        String password = "password : " + artist.getPassword();
+//        String password = "password : " + artist.getPassword();
         String age = "age : " + artist.getAge();
         String email = "email : " + artist.getEmail();
 
         Label nameLabel = new Label(name);
+        nameLabel.setFont(labeFont);
         Label usernameLabel = new Label(userName);
-        Label passwordLabel = new Label(password);
+        usernameLabel.setFont(labeFont);
+//        Label passwordLabel = new Label(password);
         Label ageLabel = new Label(age);
+        ageLabel.setFont(labeFont);
         Label emailLabel = new Label(email);
+        emailLabel.setFont(labeFont);
 
         gridPane.add(nameLabel, 0, 0);
         gridPane.add(usernameLabel, 0, 1);
-        gridPane.add(passwordLabel, 0, 2);
-        gridPane.add(ageLabel, 0, 3);
-        gridPane.add(emailLabel, 0, 4);
+//        gridPane.add(passwordLabel, 0, 2);
+        gridPane.add(ageLabel, 0, 2);
+        gridPane.add(emailLabel, 0, 3);
 
-        Scene scene = new Scene(gridPane, 300, 250);
+        Scene scene = new Scene(gridPane, 350, 250);
         stage.setScene(scene);
 
         stage.show();
