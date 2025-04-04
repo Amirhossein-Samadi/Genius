@@ -25,10 +25,12 @@ public class SignUpPage extends Application {
 
         GridPane gridPane = new GridPane();
         gridPane.setPadding(new Insets(50, 50, 50, 50));
-        gridPane.setHgap(10);
-        gridPane.setVgap(10);
+        gridPane.setHgap(15);
+        gridPane.setVgap(15);
+        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
         Font labeFont = Font.font("", FontWeight.NORMAL, 16);
+        Font buttonFont = Font.font("", FontWeight.NORMAL, 14);
 
         Label nameLabel = new Label("Name : ");
         Label ageLabel = new Label("Age : ");
@@ -50,35 +52,45 @@ public class SignUpPage extends Application {
         TextField usernameField = new TextField();
         PasswordField passwordField = new PasswordField();
 
-        CheckBox userCheckBox = new CheckBox("User");
-        CheckBox adminCheckBox = new CheckBox("Admin");
+        RadioButton userRadio = new RadioButton("user");
+        RadioButton artistRadio = new RadioButton("artist");
 
-        userCheckBox.setSelected(false);
-        adminCheckBox.setSelected(false);
+        ToggleGroup roleGroup = new ToggleGroup();
+        userRadio.setToggleGroup(roleGroup);
+        artistRadio.setToggleGroup(roleGroup);
 
         Button signUpButton = new Button("Sign Up");
+        signUpButton.setFont(buttonFont);
+        signUpButton.setStyle("-fx-background-color:LIGHTGREEN;");
         signUpButton.setOnAction(event -> {
 
-            String name = nameField.getText();
-            int age = Integer.parseInt(ageField.getText());
-            String email = emailField.getText();
-            String username = usernameField.getText();
-            String password = passwordField.getText();
+            if (roleGroup.getSelectedToggle() != null)
+            {
+                RadioButton selectedRadio = (RadioButton) roleGroup.getSelectedToggle();
 
-            if (adminCheckBox.isSelected()) {
-
-                try {
-                    insertArtistsTable(connectGenuisDb(), name, age, email, username, password, 2);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
+                if (selectedRadio == artistRadio)
+                {
+                    try {
+                        insertArtistsTable(connectGenuisDb(), nameField.getText(), Integer.parseInt(ageField.getText()), emailField.getText(), usernameField.getText(), passwordField.getText(), 2);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                else if (selectedRadio == userRadio)
+                {
+                    try {
+                        insertUsersTable(connectGenuisDb(), nameField.getText(), Integer.parseInt(ageField.getText()), emailField.getText(), usernameField.getText(), passwordField.getText(), 1);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
-            else if (userCheckBox.isSelected()) {
-                try {
-                    insertUsersTable(connectGenuisDb(), name, age, email, username, password, 1);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
+            else
+            {
+                Label errorLabel = new Label("Please select a role");
+                errorLabel.setFont(labeFont);
+
+                gridPane.add(errorLabel, 1, 7);
             }
         });
 
@@ -93,12 +105,13 @@ public class SignUpPage extends Application {
         gridPane.add(passwordLabel, 0, 4);
         gridPane.add(passwordField, 1, 4);
         gridPane.add(roleLabel, 0, 5);
-        gridPane.add(userCheckBox, 1, 5);
-        gridPane.add(adminCheckBox, 2, 5);
+        gridPane.add(userRadio, 1, 5);
+        gridPane.add(artistRadio, 2, 5);
+
 
         gridPane.add(signUpButton, 1, 6);
 
-        Scene scene = new Scene(gridPane, 500, 700);
+        Scene scene = new Scene(gridPane, 600, 500);
         stage.setScene(scene);
 
         stage.show();
