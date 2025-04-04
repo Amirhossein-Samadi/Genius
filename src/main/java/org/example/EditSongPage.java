@@ -41,10 +41,14 @@ public class EditSongPage extends Application {
         tagsLabel.setFont(labelFont2);
 
         TextField albumTextField = new TextField();
+        albumTextField.setText(song.getAlbum());
         TextField genreTextField = new TextField();
+        genreTextField.setText(song.getGenre());
         TextField tagsTextField = new TextField();
+        tagsTextField.setText(song.getTags());
 
         TextArea lyricsTextArea = new TextArea();
+        lyricsTextArea.setText(song.getLyrics());
 
         Button editSongButton = new Button("Edit Song");
         editSongButton.setFont(buttonFont);
