@@ -10,6 +10,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import static org.example.UpdateArtists.updateArtistStatus;
+import static org.example.UpdateSignUpRequest.updateSignUpRequest;
+
 public class ShowSignUpRequest extends Application {
 
     public static void showSignUpRequest(SignUpRequest signUpRequest)
@@ -39,12 +42,17 @@ public class ShowSignUpRequest extends Application {
         acceptButton.setStyle("-fx-background-color:LIGHTGREEN;");
         acceptButton.setOnAction(e -> {
 
-
+            updateSignUpRequest(signUpRequest.getArtistName(), 1);
+            updateArtistStatus(signUpRequest.getArtistName(), 1);
         });
 
         Button rejectButton = new Button("Reject");
         rejectButton.setFont(buttonFont);
         rejectButton.setStyle("-fx-background-color:Red;");
+        rejectButton.setOnAction(e -> {
+            updateSignUpRequest(signUpRequest.getArtistName(), 2);
+            updateArtistStatus(signUpRequest.getArtistName(), 2);
+        });
 
         gridPane.add(artistUserNameLabel, 0, 0);
         gridPane.add(statusLabel, 0, 1);

@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
@@ -23,6 +24,7 @@ import static org.example.ShowRequestUser.showRequestUser;
 import static org.example.ShowSearchedArtist.showSearchedArtist;
 import static org.example.ShowSelectedAlbum.showSelectedAlbum;
 import static org.example.ShowSelectedSong.showSelectedSong;
+import static org.example.ShowSignUpRequest.showSignUpRequest;
 
 public class AdminPage extends Application {
 
@@ -188,6 +190,42 @@ public class AdminPage extends Application {
             Request request = requestTableView.getSelectionModel().getSelectedItem();
             if (request != null) {showRequestUser(request);}
         });
+
+        signUpButton.setOnAction(e -> {
+
+            SignUpRequest signUpRequest = signUpTableView.getSelectionModel().getSelectedItem();
+            if (signUpRequest != null) {showSignUpRequest(signUpRequest);}
+        });
+
+        userButton.setOnAction(e -> {
+
+            User user = userTableView.getSelectionModel().getSelectedItem();
+            if (user != null) {showPersonalInformation(user);}
+        });
+
+
+        gridPane.add(welcomeLabel, 0, 0);
+        gridPane.add(showMyProfile, 0, 1);
+        gridPane.add(searchLabel, 1, 1);
+        gridPane.add(searchField, 2, 1);
+        gridPane.add(searchButton, 3, 1);
+        gridPane.add(artistsLabel, 1, 2);
+        gridPane.add(usersLabel, 2, 2);
+        gridPane.add(signUpLabel, 3, 2);
+        gridPane.add(editLabel, 4, 2);
+        gridPane.add(artistTableView, 1, 3);
+        gridPane.add(userTableView, 2, 3);
+        gridPane.add(signUpTableView, 3, 3);
+        gridPane.add(requestTableView, 4, 3);
+        gridPane.add(artistButton, 1, 4);
+        gridPane.add(userButton, 2, 4);
+        gridPane.add(signUpButton, 3, 4);
+        gridPane.add(editButton, 4, 4);
+
+        Scene scene = new Scene(gridPane, 1450, 800);
+        stage.setScene(scene);
+
+        stage.show();
 
 
     }
