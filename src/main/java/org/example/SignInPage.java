@@ -7,13 +7,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.geometry.Insets;
 
 import java.sql.SQLException;
 
+import static org.example.AdminPage.showAdminPage;
 import static org.example.Artist.searchArtists;
 import static org.example.ArtistPage.showArtistPage;
+import static org.example.LoadAdmin.searchAdmins;
 import static org.example.LoadFollowedArtists.*;
 import static org.example.LoadingAlbums.loadAlbums;
 import static org.example.LoadingArtists.artistsList;
@@ -40,6 +44,8 @@ public class SignInPage extends Application {
         gridPane.setVgap(10);
         gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
+        Font labelFont2 = Font.font("", FontWeight.NORMAL, 16);
+
         Label usernameLabel = new Label("Enter Username");
         Label passwordLabel = new Label("Enter Password");
         Label invalid = new Label("Invalid Username or Password");
@@ -57,6 +63,7 @@ public class SignInPage extends Application {
 
             User currentUser = searchUsers(username, password);
             Artist currentArtist = searchArtists(username, password);
+            Admin currentAdmin = searchAdmins(username, password);
 
             nowUser = currentUser;
             nowArtist = currentArtist;
@@ -73,9 +80,24 @@ public class SignInPage extends Application {
             }
             else if (currentArtist != null)
             {
-                showArtistPage(currentArtist);
-            }
-            else
+                if (currentArtist.getStatus() == 1)
+                {
+                    showArtistPage(currentArtist);
+                } else if (currentArtist.getStatus() == 2) {
+
+                    Label notExist = new Label("Your registration request has not been approved. ");
+                    notExist.setFont(labelFont2);
+                    gridPane.add(notExist, 0, 3);
+                }
+                else
+                {
+                    Label indeterminateLabel = new Label("Your request is under review.. ");
+                    indeterminateLabel.setFont(labelFont2);
+                    gridPane.add(indeterminateLabel, 0, 3);
+                }
+            } else if (currentAdmin != null) {
+                showAdminPage(currentAdmin);
+            } else
             {
                 gridPane.add(invalid, 0, 3);
             }

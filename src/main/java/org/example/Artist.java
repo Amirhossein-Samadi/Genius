@@ -18,9 +18,15 @@ public class Artist extends Account{
     private List<Album> albumsList = new ArrayList<>();
     private List<Request> requests = new ArrayList<>();
 
+    private int status;
+
     public Artist(String name, int age, String email, String userName, String password, int role) {
         super(name, age, email, userName, password, role);
     }
+
+    public int getStatus() {return status;}
+
+    public void setStatus(int status) {this.status = status;}
 
     public List<Request> getRequests() {return requests;}
 
