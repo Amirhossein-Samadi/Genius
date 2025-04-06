@@ -71,7 +71,7 @@ public class SignUpPage extends Application {
                 if (selectedRadio == artistRadio)
                 {
                     try {
-                        insertArtistsTable(connectGenuisDb(), nameField.getText(), Integer.parseInt(ageField.getText()), emailField.getText(), usernameField.getText(), passwordField.getText(), 2);
+                        insertArtistsTable(connectGenuisDb(), nameField.getText(), Integer.parseInt(ageField.getText()), emailField.getText(), usernameField.getText(), passwordField.getText(), 2, 3);
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }
