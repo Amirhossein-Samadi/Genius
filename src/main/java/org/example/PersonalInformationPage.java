@@ -11,7 +11,7 @@ import javafx.scene.control.*;
 
 public class PersonalInformationPage extends Application {
 
-    public static void showPersonalInformation(User user)
+    public static void showPersonalInformation(Account account)
     {
         Stage stage = new Stage();
         stage.setTitle("Personal Information");
@@ -24,11 +24,11 @@ public class PersonalInformationPage extends Application {
 
         Font labeFont = Font.font("", FontWeight.NORMAL, 17);
 
-        String name = "name : " + user.getName();
-        String userName = "username : " + user.getUserName();
+        String name = "name : " + account.getName();
+        String userName = "username : " + account.getUserName();
 //        String password = "password : " + user.getPassword();
-        String age = "age : " + user.getAge();
-        String email = "email : " + user.getEmail();
+        String age = "age : " + account.getAge();
+        String email = "email : " + account.getEmail();
 
         Label nameLabel = new Label(name);
         nameLabel.setFont(labeFont);
