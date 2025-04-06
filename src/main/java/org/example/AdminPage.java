@@ -12,11 +12,14 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import static org.example.LoadRequest.requestsList;
+import static org.example.LoadSignUpRequests.signUpRequestList;
 import static org.example.LoadingArtists.artistsList;
+import static org.example.LoadingUsers.usersList;
 import static org.example.PersonalInformationPage.showPersonalInformation;
 import static org.example.SearchAlbum.searchAlbum;
 import static org.example.SearchArtist.searchArtist;
 import static org.example.SearchSong.searchSong;
+import static org.example.ShowRequestUser.showRequestUser;
 import static org.example.ShowSearchedArtist.showSearchedArtist;
 import static org.example.ShowSelectedAlbum.showSelectedAlbum;
 import static org.example.ShowSelectedSong.showSelectedSong;
@@ -42,6 +45,14 @@ public class AdminPage extends Application {
         welcomeLabel.setFont(labeFont);
         Label searchLabel = new Label("                                                             Search");
         searchLabel.setFont(labelFont2);
+        Label artistsLabel = new Label("Artists");
+        artistsLabel.setFont(labelFont2);
+        Label usersLabel = new Label("Users");
+        usersLabel.setFont(labelFont2);
+        Label signUpLabel = new Label("Sign Up Requests");
+        signUpLabel.setFont(labelFont2);
+        Label editLabel = new Label("Edit Requests");
+        editLabel.setFont(labelFont2);
 
         TextField searchField = new TextField();
 
@@ -76,6 +87,23 @@ public class AdminPage extends Application {
 
         });
 
+        Button artistButton = new Button("Show more about this artist");
+        artistButton.setFont(buttonFont);
+        artistButton.setStyle("-fx-background-color:LIGHTGREEN;");
+
+        Button signUpButton = new Button("Determining the situation");
+        signUpButton.setFont(buttonFont);
+        signUpButton.setStyle("-fx-background-color:LIGHTGREEN;");
+
+        Button editButton = new Button("Edit the request");
+        editButton.setFont(buttonFont);
+        editButton.setStyle("-fx-background-color:LIGHTGREEN;");
+
+        Button userButton = new Button("Show more about this user");
+        userButton.setFont(buttonFont);
+        userButton.setStyle("-fx-background-color:LIGHTGREEN;");
+
+
 
         TableView<Artist> artistTableView = new TableView<>();
 
@@ -97,6 +125,9 @@ public class AdminPage extends Application {
         TableColumn<Request, String> artistNameColumn = new TableColumn<>("artist name");
         artistNameColumn.setCellValueFactory(new PropertyValueFactory<>("artistName"));
 
+        TableColumn<Request, String> userNameColumn2 = new TableColumn<>("user name");
+        userNameColumn2.setCellValueFactory(new PropertyValueFactory<>("username"));
+
         TableColumn<Request, String> songTitleColumn = new TableColumn<>("song title");
         songTitleColumn.setCellValueFactory(new PropertyValueFactory<>("songTitle"));
 
@@ -108,7 +139,7 @@ public class AdminPage extends Application {
 
         ObservableList<Request> requestList = FXCollections.observableArrayList(requestsList.reversed());
 
-        requestTableView.getColumns().addAll(artistNameColumn, songTitleColumn, statusColumn, releaseDateColumn);
+        requestTableView.getColumns().addAll(artistNameColumn, userNameColumn2, songTitleColumn, statusColumn, releaseDateColumn);
 
         requestTableView.setItems(requestList);
 
@@ -126,7 +157,39 @@ public class AdminPage extends Application {
 
         signUpTableView.getColumns().addAll(artistColumn, statusColumn2, releaseDateColumn2);
 
-        signUpTableView.setItems(...);
+        ObservableList<SignUpRequest> signUpList = FXCollections.observableArrayList(signUpRequestList.reversed());
+
+        signUpTableView.setItems(signUpList);
+
+
+
+        TableView<User> userTableView = new TableView<>();
+
+        TableColumn<User, String> nameColumn3 = new TableColumn<>("name");
+        nameColumn3.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        TableColumn<User, String> userNameColumn = new TableColumn<>("username");
+        userNameColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
+
+        userTableView.getColumns().addAll(nameColumn3, userNameColumn);
+
+        ObservableList<User> userObservableList = FXCollections.observableArrayList(usersList);
+
+        userTableView.setItems(userObservableList);
+
+        artistButton.setOnAction(e -> {
+
+            Artist artist = artistTableView.getSelectionModel().getSelectedItem();
+            if (artist != null) {showSearchedArtist(artist);}
+        });
+
+        editButton.setOnAction(e -> {
+
+            Request request = requestTableView.getSelectionModel().getSelectedItem();
+            if (request != null) {showRequestUser(request);}
+        });
+
+
     }
 
     @Override
