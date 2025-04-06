@@ -16,5 +16,5 @@ public class SignUpRequest {
     public String getArtistName() {return artistName;}
     public int getStatus() {return status;}
     public String getDate() {return date;}
-    
+
 }
