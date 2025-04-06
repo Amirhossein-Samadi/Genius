@@ -39,7 +39,7 @@ public class ShowSignUpRequest extends Application {
         acceptButton.setStyle("-fx-background-color:LIGHTGREEN;");
         acceptButton.setOnAction(e -> {
 
-            
+
         });
 
         Button rejectButton = new Button("Reject");
