@@ -10,10 +10,13 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 import static org.example.DbConnection.connectGenuisDb;
 import static org.example.InsertArtistsData.insertArtistsTable;
+import static org.example.InsertSignUpRequests.insertSignUpRequests;
 import static org.example.InsertUsersData.insertUsersTable;
 
 public class SignUpPage extends Application {
@@ -70,8 +73,19 @@ public class SignUpPage extends Application {
 
                 if (selectedRadio == artistRadio)
                 {
+                    LocalDateTime now = LocalDateTime.now();
+
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                    String formattedDateTime = now.format(formatter);
+
                     try {
                         insertArtistsTable(connectGenuisDb(), nameField.getText(), Integer.parseInt(ageField.getText()), emailField.getText(), usernameField.getText(), passwordField.getText(), 2, 3);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                    try {
+                        insertSignUpRequests(connectGenuisDb(), usernameField.getText(), 3, formattedDateTime);
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }

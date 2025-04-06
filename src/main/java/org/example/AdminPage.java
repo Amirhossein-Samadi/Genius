@@ -20,8 +20,10 @@ import static org.example.PersonalInformationPage.showPersonalInformation;
 import static org.example.SearchAlbum.searchAlbum;
 import static org.example.SearchArtist.searchArtist;
 import static org.example.SearchSong.searchSong;
+import static org.example.ShowRequestArtist.showRequestArtist;
 import static org.example.ShowRequestUser.showRequestUser;
 import static org.example.ShowSearchedArtist.showSearchedArtist;
+import static org.example.ShowSearchedArtist.showSearchedArtistAdmin;
 import static org.example.ShowSelectedAlbum.showSelectedAlbum;
 import static org.example.ShowSelectedSong.showSelectedSong;
 import static org.example.ShowSignUpRequest.showSignUpRequest;
@@ -35,7 +37,7 @@ public class AdminPage extends Application {
 
         GridPane gridPane = new GridPane();
         gridPane.setPadding(new Insets(30, 30, 30, 30));
-        gridPane.setVgap(20);
+        gridPane.setVgap(25);
         gridPane.setHgap(20);
         gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
@@ -47,13 +49,13 @@ public class AdminPage extends Application {
         welcomeLabel.setFont(labeFont);
         Label searchLabel = new Label("                                                             Search");
         searchLabel.setFont(labelFont2);
-        Label artistsLabel = new Label("Artists");
+        Label artistsLabel = new Label("                             Artists");
         artistsLabel.setFont(labelFont2);
-        Label usersLabel = new Label("Users");
+        Label usersLabel = new Label("                              Users");
         usersLabel.setFont(labelFont2);
-        Label signUpLabel = new Label("Sign Up Requests");
+        Label signUpLabel = new Label("                Sign Up Requests");
         signUpLabel.setFont(labelFont2);
-        Label editLabel = new Label("Edit Requests");
+        Label editLabel = new Label("                               Edit Requests");
         editLabel.setFont(labelFont2);
 
         TextField searchField = new TextField();
@@ -188,13 +190,13 @@ public class AdminPage extends Application {
         artistButton.setOnAction(e -> {
 
             Artist artist = artistTableView.getSelectionModel().getSelectedItem();
-            if (artist != null) {showSearchedArtist(artist);}
+            if (artist != null) {showSearchedArtistAdmin(artist);}
         });
 
         editButton.setOnAction(e -> {
 
             Request request = requestTableView.getSelectionModel().getSelectedItem();
-            if (request != null) {showRequestUser(request);}
+            if (request != null) {showRequestArtist(request);}
         });
 
         signUpButton.setOnAction(e -> {
@@ -215,18 +217,18 @@ public class AdminPage extends Application {
         gridPane.add(searchLabel, 1, 1);
         gridPane.add(searchField, 2, 1);
         gridPane.add(searchButton, 3, 1);
-        gridPane.add(artistsLabel, 1, 2);
-        gridPane.add(usersLabel, 2, 2);
-        gridPane.add(signUpLabel, 3, 2);
-        gridPane.add(editLabel, 4, 2);
-        gridPane.add(artistTableView, 1, 3);
-        gridPane.add(userTableView, 2, 3);
-        gridPane.add(signUpTableView, 3, 3);
-        gridPane.add(requestTableView, 4, 3);
-        gridPane.add(artistButton, 1, 4);
-        gridPane.add(userButton, 2, 4);
-        gridPane.add(signUpButton, 3, 4);
-        gridPane.add(editButton, 4, 4);
+        gridPane.add(artistsLabel, 0, 2);
+        gridPane.add(usersLabel, 1, 2);
+        gridPane.add(signUpLabel, 2, 2);
+        gridPane.add(editLabel, 3, 2);
+        gridPane.add(artistTableView, 0, 3);
+        gridPane.add(userTableView, 1, 3);
+        gridPane.add(signUpTableView, 2, 3);
+        gridPane.add(requestTableView, 3, 3);
+        gridPane.add(artistButton, 0, 4);
+        gridPane.add(userButton, 1, 4);
+        gridPane.add(signUpButton, 2, 4);
+        gridPane.add(editButton, 3, 4);
 
         Scene scene = new Scene(gridPane, 1450, 800);
         stage.setScene(scene);

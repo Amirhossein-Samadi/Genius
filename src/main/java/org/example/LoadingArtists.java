@@ -28,8 +28,10 @@ public class LoadingArtists {
                 String username = rs.getString("username");
                 String password = rs.getString("password");
                 int role = rs.getInt("role");
+                int status = rs.getInt("status");
 
                 Artist artist = new Artist(name, age, email, username, password, role);
+                artist.setStatus(status);
 
                 artistsList.add(artist);
             }

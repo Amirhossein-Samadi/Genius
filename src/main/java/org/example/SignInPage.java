@@ -94,6 +94,7 @@ public class SignInPage extends Application {
                     Label indeterminateLabel = new Label("Your request is under review.. ");
                     indeterminateLabel.setFont(labelFont2);
                     gridPane.add(indeterminateLabel, 0, 3);
+                    System.out.println(currentArtist.getStatus());
                 }
             } else if (currentAdmin != null) {
                 showAdminPage(currentAdmin);
