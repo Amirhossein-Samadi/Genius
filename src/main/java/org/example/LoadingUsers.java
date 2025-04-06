@@ -68,4 +68,14 @@ public class LoadingUsers {
         return null;
 
     }
+
+    public static User searchUser2(String username)
+    {
+        for (User user : usersList)
+        {
+            if (user.getUserName().equals(username)) {return user;}
+        }
+
+        return null;
+    }
 }

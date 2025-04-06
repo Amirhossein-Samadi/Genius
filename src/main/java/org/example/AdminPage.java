@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import static org.example.LoadRequest.requestsList;
 import static org.example.LoadSignUpRequests.signUpRequestList;
 import static org.example.LoadingArtists.artistsList;
-import static org.example.LoadingUsers.usersList;
+import static org.example.LoadingUsers.*;
 import static org.example.PersonalInformationPage.showPersonalInformation;
 import static org.example.SearchAlbum.searchAlbum;
 import static org.example.SearchArtist.searchArtist;
@@ -85,6 +85,12 @@ public class AdminPage extends Application {
             {
                 Song song = searchSong(search);
                 showSelectedSong(song);
+            }
+
+            if (searchUser2(search) != null)
+            {
+                User user = searchUser2(search);
+                showPersonalInformation(user);
             }
 
         });
