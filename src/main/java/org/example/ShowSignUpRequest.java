@@ -61,7 +61,7 @@ public class ShowSignUpRequest extends Application {
         if (signUpRequest.getStatus() == "Unread")
         {
             gridPane.add(acceptButton, 0, 3);
-            gridPane.add(rejectButton, 1, 3);
+            gridPane.add(rejectButton, 0, 4);
         }
 
         Scene scene = new Scene(gridPane, 350, 300);

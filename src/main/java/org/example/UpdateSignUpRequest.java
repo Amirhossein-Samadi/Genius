@@ -9,7 +9,7 @@ public class UpdateSignUpRequest {
 
     public static void updateSignUpRequest(String artistName, int status)
     {
-        String sql = "UPDATE requests SET status = ? WHERE artistName = ?";
+        String sql = "UPDATE SignUp SET status = ? WHERE artistName = ?";
 
         try (Connection conn = connectGenuisDb();
              PreparedStatement pstmt = conn.prepareStatement(sql))
