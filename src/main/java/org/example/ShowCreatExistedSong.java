@@ -1,11 +1,12 @@
 package org.example;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -29,11 +30,35 @@ public class ShowCreatExistedSong extends Application {
 
         TextField titleField = new TextField();
 
+
+        TableView<Song> albumSongs = new TableView<>();
+
+        TableColumn<Song, String> songTitle = new TableColumn<>("song title");
+        songTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+
+        TableColumn<Song, String> artistName = new TableColumn<>("artist name");
+        artistName.setCellValueFactory(new PropertyValueFactory<>("artists"));
+
+        TableColumn<Song, String> releaseDate = new TableColumn<>("release date");
+        releaseDate.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
+
+        TableColumn<Song, Integer> views = new TableColumn<>("views");
+        views.setCellValueFactory(new PropertyValueFactory<>("viewsNumber"));
+
+        albumSongs.getColumns().addAll(songTitle, artistName, releaseDate, views);
+
+        ObservableList<Song> songsList = FXCollections.observableArrayList(album.getTrackList());
+
+        albumSongs.setItems(songsList);
+
+
         Button addSongButton = new Button("add song");
         addSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
         addSongButton.setOnAction(event -> {
 
-            album.addSong(searchSong(titleField.getText()));
+            Song song = albumSongs.getSelectionModel().getSelectedItem();
+
+            album.addSong(searchSong(song.getTitle()));
             updateSongAlbum(album.getTitle(), titleField.getText());
         });
 
@@ -41,7 +66,7 @@ public class ShowCreatExistedSong extends Application {
         gridPane.add(titleField, 1, 0);
         gridPane.add(addSongButton, 1, 1);
 
-        Scene scene = new Scene(gridPane, 300, 150);
+        Scene scene = new Scene(gridPane, 400, 300);
         stage.setScene(scene);
 
         stage.show();
