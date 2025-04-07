@@ -20,6 +20,7 @@ import static org.example.InsertComment.insertCommentsTable;
 import static org.example.LoadingComments.commentsList;
 import static org.example.ShowSelectedSong.nowSong;
 import static org.example.SignInPage.nowUser;
+import static org.example.SignInPage.nowArtist;
 
 public class CreatCommentPage extends Application {
 
@@ -50,13 +51,27 @@ public class CreatCommentPage extends Application {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             String formattedDateTime = now.format(formatter);
 
-            Comment comment = new Comment(commentTextField.getText(), nowUser.getUserName(), formattedDateTime,nowSong.getTitle());
-            commentsList.add(comment);
-            try {
-                insertCommentsTable(connectGenuisDb(), commentTextField.getText(), nowUser.getUserName(), formattedDateTime, nowSong.getTitle());
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+            if (nowUser != null)
+            {
+                Comment comment = new Comment(commentTextField.getText(), nowUser.getUserName(), formattedDateTime,nowSong.getTitle());
+                commentsList.add(comment);
+                try {
+                    insertCommentsTable(connectGenuisDb(), commentTextField.getText(), nowUser.getUserName(), formattedDateTime, nowSong.getTitle());
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             }
+            else if (nowArtist != null)
+            {
+                Comment comment = new Comment(commentTextField.getText(), nowArtist.getUserName(), formattedDateTime,nowSong.getTitle());
+                commentsList.add(comment);
+                try {
+                    insertCommentsTable(connectGenuisDb(), commentTextField.getText(), nowArtist.getUserName(), formattedDateTime, nowSong.getTitle());
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
         });
 
         gridPane.add(label, 0, 0);

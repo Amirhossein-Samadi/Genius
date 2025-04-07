@@ -33,8 +33,8 @@ public class ArtistPage extends Application {
 
         GridPane gridPane = new GridPane();
         gridPane.setPadding(new Insets(30, 30, 30, 30));
-        gridPane.setVgap(20);
-        gridPane.setHgap(20);
+        gridPane.setVgap(25);
+        gridPane.setHgap(25);
         gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
         Font labeFont = Font.font("Verdana", FontWeight.BOLD, 18);
@@ -151,18 +151,18 @@ public class ArtistPage extends Application {
         gridPane.add(showMyProfile, 0, 1);
         gridPane.add(creatSong, 0, 2);
         gridPane.add(creatAlbum, 0, 3);
-        gridPane.add(mySongs, 1, 3);
-        gridPane.add(myAlbums, 2, 3);
-        gridPane.add(requestsLabel, 3, 3);
-        gridPane.add(artistSongs, 1, 4);
-        gridPane.add(artistAlbums, 2, 4);
-        gridPane.add(requestTableView, 3, 4);
-        gridPane.add(songButton, 1, 5);
-        gridPane.add(albumButton, 2, 5);
-        gridPane.add(requestButton, 3, 5);
+        gridPane.add(mySongs, 1, 4);
+        gridPane.add(myAlbums, 2, 4);
+        gridPane.add(requestsLabel, 3, 4);
+        gridPane.add(artistSongs, 1, 5);
+        gridPane.add(artistAlbums, 2, 5);
+        gridPane.add(requestTableView, 3, 5);
+        gridPane.add(songButton, 1, 6);
+        gridPane.add(albumButton, 2, 6);
+        gridPane.add(requestButton, 3, 6);
 
 
-        Scene scene = new Scene(gridPane, 1400, 700);
+        Scene scene = new Scene(gridPane, 1400, 800);
         stage.setScene(scene);
 
         stage.show();
