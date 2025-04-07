@@ -135,7 +135,7 @@ public class UserPage extends Application {
 
         followedArtistsSongsTableVie.getColumns().addAll(songTitle, artistName, releaseDate, views);
 
-        ObservableList<Song> songsList = FXCollections.observableArrayList(user.getFollowedSong());
+        ObservableList<Song> songsList = FXCollections.observableArrayList(user.getFollowedSong().reversed());
 
         followedArtistsSongsTableVie.setItems(songsList);
 
@@ -176,7 +176,7 @@ public class UserPage extends Application {
         TableColumn<Request, String> releaseDateColumn = new TableColumn<>("release date");
         releaseDateColumn.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
 
-        ObservableList<Request> requestList = FXCollections.observableArrayList(user.getRequests());
+        ObservableList<Request> requestList = FXCollections.observableArrayList(user.getRequests().reversed());
 
         requestTableView.getColumns().addAll(artistNameColumn, songTitleColumn, statusColumn, releaseDateColumn);
 
@@ -238,7 +238,7 @@ public class UserPage extends Application {
 
         List <Song> popularSongsList = new ArrayList<>();
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 6; i++)
         {
             popularSongsList.add(songsList.get(i));
         }

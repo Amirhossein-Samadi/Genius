@@ -83,7 +83,7 @@ public class ArtistPage extends Application {
         TableColumn<Song, Integer> views = new TableColumn<>("views");
         views.setCellValueFactory(new PropertyValueFactory<>("viewsNumber"));
 
-        ObservableList<Song> songsList = FXCollections.observableArrayList(artist.getSongsList());
+        ObservableList<Song> songsList = FXCollections.observableArrayList(artist.getSongsList().reversed());
 
         artistSongs.getColumns().addAll(titleColumn, releaseDate, views);
 
@@ -106,7 +106,7 @@ public class ArtistPage extends Application {
 
         artistAlbums.getColumns().addAll(albumTitle, albumReleaseDate);
 
-        ObservableList<Album> albumsList = FXCollections.observableArrayList(artist.getAlbumsList());
+        ObservableList<Album> albumsList = FXCollections.observableArrayList(artist.getAlbumsList().reversed());
 
         artistAlbums.setItems(albumsList);
 
@@ -125,7 +125,7 @@ public class ArtistPage extends Application {
         TableColumn<Request, String> releaseDateColumn = new TableColumn<>("release date");
         releaseDateColumn.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
 
-        ObservableList<Request> requestList = FXCollections.observableArrayList(artist.getRequests());
+        ObservableList<Request> requestList = FXCollections.observableArrayList(artist.getRequests().reversed());
 
         requestTableView.getColumns().addAll(usernameColumn, songTitleColumn, statusColumn, releaseDateColumn);
 
