@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import static org.example.CreatSongPage.showCreateSongPage;
 import static org.example.ShowCreatExistedSong.showCreateExistedSong;
 import static org.example.ShowSelectedSong.showSelectedSong;
+import static org.example.SignInPage.nowArtist;
 
 public class ShowAlbumArtist extends Application {
 
@@ -41,7 +42,7 @@ public class ShowAlbumArtist extends Application {
         newSongButton.setOnAction(event -> {showCreateSongPage();});
         Button existSongButton = new Button("add a song that has been existed");
         existSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
-        existSongButton.setOnAction(event -> {showCreateExistedSong(album);});
+        existSongButton.setOnAction(event -> {showCreateExistedSong(album, nowArtist);});
 
         TableView<Song> albumSongs = new TableView<>();
 

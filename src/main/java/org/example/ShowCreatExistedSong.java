@@ -15,7 +15,7 @@ import static org.example.UpdateSong.updateSongAlbum;
 
 public class ShowCreatExistedSong extends Application {
 
-    public static void showCreateExistedSong(Album album)
+    public static void showCreateExistedSong(Album album, Artist artist)
     {
         Stage stage = new Stage();
         stage.setTitle("add an existed song Page");
@@ -26,9 +26,9 @@ public class ShowCreatExistedSong extends Application {
         gridPane.setHgap(15);
         gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
 
-        Label titleLabel = new Label("title");
-
-        TextField titleField = new TextField();
+//        Label titleLabel = new Label("title");
+//
+//        TextField titleField = new TextField();
 
 
         TableView<Song> albumSongs = new TableView<>();
@@ -47,7 +47,7 @@ public class ShowCreatExistedSong extends Application {
 
         albumSongs.getColumns().addAll(songTitle, artistName, releaseDate, views);
 
-        ObservableList<Song> songsList = FXCollections.observableArrayList(album.getTrackList());
+        ObservableList<Song> songsList = FXCollections.observableArrayList(artist.getSongsList());
 
         albumSongs.setItems(songsList);
 
@@ -58,15 +58,14 @@ public class ShowCreatExistedSong extends Application {
 
             Song song = albumSongs.getSelectionModel().getSelectedItem();
 
-            album.addSong(searchSong(song.getTitle()));
-            updateSongAlbum(album.getTitle(), titleField.getText());
+            album.addSong(song);
+            updateSongAlbum(album.getTitle(), song.getTitle());
         });
 
-        gridPane.add(titleLabel, 0, 0);
-        gridPane.add(titleField, 1, 0);
-        gridPane.add(addSongButton, 1, 1);
+        gridPane.add(albumSongs, 0, 0);
+        gridPane.add(addSongButton, 0, 1);
 
-        Scene scene = new Scene(gridPane, 400, 300);
+        Scene scene = new Scene(gridPane, 550, 450);
         stage.setScene(scene);
 
         stage.show();
