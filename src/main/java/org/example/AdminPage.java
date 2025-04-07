@@ -23,6 +23,7 @@ import static org.example.SearchSong.searchSong;
 import static org.example.ShowRequestArtist.showRequestArtist;
 import static org.example.ShowSearchedArtist.showSearchedArtistAdmin;
 import static org.example.ShowSelectedAlbum.showSelectedAlbum;
+import static org.example.ShowSelectedAlbum.showSelectedAlbumAdmin;
 import static org.example.ShowSelectedSong.showSelectedSongAdmin;
 import static org.example.ShowSignUpRequest.showSignUpRequest;
 
@@ -78,7 +79,7 @@ public class AdminPage extends Application {
             if (searchAlbum(search) != null)
             {
                 Album album = searchAlbum(search);
-                showSelectedAlbum(album);
+                showSelectedAlbumAdmin(album);
             }
 
             if (searchSong(search) != null)

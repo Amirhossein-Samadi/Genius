@@ -19,7 +19,9 @@ import static org.example.DbConnection.connectGenuisDb;
 import static org.example.DeleteFollowedArtist.deleteFollowedArtist;
 import static org.example.InsertFollowedArtists.insertFollowedArtistsTable;
 import static org.example.ShowSelectedAlbum.showSelectedAlbum;
+import static org.example.ShowSelectedAlbum.showSelectedAlbumAdmin;
 import static org.example.ShowSelectedSong.showSelectedSong;
+import static org.example.ShowSelectedSong.showSelectedSongAdmin;
 import static org.example.SignInPage.nowUser;
 
 public class ShowSearchedArtist extends Application {
@@ -227,13 +229,13 @@ public class ShowSearchedArtist extends Application {
         songButton.setOnAction(e -> {
 
             Song selectedSong = artistSongs.getSelectionModel().getSelectedItem();
-            showSelectedSong(selectedSong);
+            showSelectedSongAdmin(selectedSong);
         });
 
         albumButton.setOnAction(e -> {
 
             Album selectedAlbum = artistAlbums.getSelectionModel().getSelectedItem();
-            showSelectedAlbum(selectedAlbum);
+            showSelectedAlbumAdmin(selectedAlbum);
         });
 
         gridPane.add(nameLabel, 0, 0);
