@@ -63,10 +63,10 @@ public class ShowSelectedSongArtist extends Application {
         showCommentsButton.setStyle("-fx-background-color:LIGHTBLUE;");
         showCommentsButton.setOnAction(e -> {showCommentsPage(song);});
 
-        Button creatComment = new Button("add a comment");
-        creatComment.setFont(buttonFont);
-        creatComment.setStyle("-fx-background-color:LIGHTGREEN;");
-        creatComment.setOnAction(e -> {showCreateCommentPage();});
+//        Button creatComment = new Button("add a comment");
+//        creatComment.setFont(buttonFont);
+//        creatComment.setStyle("-fx-background-color:LIGHTGREEN;");
+//        creatComment.setOnAction(e -> {showCreateCommentPage(song);});
 
         Button editSongButton = new Button("Edit Song");
         editSongButton.setFont(buttonFont);
@@ -82,7 +82,7 @@ public class ShowSelectedSongArtist extends Application {
         gridPane.add(releaseDateLabel, 0, 6);
         gridPane.add(viewsNumberLabel, 0, 7);
         gridPane.add(showCommentsButton,0, 8);
-        gridPane.add(creatComment,0, 9);
+//        gridPane.add(creatComment,0, 9);
         gridPane.add(editSongButton,0, 10);
 
         Scene scene = new Scene(gridPane, 650, 450);

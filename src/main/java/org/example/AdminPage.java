@@ -21,12 +21,9 @@ import static org.example.SearchAlbum.searchAlbum;
 import static org.example.SearchArtist.searchArtist;
 import static org.example.SearchSong.searchSong;
 import static org.example.ShowRequestArtist.showRequestArtist;
-import static org.example.ShowRequestUser.showRequestUser;
-import static org.example.ShowSearchedArtist.showSearchedArtist;
 import static org.example.ShowSearchedArtist.showSearchedArtistAdmin;
 import static org.example.ShowSelectedAlbum.showSelectedAlbum;
-import static org.example.ShowSelectedSong.showSelectedSong;
-import static org.example.ShowSelectedSong.showSelectedSongَAdmin;
+import static org.example.ShowSelectedSong.showSelectedSongAdmin;
 import static org.example.ShowSignUpRequest.showSignUpRequest;
 
 public class AdminPage extends Application {
@@ -87,7 +84,7 @@ public class AdminPage extends Application {
             if (searchSong(search) != null)
             {
                 Song song = searchSong(search);
-                showSelectedSongَAdmin(song);
+                showSelectedSongAdmin(song);
             }
 
             if (searchUser2(search) != null)

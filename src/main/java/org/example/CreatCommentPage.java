@@ -24,7 +24,7 @@ import static org.example.SignInPage.nowArtist;
 
 public class CreatCommentPage extends Application {
 
-    public static void showCreateCommentPage()
+    public static void showCreateCommentPage(Song song)
     {
         Stage stage = new Stage();
         stage.setTitle("Create Comment");
@@ -56,17 +56,7 @@ public class CreatCommentPage extends Application {
                 Comment comment = new Comment(commentTextField.getText(), nowUser.getUserName(), formattedDateTime,nowSong.getTitle());
                 commentsList.add(comment);
                 try {
-                    insertCommentsTable(connectGenuisDb(), commentTextField.getText(), nowUser.getUserName(), formattedDateTime, nowSong.getTitle());
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-            else if (nowArtist != null)
-            {
-                Comment comment = new Comment(commentTextField.getText(), nowArtist.getUserName(), formattedDateTime,nowSong.getTitle());
-                commentsList.add(comment);
-                try {
-                    insertCommentsTable(connectGenuisDb(), commentTextField.getText(), nowArtist.getUserName(), formattedDateTime, nowSong.getTitle());
+                    insertCommentsTable(connectGenuisDb(), commentTextField.getText(), nowUser.getUserName(), formattedDateTime, song.getTitle());
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }

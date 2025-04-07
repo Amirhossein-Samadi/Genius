@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 import static org.example.CreatSongPage.showCreateSongPage;
 import static org.example.ShowCreatExistedSong.showCreateExistedSong;
-import static org.example.ShowSelectedSong.showSelectedSong;
+import static org.example.ShowSelectedSongArtist.showSelectedSongArtist;
 import static org.example.SignInPage.nowArtist;
 
 public class ShowAlbumArtist extends Application {
@@ -67,7 +67,7 @@ public class ShowAlbumArtist extends Application {
         songButton.setOnAction(e -> {
 
             Song selectedSong = albumSongs.getSelectionModel().getSelectedItem();
-            showSelectedSong(selectedSong);
+            showSelectedSongArtist(selectedSong);
         });
 
         gridPane.add(titleLabel, 0, 0);

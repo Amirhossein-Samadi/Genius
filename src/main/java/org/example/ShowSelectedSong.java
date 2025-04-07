@@ -65,7 +65,7 @@ public class ShowSelectedSong extends Application {
 
         Button creatComment = new Button("add a comment");
         creatComment.setStyle("-fx-background-color:LIGHTGREEN;");
-        creatComment.setOnAction(e -> {showCreateCommentPage();});
+        creatComment.setOnAction(e -> {showCreateCommentPage(song);});
 
         Button editRequestButton = new Button("Edit Request");
         editRequestButton.setStyle("-fx-background-color:LIGHTGREEN;");
@@ -92,7 +92,7 @@ public class ShowSelectedSong extends Application {
 
 
 
-    public static void showSelectedSongَAdmin(Song song)
+    public static void showSelectedSongAdmin(Song song)
     {
         nowSong = song;
 
