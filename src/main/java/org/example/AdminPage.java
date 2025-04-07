@@ -26,6 +26,7 @@ import static org.example.ShowSearchedArtist.showSearchedArtist;
 import static org.example.ShowSearchedArtist.showSearchedArtistAdmin;
 import static org.example.ShowSelectedAlbum.showSelectedAlbum;
 import static org.example.ShowSelectedSong.showSelectedSong;
+import static org.example.ShowSelectedSong.showSelectedSongَAdmin;
 import static org.example.ShowSignUpRequest.showSignUpRequest;
 
 public class AdminPage extends Application {
@@ -74,7 +75,7 @@ public class AdminPage extends Application {
             if (searchArtist(search) != null)
             {
                 Artist artist = searchArtist(search);
-                showSearchedArtist(artist);
+                showSearchedArtistAdmin(artist);
             }
 
             if (searchAlbum(search) != null)
@@ -86,7 +87,7 @@ public class AdminPage extends Application {
             if (searchSong(search) != null)
             {
                 Song song = searchSong(search);
-                showSelectedSong(song);
+                showSelectedSongَAdmin(song);
             }
 
             if (searchUser2(search) != null)
