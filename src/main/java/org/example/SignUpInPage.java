@@ -9,6 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import javafx.scene.paint.Color;
 
 import java.sql.SQLException;
 
@@ -34,20 +35,28 @@ public class SignUpInPage extends Application {
         GridPane gridPane = new GridPane();
         gridPane.setPadding(new Insets(50, 50, 50, 50));
         gridPane.setVgap(20);
-        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
+        gridPane.setHgap(15);
+        gridPane.setStyle("-fx-background-color:#292929;");
 
         Font labeFont = Font.font("Verdana", FontWeight.BOLD, 18);
+        Font buttonFont = Font.font("", FontWeight.NORMAL, 14);
 
         Label signInLabel = new Label("if you have an Account.");
+        signInLabel.setTextFill(Color.WHITE);
         Label signUpLabel = new Label("if you don't have an Account.");
+        signUpLabel.setTextFill(Color.WHITE);
 
         signUpLabel.setFont(labeFont);
         signInLabel.setFont(labeFont);
 
         Button signInButton = new Button("Sign In");
-        signInButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        signInButton.setFont(buttonFont);
+        signInButton.setTextFill(Color.WHITE);
+        signInButton.setStyle("-fx-background-color:#32cd32;");
         Button signUpButton = new Button("Sign Up");
-        signUpButton.setStyle("-fx-background-color:LIGHTBLUE;");
+        signUpButton.setFont(buttonFont);
+        signUpButton.setTextFill(Color.WHITE);
+        signUpButton.setStyle("-fx-background-color:#00bfff;");
 
         signInButton.setOnAction(event -> {
             try {
@@ -103,7 +112,7 @@ public class SignUpInPage extends Application {
         });
         signUpButton.setOnAction(event -> {showSignUpPage();});
 
-        Font buttonFont = Font.font("Verdana", FontWeight.BOLD, 18);
+//        Font buttonFont = Font.font("Verdana", FontWeight.BOLD, 18);
 
         gridPane.add(signInLabel, 0, 0);
         gridPane.add(signInButton, 0, 1);
