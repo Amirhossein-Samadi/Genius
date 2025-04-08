@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -42,19 +43,23 @@ public class SignInPage extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setHgap(10);
         gridPane.setVgap(10);
-        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
+        gridPane.setStyle("-fx-background-color:#292929;");
 
         Font labelFont2 = Font.font("", FontWeight.NORMAL, 16);
 
         Label usernameLabel = new Label("Enter Username");
+        usernameLabel.setTextFill(Color.WHITE);
         Label passwordLabel = new Label("Enter Password");
+        passwordLabel.setTextFill(Color.WHITE);
         Label invalid = new Label("Invalid Username or Password");
+        invalid.setTextFill(Color.WHITE);
 
         TextField usernameTextField = new TextField();
         PasswordField passwordTextField = new PasswordField();
 
         Button loginButton = new Button("Login");
-        loginButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        loginButton.setTextFill(Color.WHITE);
+        loginButton.setStyle("-fx-background-color:#32cd32;");
 
         loginButton.setOnAction(event -> {
 
