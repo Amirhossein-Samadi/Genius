@@ -116,7 +116,7 @@ public class ShowSelectedSong extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(12);
         gridPane.setHgap(12);
-        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
+        gridPane.setStyle("-fx-background-color:#292929;");
 
         Font labeFont = Font.font("", FontWeight.NORMAL, 15);
 
@@ -130,12 +130,19 @@ public class ShowSelectedSong extends Application {
         String viewsNumber = "viewsNumber : " + song.getViewsNumber();
 
         Label titleLabel = new Label(title);
+        titleLabel.setTextFill(Color.WHITE);
         Label artistsLabel = new Label(artists);
+        artistsLabel.setTextFill(Color.WHITE);
         Label albumLabel = new Label(album);
+        albumLabel.setTextFill(Color.WHITE);
         Label genreLabel = new Label(genre);
+        genreLabel.setTextFill(Color.WHITE);
         Label tagsLabel = new Label(tags);
+        tagsLabel.setTextFill(Color.WHITE);
         Label releaseDateLabel = new Label(releaseDate);
+        releaseDateLabel.setTextFill(Color.WHITE);
         Label viewsNumberLabel = new Label(viewsNumber);
+        viewsNumberLabel.setTextFill(Color.WHITE);
 
         TextArea lyricsArea = new TextArea();
         lyricsArea.setText(lyrics);
@@ -143,7 +150,8 @@ public class ShowSelectedSong extends Application {
         lyricsArea.setEditable(false);
 
         Button showCommentsButton = new Button("Show Comments");
-        showCommentsButton.setStyle("-fx-background-color:LIGHTBLUE;");
+        showCommentsButton.setTextFill(Color.WHITE);
+        showCommentsButton.setStyle("-fx-background-color:#00bfff;");
         showCommentsButton.setOnAction(e -> {showCommentsPage(song);});
 
 //        Button creatComment = new Button("add a comment");
