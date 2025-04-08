@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -30,7 +31,7 @@ public class ShowSelectedSongArtist extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(12);
         gridPane.setHgap(12);
-        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
+        gridPane.setStyle("-fx-background-color:#292929;");
 
         Font labeFont = Font.font("Verdana", FontWeight.BOLD, 18);
         Font labelFont2 = Font.font("", FontWeight.NORMAL, 14);
@@ -46,12 +47,19 @@ public class ShowSelectedSongArtist extends Application {
         String viewsNumber = "viewsNumber : " + song.getViewsNumber();
 
         Label titleLabel = new Label(title);
+        titleLabel.setTextFill(Color.WHITE);
         Label artistsLabel = new Label(artists);
+        artistsLabel.setTextFill(Color.WHITE);
         Label albumLabel = new Label(album);
+        albumLabel.setTextFill(Color.WHITE);
         Label genreLabel = new Label(genre);
+        genreLabel.setTextFill(Color.WHITE);
         Label tagsLabel = new Label(tags);
+        tagsLabel.setTextFill(Color.WHITE);
         Label releaseDateLabel = new Label(releaseDate);
+        releaseDateLabel.setTextFill(Color.WHITE);
         Label viewsNumberLabel = new Label(viewsNumber);
+        viewsNumberLabel.setTextFill(Color.WHITE);
 
         TextArea lyricsArea = new TextArea();
         lyricsArea.setText(lyrics);
@@ -59,8 +67,9 @@ public class ShowSelectedSongArtist extends Application {
         lyricsArea.setEditable(false);
 
         Button showCommentsButton = new Button("Show Comments");
+        showCommentsButton.setTextFill(Color.WHITE);
         showCommentsButton.setFont(buttonFont);
-        showCommentsButton.setStyle("-fx-background-color:LIGHTBLUE;");
+        showCommentsButton.setStyle("-fx-background-color:#00bfff;");
         showCommentsButton.setOnAction(e -> {showCommentsPage(song);});
 
 //        Button creatComment = new Button("add a comment");
@@ -69,8 +78,9 @@ public class ShowSelectedSongArtist extends Application {
 //        creatComment.setOnAction(e -> {showCreateCommentPage(song);});
 
         Button editSongButton = new Button("Edit Song");
+        editSongButton.setTextFill(Color.WHITE);
         editSongButton.setFont(buttonFont);
-        editSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        editSongButton.setStyle("-fx-background-color:#32cd32;");
         editSongButton.setOnAction(e -> {showEditSongPage(song);});
 
         gridPane.add(titleLabel, 0, 0);
