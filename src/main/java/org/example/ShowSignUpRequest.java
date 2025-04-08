@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -24,22 +25,26 @@ public class ShowSignUpRequest extends Application {
         gridPane.setPadding(new Insets(30, 30, 30, 30));
         gridPane.setVgap(15);
         gridPane.setHgap(15);
-        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
+        gridPane.setStyle("-fx-background-color:#292929;");
 
         Font labeFont = Font.font("Verdana", FontWeight.BOLD, 18);
         Font labelFont2 = Font.font("", FontWeight.NORMAL, 16);
         Font buttonFont = Font.font("", FontWeight.NORMAL, 14);
 
         Label artistUserNameLabel = new Label("Artist User Name :" + signUpRequest.getArtistName());
+        artistUserNameLabel.setTextFill(Color.WHITE);
         artistUserNameLabel.setFont(labelFont2);
         Label dateLabel = new Label("Registration application date :" + signUpRequest.getDate());
+        dateLabel.setTextFill(Color.WHITE);
         dateLabel.setFont(labelFont2);
         Label statusLabel = new Label("Status :" + signUpRequest.getStatus());
+        statusLabel.setTextFill(Color.WHITE);
         statusLabel.setFont(labelFont2);
 
         Button acceptButton = new Button("Accept");
+        acceptButton.setTextFill(Color.WHITE);
         acceptButton.setFont(buttonFont);
-        acceptButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        acceptButton.setStyle("-fx-background-color:#32cd32;");
         acceptButton.setOnAction(e -> {
 
             updateSignUpRequest(signUpRequest.getArtistName(), 1);
@@ -47,8 +52,9 @@ public class ShowSignUpRequest extends Application {
         });
 
         Button rejectButton = new Button("Reject");
+        rejectButton.setTextFill(Color.WHITE);
         rejectButton.setFont(buttonFont);
-        rejectButton.setStyle("-fx-background-color:Red;");
+        rejectButton.setStyle("-fx-background-color:#800000;");
         rejectButton.setOnAction(e -> {
             updateSignUpRequest(signUpRequest.getArtistName(), 2);
             updateArtistStatus(signUpRequest.getArtistName(), 2);
