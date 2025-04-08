@@ -58,7 +58,7 @@ public class EditSongPage extends Application {
         Button editSongButton = new Button("Edit Song");
         editSongButton.setTextFill(Color.WHITE);
         editSongButton.setFont(buttonFont);
-        editSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        editSongButton.setStyle("-fx-background-color:#32cd32;");
         editSongButton.setOnAction(e -> {
 
             String album = albumTextField.getText();

@@ -33,8 +33,11 @@ public class ShowAlbumArtist extends Application {
         gridPane.setStyle("-fx-background-color:#292929;");
 
         Label titleLabel = new Label("album title : " + album.getTitle());
+        titleLabel.setTextFill(Color.WHITE);
         Label artistLabel = new Label("album artist : " + album.getArtist());
+        artistLabel.setTextFill(Color.WHITE);
         Label releaseDateLabel = new Label("album release date : " + album.getReleaseDate());
+        releaseDateLabel.setTextFill(Color.WHITE);
 
         Button songButton = new Button("show more about song");
         songButton.setTextFill(Color.WHITE);
