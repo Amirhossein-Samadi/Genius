@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -25,20 +26,24 @@ public class ShowRequestArtist extends Application {
         gridPane.setPadding(new Insets(30, 30, 30, 30));
         gridPane.setVgap(20);
         gridPane.setHgap(20);
-        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
+        gridPane.setStyle("-fx-background-color:#292929;");
 
         Font labelFont = Font.font("Verdana", FontWeight.BOLD, 18);
         Font labelFont2 = Font.font("", FontWeight.NORMAL, 16);
         Font buttonFont = Font.font("", FontWeight.NORMAL, 14);
 
         Label usernameLabel = new Label("username : " + request.getUsername());
+        usernameLabel.setTextFill(Color.WHITE);
         usernameLabel.setFont(labelFont2);
         Label arttistNameLabel = new Label("Artist Name : " + request.getArtistName());
+        arttistNameLabel.setTextFill(Color.WHITE);
         arttistNameLabel.setFont(labelFont2);
         Label songTitleLabel = new Label("Song Title : " + request.getSongTitle());
+        songTitleLabel.setTextFill(Color.WHITE);
         songTitleLabel.setFont(labelFont2);
 
         Label recommendedLyricsLabel = new Label("Recommended Lyrics : ");
+        recommendedLyricsLabel.setTextFill(Color.WHITE);
         recommendedLyricsLabel.setFont(labelFont2);
 
         TextArea recommendedLyricsTextArea = new TextArea();
@@ -47,6 +52,7 @@ public class ShowRequestArtist extends Application {
         recommendedLyricsTextArea.setEditable(false);
 
         Label descriptionLabel = new Label("description : ");
+        descriptionLabel.setTextFill(Color.WHITE);
         descriptionLabel.setFont(labelFont2);
 
         TextArea descriptionTextArea = new TextArea();
@@ -55,14 +61,17 @@ public class ShowRequestArtist extends Application {
         descriptionTextArea.setEditable(false);
 
         Label statusLabel = new Label("Status : " + request.getStatus());
+        statusLabel.setTextFill(Color.WHITE);
         statusLabel.setFont(labelFont2);
 
         Label releaseDateLabel = new Label("Release Date : " + request.getReleaseDate());
+        releaseDateLabel.setTextFill(Color.WHITE);
         releaseDateLabel.setFont(labelFont2);
 
         Button acceptButton = new Button("Accept Request");
+        acceptButton.setTextFill(Color.WHITE);
         acceptButton.setFont(buttonFont);
-        acceptButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        acceptButton.setStyle("-fx-background-color:#32cd32;");
         acceptButton.setOnAction(e -> {
 
             updateRequestByArtist(request.getUsername(), request.getArtistName(), request.getSongTitle(), 1);
@@ -70,8 +79,9 @@ public class ShowRequestArtist extends Application {
         });
 
         Button declineButton = new Button("Decline Request");
+        declineButton.setTextFill(Color.WHITE);
         declineButton.setFont(buttonFont);
-        declineButton.setStyle("-fx-background-color:RED;");
+        declineButton.setStyle("-fx-background-color:#800000;");
         declineButton.setOnAction(e -> {
             updateRequestByArtist(request.getUsername(), request.getArtistName(), request.getSongTitle(), 2);
         });

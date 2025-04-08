@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import static org.example.SearchSong.searchSong;
@@ -24,7 +25,7 @@ public class ShowCreatExistedSong extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(15);
         gridPane.setHgap(15);
-        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
+        gridPane.setStyle("-fx-background-color:#292929;");
 
 //        Label titleLabel = new Label("title");
 //
@@ -53,7 +54,8 @@ public class ShowCreatExistedSong extends Application {
 
 
         Button addSongButton = new Button("add song");
-        addSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        addSongButton.setTextFill(Color.WHITE);
+        addSongButton.setStyle("-fx-background-color:#32cd32;");
         addSongButton.setOnAction(event -> {
 
             Song song = albumSongs.getSelectionModel().getSelectedItem();

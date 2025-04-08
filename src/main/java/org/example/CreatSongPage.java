@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -31,21 +32,26 @@ public class CreatSongPage extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(15);
         gridPane.setHgap(15);
-        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
+        gridPane.setStyle("-fx-background-color:#292929;");
 
         Font labeFont = Font.font("Verdana", FontWeight.BOLD, 18);
         Font labelFont2 = Font.font("", FontWeight.NORMAL, 16);
         Font buttonFont = Font.font("", FontWeight.NORMAL, 14);
 
         Label title = new Label("title : ");
+        title.setTextFill(Color.WHITE);
         title.setFont(labelFont2);
         Label album = new Label("album : ");
+        album.setTextFill(Color.WHITE);
         album.setFont(labelFont2);
         Label lyrics = new Label("lyrics : ");
+        lyrics.setTextFill(Color.WHITE);
         lyrics.setFont(labelFont2);
         Label genre = new Label("genre : ");
+        genre.setTextFill(Color.WHITE);
         genre.setFont(labelFont2);
         Label tags = new Label("tags : ");
+        tags.setTextFill(Color.WHITE);
         tags.setFont(labelFont2);
 
         TextField titleField = new TextField();
@@ -56,9 +62,10 @@ public class CreatSongPage extends Application {
         TextArea lyricsTextArea = new TextArea();
 
         Button createSongButton = new Button("Create Song");
+        createSongButton.setTextFill(Color.WHITE);
         createSongButton.setFont(buttonFont);
 
-        createSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        createSongButton.setStyle("-fx-background-color:#32cd32;");
 
         createSongButton.setOnAction(event -> {
 

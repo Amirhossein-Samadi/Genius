@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -38,34 +39,42 @@ public class AdminPage extends Application {
         gridPane.setPadding(new Insets(30, 30, 30, 30));
         gridPane.setVgap(25);
         gridPane.setHgap(20);
-        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
+        gridPane.setStyle("-fx-background-color:#292929;");
 
         Font labeFont = Font.font("Verdana", FontWeight.BOLD, 18);
         Font labelFont2 = Font.font("", FontWeight.NORMAL, 16);
         Font buttonFont = Font.font("", FontWeight.NORMAL, 14);
 
         Label welcomeLabel = new Label("welcome to Genius Application");
+        welcomeLabel.setTextFill(Color.WHITE);
         welcomeLabel.setFont(labeFont);
         Label searchLabel = new Label("                                                             Search");
+        searchLabel.setTextFill(Color.WHITE);
         searchLabel.setFont(labelFont2);
         Label artistsLabel = new Label("                             Artists");
+        artistsLabel.setTextFill(Color.WHITE);
         artistsLabel.setFont(labelFont2);
         Label usersLabel = new Label("                              Users");
+        usersLabel.setTextFill(Color.WHITE);
         usersLabel.setFont(labelFont2);
         Label signUpLabel = new Label("                Sign Up Requests");
+        signUpLabel.setTextFill(Color.WHITE);
         signUpLabel.setFont(labelFont2);
         Label editLabel = new Label("                               Edit Requests");
+        editLabel.setTextFill(Color.WHITE);
         editLabel.setFont(labelFont2);
 
         TextField searchField = new TextField();
 
         Button showMyProfile = new Button("Show My Profile");
+        showMyProfile.setTextFill(Color.WHITE);
         showMyProfile.setFont(buttonFont);
-        showMyProfile.setStyle("-fx-background-color:LIGHTBLUE;");
+        showMyProfile.setStyle("-fx-background-color:#00bfff;");
         showMyProfile.setOnAction(e -> {showPersonalInformation(admin);});
         Button searchButton = new Button("Search");
+        searchButton.setTextFill(Color.WHITE);
         searchButton.setFont(buttonFont);
-        searchButton.setStyle("-fx-background-color:LIGHTBLUE;");
+        searchButton.setStyle("-fx-background-color:#00bfff;");
         searchButton.setOnAction(e -> {
 
             String search = searchField.getText();
@@ -97,20 +106,24 @@ public class AdminPage extends Application {
         });
 
         Button artistButton = new Button("Show more about this artist");
+        artistButton.setTextFill(Color.WHITE);
         artistButton.setFont(buttonFont);
-        artistButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        artistButton.setStyle("-fx-background-color:#32cd32;");
 
         Button signUpButton = new Button("Determining the situation");
+        signUpButton.setTextFill(Color.WHITE);
         signUpButton.setFont(buttonFont);
-        signUpButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        signUpButton.setStyle("-fx-background-color:#32cd32;");
 
         Button editButton = new Button("Edit the request");
+        editButton.setTextFill(Color.WHITE);
         editButton.setFont(buttonFont);
-        editButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        editButton.setStyle("-fx-background-color:#32cd32;");
 
         Button userButton = new Button("Show more about this user");
+        userButton.setTextFill(Color.WHITE);
         userButton.setFont(buttonFont);
-        userButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        userButton.setStyle("-fx-background-color:#32cd32;");
 
 
 

@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
@@ -35,22 +36,28 @@ public class ShowSearchedArtist extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(10);
         gridPane.setHgap(10);
-        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
+        gridPane.setStyle("-fx-background-color:#292929;");
 
         String name = artist.getName();
         String userName = artist.getUserName();
         String age = Integer.toString(artist.getAge());
 
         Label nameLabel = new Label("Name : " + name);
+        nameLabel.setTextFill(Color.WHITE);
         Label userNameLabel = new Label("Username : " + userName);
+        userNameLabel.setTextFill(Color.WHITE);
         Label ageLabel = new Label("Age : " + age);
+        ageLabel.setTextFill(Color.WHITE);
 
         Button songButton = new Button("Show more about song");
-        songButton.setStyle("-fx-background-color:LIGHTBLUE;");
+        songButton.setTextFill(Color.WHITE);
+        songButton.setStyle("-fx-background-color:#00bfff;");
         Button albumButton = new Button("Show more about album");
-        albumButton.setStyle("-fx-background-color:LIGHTBLUE;");
+        albumButton.setTextFill(Color.WHITE);
+        albumButton.setStyle("-fx-background-color:#00bfff;");
         Button followButton = new Button("Follow artist");
-        followButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        followButton.setTextFill(Color.WHITE);
+        followButton.setStyle("-fx-background-color:#32cd32;");
         followButton.setOnAction(e -> {
             nowUser.setFollowedArtist(artist);
             try {
@@ -60,7 +67,8 @@ public class ShowSearchedArtist extends Application {
             }
         });
         Button unfollowButton = new Button("Unfollow artist");
-        unfollowButton.setStyle("-fx-background-color:RED;");
+        unfollowButton.setTextFill(Color.WHITE);
+        unfollowButton.setStyle("-fx-background-color:#800000;");
         unfollowButton.setOnAction(e -> {
 
             try {

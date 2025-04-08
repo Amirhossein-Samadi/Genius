@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -20,7 +21,7 @@ public class PersonalInformationPage extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(12);
         gridPane.setHgap(12);
-        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
+        gridPane.setStyle("-fx-background-color:#292929;");
 
         Font labeFont = Font.font("", FontWeight.NORMAL, 17);
 
@@ -31,13 +32,17 @@ public class PersonalInformationPage extends Application {
         String email = "email : " + account.getEmail();
 
         Label nameLabel = new Label(name);
+        nameLabel.setTextFill(Color.WHITE);
         nameLabel.setFont(labeFont);
         Label usernameLabel = new Label(userName);
+        usernameLabel.setTextFill(Color.WHITE);
         usernameLabel.setFont(labeFont);
 //        Label passwordLabel = new Label(password);
         Label ageLabel = new Label(age);
+        ageLabel.setTextFill(Color.WHITE);
         ageLabel.setFont(labeFont);
         Label emailLabel = new Label(email);
+        emailLabel.setTextFill(Color.WHITE);
         emailLabel.setFont(labeFont);
 
         gridPane.add(nameLabel, 0, 0);

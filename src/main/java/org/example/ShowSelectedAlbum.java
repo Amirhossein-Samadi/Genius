@@ -89,14 +89,18 @@ public class ShowSelectedAlbum extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(15);
         gridPane.setHgap(15);
-        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
+        gridPane.setStyle("-fx-background-color:#292929;");
 
         Label titleLabel = new Label("album title : " + album.getTitle());
+        titleLabel.setTextFill(Color.WHITE);
         Label artistLabel = new Label("album artist : " + album.getArtist());
+        artistLabel.setTextFill(Color.WHITE);
         Label releaseDateLabel = new Label("album release date : " + album.getReleaseDate());
+        releaseDateLabel.setTextFill(Color.WHITE);
 
         Button songButton = new Button("show more about song");
-        songButton.setStyle("-fx-background-color:LIGHTBLUE;");
+        songButton.setTextFill(Color.WHITE);
+        songButton.setStyle("-fx-background-color:#00bfff;");
 
         TableView<Song> albumSongs = new TableView<>();
 

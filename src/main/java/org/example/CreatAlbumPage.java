@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -31,20 +32,22 @@ public class CreatAlbumPage extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(15);
         gridPane.setHgap(15);
-        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
+        gridPane.setStyle("-fx-background-color:#292929;");
 
         Font labeFont = Font.font("Verdana", FontWeight.BOLD, 18);
         Font labelFont2 = Font.font("", FontWeight.NORMAL, 14);
         Font buttonFont = Font.font("", FontWeight.NORMAL, 12);
 
         Label titleLabel = new Label("title : ");
+        titleLabel.setTextFill(Color.WHITE);
         titleLabel.setFont(labelFont2);
 
         TextField titleField = new TextField();
 
         Button creatAlbumButton = new Button("Create Album");
+        creatAlbumButton.setTextFill(Color.WHITE);
         creatAlbumButton.setFont(buttonFont);
-        creatAlbumButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        creatAlbumButton.setStyle("-fx-background-color:#32cd32;");
         creatAlbumButton.setOnAction(e -> {
 
             LocalDateTime now = LocalDateTime.now();

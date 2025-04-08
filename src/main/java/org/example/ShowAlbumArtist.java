@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import static org.example.CreatSongPage.showCreateSongPage;
@@ -29,19 +30,22 @@ public class ShowAlbumArtist extends Application {
         gridPane.setPadding(new Insets(20, 20, 20, 20));
         gridPane.setVgap(15);
         gridPane.setHgap(15);
-        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
+        gridPane.setStyle("-fx-background-color:#292929;");
 
         Label titleLabel = new Label("album title : " + album.getTitle());
         Label artistLabel = new Label("album artist : " + album.getArtist());
         Label releaseDateLabel = new Label("album release date : " + album.getReleaseDate());
 
         Button songButton = new Button("show more about song");
-        songButton.setStyle("-fx-background-color:LIGHTBLUE;");
+        songButton.setTextFill(Color.WHITE);
+        songButton.setStyle("-fx-background-color:#00bfff;");
         Button newSongButton = new Button("add a new song that has not existed");
-        newSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        newSongButton.setTextFill(Color.WHITE);
+        newSongButton.setStyle("-fx-background-color:#32cd32;");
         newSongButton.setOnAction(event -> {showCreateSongPage();});
         Button existSongButton = new Button("add a song that has been existed");
-        existSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        existSongButton.setTextFill(Color.WHITE);
+        existSongButton.setStyle("-fx-background-color:#32cd32;");
         existSongButton.setOnAction(event -> {showCreateExistedSong(album, nowArtist);});
 
         TableView<Song> albumSongs = new TableView<>();
