@@ -40,34 +40,42 @@ public class UserPage extends Application {
         gridPane.setPadding(new Insets(30, 30, 30, 30));
         gridPane.setVgap(20);
         gridPane.setHgap(20);
-        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
+        gridPane.setStyle("-fx-background-color:#292929;");
 
         Font labeFont = Font.font("Verdana", FontWeight.BOLD, 18);
         Font labelFont2 = Font.font("", FontWeight.NORMAL, 16);
         Font buttonFont = Font.font("", FontWeight.NORMAL, 14);
 
         Label welcomeLabel = new Label("welcome to Genius Application");
+        welcomeLabel.setTextFill(Color.WHITE);
         welcomeLabel.setFont(labeFont);
         Label searchLabel = new Label("                                                             Search");
+        searchLabel.setTextFill(Color.WHITE);
         searchLabel.setFont(labelFont2);
         Label followedArtistsLabel = new Label("                   Followed Artists");
+        followedArtistsLabel.setTextFill(Color.WHITE);
         followedArtistsLabel.setFont(labelFont2);
         Label followedSongsLabel = new Label("                    Followed Artists Songs");
         followedSongsLabel.setFont(labelFont2);
+        followedSongsLabel.setTextFill(Color.WHITE);
         Label popularSongs = new Label("                           Popular Songs");
+        popularSongs.setTextFill(Color.WHITE);
         popularSongs.setFont(labelFont2);
         Label requestsLabel = new Label("                            Requests");
+        requestsLabel.setTextFill(Color.WHITE);
         requestsLabel.setFont(labelFont2);
 
         TextField searchField = new TextField();
 
         Button showMyProfile = new Button("Show My Profile");
+        showMyProfile.setTextFill(Color.WHITE);
         showMyProfile.setFont(buttonFont);
-        showMyProfile.setStyle("-fx-background-color:LIGHTBLUE;");
+        showMyProfile.setStyle("-fx-background-color:#00bfff;");
         showMyProfile.setOnAction(e -> {showPersonalInformation(user);});
         Button searchButton = new Button("Search");
+        searchButton.setTextFill(Color.WHITE);
         searchButton.setFont(buttonFont);
-        searchButton.setStyle("-fx-background-color:LIGHTBLUE;");
+        searchButton.setStyle("-fx-background-color:#00bfff;");
         searchButton.setOnAction(e -> {
 
             String search = searchField.getText();
@@ -92,17 +100,21 @@ public class UserPage extends Application {
 
         });
         Button artistButton = new Button("Show more about artist");
+        artistButton.setTextFill(Color.WHITE);
         artistButton.setFont(buttonFont);
-        artistButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        artistButton.setStyle("-fx-background-color:#32cd32;");
         Button songButton = new Button("Show more about song");
+        songButton.setTextFill(Color.WHITE);
         songButton.setFont(buttonFont);
-        songButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        songButton.setStyle("-fx-background-color:#32cd32;");
         Button popularSongButton = new Button("Show more about songs");
+        popularSongButton.setTextFill(Color.WHITE);
         popularSongButton.setFont(buttonFont);
-        popularSongButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        popularSongButton.setStyle("-fx-background-color:#32cd32;");
         Button requestButton = new Button("Show more about request");
+        requestButton.setTextFill(Color.WHITE);
         requestButton.setFont(buttonFont);
-        requestButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        requestButton.setStyle("-fx-background-color:#32cd32;");
 
         TableView<Artist> artistTableView = new TableView<>();
 
