@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -31,24 +32,27 @@ public class ShowSelectedRequest extends Application {
         gridPane.setPadding(new Insets(25, 25, 25, 25));
         gridPane.setVgap(17);
         gridPane.setHgap(17);
-        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
+        gridPane.setStyle("-fx-background-color:#292929;");
 
         Font labelFont = Font.font("Verdana", FontWeight.BOLD, 18);
         Font labelFont2 = Font.font("", FontWeight.NORMAL, 16);
         Font buttonFont = Font.font("", FontWeight.NORMAL, 14);
 
         Label recommendedLyricsLabel = new Label("Recommended Lyrics : ");
+        recommendedLyricsLabel.setTextFill(Color.WHITE);
         recommendedLyricsLabel.setFont(labelFont2);
 
         TextArea recommendedLyricsTextArea = new TextArea();
 
         Label descriptionLabel = new Label("description : ");
+        descriptionLabel.setTextFill(Color.WHITE);
         descriptionLabel.setFont(labelFont2);
 
         TextArea descriptionTextArea = new TextArea();
 
         Button createRequestButton = new Button("Create Request");
-        createRequestButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        createRequestButton.setTextFill(Color.WHITE);
+        createRequestButton.setStyle("-fx-background-color:#32cd32;");
         createRequestButton.setFont(buttonFont);
         createRequestButton.setOnAction(e -> {
 
