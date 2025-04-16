@@ -61,18 +61,24 @@ This project simulates the core functionality of the Genius music platform, focu
     cd genius-clone-java
     ```
 
-2. **Build the project** using Maven:
+2. **Build the project** using Gradle:
     ```bash
     mvn clean install
     ```
 
-3. **Run the application**:
+3. **Dependencies**
+    ```bash
+    implementation 'org.xerial:sqlite-jdbc:3.43.2.0'
+    implementation 'org.mindrot:jbcrypt:0.4'
+    ```
+
+4. **Run the application**:
     - Launch the JavaFX GUI using your IDE or:
     ```bash
     java -jar target/genius-clone.jar
     ```
 
-4. **Login/Register** as a new user and explore the app!
+5. **Login/Register** as a new user and explore the app!
 
 ---
 
@@ -89,6 +95,32 @@ This project simulates the core functionality of the Genius music platform, focu
 ## 📸 Screenshots
 
 > *(Insert GUI screenshots here showing the login screen, song view, artist profile, etc.)*
+
+![Sign Up & Sign In Page](images/signUp&SignInPage.png)
+
+![Sign Up Page](images/SignUpPage.png)
+
+![User Page](images/UserPage.png)
+
+![Artist Page](images/ArtistPage.png)
+
+![Admin Page](images/AdminPage.png)
+
+![Personal Information Page](images/PersonalInfo.png)
+
+![Song View](images/songView.png)
+
+![Album View](images/albumInfo.png)
+
+![Show Artist's songs and albums](images/ShowArtist.png)
+
+![Song's edit request page](images/RequestPage.png)
+
+![Creat edit request Page](images/CreatRequestPage.png)
+
+![Creat Song Page](images/CreatSongPage.png)
+
+![Edit Song Page](images/editSongPage.png)
 
 ---
 
