@@ -22,7 +22,7 @@ public class ShowCommentsPage extends Application {
     public static void showCommentsPage(Song song) {
 
         Stage stage = new Stage();
-        stage.setTitle("Personal Information");
+        stage.setTitle("Comments Page");
 
         GridPane gridPane = new GridPane();
         gridPane.setPadding(new Insets(20, 20, 20, 20));

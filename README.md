@@ -122,6 +122,8 @@ This project simulates the core functionality of the Genius music platform, focu
 
 ![Edit Song Page](images/editSongPage.png)
 
+![Comments Page](images/Comments.png)
+
 ---
 
 ## 🌟 Bonus Features
