@@ -91,12 +91,14 @@ public class SignInPage extends Application {
                 } else if (currentArtist.getStatus() == 2) {
 
                     Label notExist = new Label("Your registration request has not been approved. ");
+                    notExist.setTextFill(Color.WHITE);
                     notExist.setFont(labelFont2);
                     gridPane.add(notExist, 0, 3);
                 }
                 else
                 {
                     Label indeterminateLabel = new Label("Your request is under review.. ");
+                    indeterminateLabel.setTextFill(Color.WHITE);
                     indeterminateLabel.setFont(labelFont2);
                     gridPane.add(indeterminateLabel, 0, 3);
                     System.out.println(currentArtist.getStatus());

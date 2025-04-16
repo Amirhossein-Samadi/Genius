@@ -37,7 +37,7 @@ public class ShowCommentsPage extends Application {
         int numComments = comments.size();
         int i = 0;
 
-        for (Comment comment : comments)
+        for (Comment comment : comments.reversed())
         {
             if (i < numComments)
             {

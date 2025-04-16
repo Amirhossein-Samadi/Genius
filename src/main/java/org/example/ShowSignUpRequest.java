@@ -19,7 +19,7 @@ public class ShowSignUpRequest extends Application {
     public static void showSignUpRequest(SignUpRequest signUpRequest)
     {
         Stage stage = new Stage();
-        stage.setTitle("User Page");
+        stage.setTitle("Artist's Sign Up Request");
 
         GridPane gridPane = new GridPane();
         gridPane.setPadding(new Insets(30, 30, 30, 30));
