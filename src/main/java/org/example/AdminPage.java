@@ -33,7 +33,7 @@ public class AdminPage extends Application {
     public static void showAdminPage(Admin admin)
     {
         Stage stage = new Stage();
-        stage.setTitle("User Page");
+        stage.setTitle("Admin Page");
 
         GridPane gridPane = new GridPane();
         gridPane.setPadding(new Insets(30, 30, 30, 30));
