@@ -1,19 +1,21 @@
 plugins {
-    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
 }
-
-group = 'org.example'
-version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+javafx {
+    version = "21"
+    modules = [ 'javafx.controls' ]
 }
 
-test {
-    useJUnitPlatform()
+dependencies {
+    implementation 'org.xerial:sqlite-jdbc:3.43.2.0'
+    implementation 'org.mindrot:jbcrypt:0.4'
 }
+
+
+mainClassName = 'HelloFX'
