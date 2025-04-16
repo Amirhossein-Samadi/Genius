@@ -68,7 +68,7 @@ public class ShowSearchedArtist extends Application {
         });
         Button unfollowButton = new Button("Unfollow artist");
         unfollowButton.setTextFill(Color.WHITE);
-        unfollowButton.setStyle("-fx-background-color:#80000;");
+        unfollowButton.setStyle("-fx-background-color:#800000;");
         unfollowButton.setOnAction(e -> {
 
             try {

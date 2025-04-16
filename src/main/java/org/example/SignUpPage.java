@@ -5,6 +5,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -30,17 +31,23 @@ public class SignUpPage extends Application {
         gridPane.setPadding(new Insets(50, 50, 50, 50));
         gridPane.setHgap(15);
         gridPane.setVgap(15);
-        gridPane.setStyle("-fx-background-color:LIGHTGRAY;");
+        gridPane.setStyle("-fx-background-color:#292929;");
 
         Font labeFont = Font.font("", FontWeight.NORMAL, 16);
         Font buttonFont = Font.font("", FontWeight.NORMAL, 14);
 
         Label nameLabel = new Label("Name : ");
+        nameLabel.setTextFill(Color.WHITE);
         Label ageLabel = new Label("Age : ");
+        ageLabel.setTextFill(Color.WHITE);
         Label emailLabel = new Label("Email : ");
+        emailLabel.setTextFill(Color.WHITE);
         Label usernameLabel = new Label("Username : ");
+        usernameLabel.setTextFill(Color.WHITE);
         Label passwordLabel = new Label("Password : ");
+        passwordLabel.setTextFill(Color.WHITE);
         Label roleLabel = new Label("Role (artist or user) : ");
+        roleLabel.setTextFill(Color.WHITE);
 
         nameLabel.setFont(labeFont);
         ageLabel.setFont(labeFont);
@@ -56,15 +63,18 @@ public class SignUpPage extends Application {
         PasswordField passwordField = new PasswordField();
 
         RadioButton userRadio = new RadioButton("user");
+        userRadio.setTextFill(Color.WHITE);
         RadioButton artistRadio = new RadioButton("artist");
+        artistRadio.setTextFill(Color.WHITE);
 
         ToggleGroup roleGroup = new ToggleGroup();
         userRadio.setToggleGroup(roleGroup);
         artistRadio.setToggleGroup(roleGroup);
 
         Button signUpButton = new Button("Sign Up");
+        signUpButton.setTextFill(Color.WHITE);
         signUpButton.setFont(buttonFont);
-        signUpButton.setStyle("-fx-background-color:LIGHTGREEN;");
+        signUpButton.setStyle("-fx-background-color:#32cd32;");
         signUpButton.setOnAction(event -> {
 
             if (roleGroup.getSelectedToggle() != null)
@@ -102,6 +112,7 @@ public class SignUpPage extends Application {
             else
             {
                 Label errorLabel = new Label("Please select a role");
+                errorLabel.setTextFill(Color.WHITE);
                 errorLabel.setFont(labeFont);
 
                 gridPane.add(errorLabel, 1, 7);
